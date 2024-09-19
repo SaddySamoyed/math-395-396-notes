@@ -1,0 +1,276 @@
+%%--------------------------------------------------------
+%% example.tex
+%%
+%%--------------------------------------------------------
+\documentclass[12pt]{article}
+\input{prefix}%
+\BibLatexMode{%
+   \bibliography{template}
+}
+
+\begin{document}
+
+\title{Math 395: Honor Analysis}
+
+\author{%
+   Qiulin Fan%
+}
+
+\date{2024/9}
+
+\maketitle
+
+
+
+\section{Compactness in $\mathbb{R}^n$}
+\subsection{Finite Intersecion property and Heine-Borel}
+\begin{theorem}
+    \textbf{cpt 集的任意闭子集都继承 cpt 性.}
+\end{theorem}
+
+\begin{theorem}
+    \thmlab{Finite Intersecion property}
+   \textbf{Finite Intersecion property: }
+   \\任意一堆(even unctbl个) cpt 集，只要知道它们中\textbf{任意有限个的交集都不是空的，那么它们整体的交集也不是空的. }
+\end{theorem}
+
+
+\begin{theorem}
+    \textbf{Metric space 中，cpt 和 seq cpt 是等价的.}
+    （但是一般的 topological space 中，并不等价且无蕴含关系）
+    review: sequential compact 就是这个集合中的任意序列一定存在收敛子序列，并且收敛至这个集合中的一点.
+\end{theorem}
+
+\begin{theorem}
+    \thmlab{Nested Box property}
+    \textbf{Nested Box property:}
+    \\这是 $\mathbb{R}^n$ 的一个性质。意思是 $\mathbb{R}^n$ 中的任意 nested 的闭区间的序列，$\cap_{i=1} ^\infty [a_i, b_i]$ 一定是非空的. (可能是一点，也可能是一个闭区间.) 
+\end{theorem}
+
+\begin{theorem}
+    \thmlab{Heine-Borel}
+    \textbf{Heine-Borel:}
+    \\\textbf{$\mathbb{R}^n$ 中，closed + bdd 等价于 cpt (等价于 seq cpt).} \\
+（但是这个性质非常局限，因为它甚至不能推广至 metric space. 它在普遍的 metric space 中并不成立.）
+\end{theorem}
+
+一个重要例子：
+\subsection{$l^{\infty}(\mathbb{N})$}
+
+\begin{defn}
+    \deflab{l-infinity space}
+    \textbf{$l^{\infty}(\mathbb{N})$:\\}
+    所有 bouded sequence in $\mathbb{R}$ 构成的空间，其中 $\mathbb{N}$ 的意思是 index on自然数集，也可以取其他 countable 的集合来作为 index: $l^{\infty}(X)$ .
+\end{defn}
+
+
+这个空间采取\textbf{ $\sup$ norm metric：$d((x_n), (y_n)) = \sup_{n} |x_n - y_n| $. 也就是这两个 sequence 逐项差的 sup.}
+
+这个 metric space 中的单位球是 closed 且 bounded 的(显然).  
+
+BTW: 这个 $l^{\infty}(\mathbb{N})$ 空间也是一个 infinite dimension 的 vector space，我们在 LADR 中已经学过. 并且，我们可以给他赋范，也就是 sup norm 的由来：\textbf{$||x_n||_{\infty} = sup_{n}|x_n|$}，而它的 metric 其实是它的 sup norm induce 出来的. 这个 sup norm 其实就是这个序列和零序列之间的 sup norm metric. 
+
+\textbf{并且，在 sup norm 下作为一个 normed vector space，它是一个 Banach space。
+（hw1: 任意的 normed vector space 在 $d =  ||x-y||$ 下都是一个 metric space. 如果这个 norm 使得它是 complete metric space，那么就称之为一个 Banach space.）}
+
+然而，这个单位球并不是 cpt 的。我们知道，metric space 中 seq cpt 等价于 cpt. 所以我们可以构造一个序列 in $B_1(0)$: 考虑 $((1,0,0,\cdots), (0,1,0,\cdots),(0,0,1,\cdots),\cdots)$ ，其中每个序列的第 $n$ 项是 1 其他都是 0. 很显然这个序列并没有收敛子序列，因为其中每一项和其他之间 $d_{\infty}$ 都是1. 所以它并不 cpt.
+
+
+\section{Totally-Compactness and Completeness}
+\subsection{cpt. = complte + ttlbdd.}
+我们知道在 $\mathbb{R}^n$ 里面，cpt = seq cpt = closed + bounded.
+但是\textbf{在一般的 metric space 里面，虽然还是有 cpt = seq cpt，却不等价于有界闭了。}
+
+不过我们仍然希望把 cptness 这个 topology 的概念转换成更加直观的概念以服务于 analysis 的目的。Fortunately 这是可行的：我们现在定义
+
+\begin{defn}
+    \deflab{Totally Bounded}
+    \textbf{Totally Bounded}：
+    任取 $\epsilon > 0$，我们都可以用 finitely many 个 $\epsilon$-ball 来 cover 这个集合，则称它是 Totally Bounded 的.
+\end{defn}
+
+\begin{defn}
+    \deflab{Complete}
+    \textbf{Complete (或称 Cauchy-complete)}:\\
+    即这个集合中的任意 Cauchy sequence 都收敛（至这个集合里的某个点）
+    \\Rmk: 我们知道 \textbf{metric space 的任意子集也是 metric space}，by induced metric.
+\end{defn}
+
+\fql {complete 即这个集合里任意 Cauchy 序列都收敛于它自己的某个点，ttl bounded 即对于任意半径都可以用有限个这样半径的球来覆盖这个集合.}
+
+现在我们证明这个重要定理：
+\begin{theorem}
+    \textbf{任意 metric space 中，cpt = seq cpt = complete + ttl bounded**}
+\end{theorem}
+
+\subsection{Lebesgue Covering Thm}
+为了证明这个东西我们需要一个 Lemma，其实这个 Lemma 叫做 \textbf{Lebesgue Covering Thm}:  
+\begin{lemma}
+\textbf{Lebesgue Covering Thm}:  
+    \\对于 cpt 的 $E$ ，取任意一个 open cover $\{U_{\alpha}\}$，都存在一个 $\epsilon > 0$ 使得对于 $E$ 中的任何一点 $p$，$B_{\epsilon}(p)$ 都被包含在某个 $U_{\alpha}$ 中.
+\end{lemma}
+\proof 这个定理其实非常直观。因为 compact 一定有 finite subcover. 既然是 finite 的，那么任意一个 cover set 和集合或其他 cover set 边缘擦边的地方一定是有限的。既然 $E$ 是 compact 的那么一定是 complete 的那么当然也是 closed 的，于是取这些 finite 个擦边的地方里面最擦边的地方作为 $\epsilon$ 就可以了.
+
+
+\fql{显然，metric space 中 \textbf{complete 蕴含 closed，ttl bdd 蕴含 bdd}，而特别地， $\mathbb{R}^n$ 中的任意集合，closed 等价于 complete，ttl bdd 等价于 bdd.}
+
+\begin{theorem}
+    \textbf{complete 的 metric space 的任意 closed subset 一定也是 complete 的}. 显然.
+\end{theorem}
+complete 的 metric space 的任意 closed subset（我们知道 metric space 的任意子集也是 metric space，by induced metric.）一定也是 complete 的. 显然.
+
+\fql {我们在 lec 1 中讲到  $l^{\infty}(\mathbb{N})$ 中的单位球是 closed + bdd 但是不 compact. 由于这是一个 Banach space 它也是 complete 的，by 3；不过它的问题出在并不是 ttl bdd 的.}
+
+\section*{IBL1: density and Baire Category Theory}
+
+\fql{(1) Fun fact: 在 discrete metric 下，$\mathbb{R}^n$ 中的单位闭球并不是单位球的 closure. 单位球的 closure 是整个 $\mathbb{R}^n$.}
+
+\begin{theorem}
+    \thmlab{Baire Category Theory}
+    \textbf{Baire Category Theory}：\\
+    对于一个\textbf{ complete metric space，任意一个 sequence of open dense sets 的序列交还是 dense 的.}
+\end{theorem}
+
+通过 Baire Category Theory 可以证明出一个推论
+\begin{corollary}
+    \textbf{如果一个 complete metric space 自身是一个 perfect set，那么它一定是 uncountable 的. }
+    \\Rmk: perfect set 即它的 limit pts 集合等于它自身
+\end{corollary}
+
+   这个东西看起来非常废话。但是我们在 IBL 2 的 proposition 1 中会发现它有用的（\textbf{Cantor set 就是一个 complete perfect metric space，所以它是 uncountable 的}）
+
+
+\section*{IBL 2: 定义 measure 的动机和尝试}
+
+\noindent 我们知道\textbf{ Cantor set 是一个 compact 且 closed 的集合（甚至 perfect }）（并且由于它在  $\mathbb{R}^n$ 中，\textbf{这表示它甚至是一个 complete metric space}）；并且它 uncountable；然而它却不包含任何开区间（我们知道它的 \textbf{Lebesgue measure = 0}）.
+
+\noindent 我们想要测量一个 $\mathbb{R}^n$ 子集的“长度”。我们想要这个测量函数满足：
+
+\begin{compactenumI}
+    \item  可数个集合的 measure closed under addition;
+    \item  Congruent (通过 translate 或者旋转或者反射) 的集合的 measure 相同; 
+    \item  精准地测量出 $m([0,1)) = 1$. 
+\end{compactenumI}
+
+\noindent 但是实际上我们发现不可能存在这样的函数. 
+\noindent 归谬过程：
+   \begin{compactenumI}
+       \item   我们把 $[0,1)$ 之间所有可以通过加减有理数得到的元素都归为一个 congurent class (很直观地说，所有的有理数都会进入一个 congruent class，而最简根数不同的无理数以及各种 transcendental numbers 会形成各自的 congruent classes.)
+       \item  把 $[0,1)$ 之间的所有有理数放进一个集合 $R$，在每个 congruent class 中取一个元素，放进一个集合 $N$，我们会发现：任取 $r \in R$，通过把 $N$ 整体地 translate $r$ 个大小并把放不下的放到左边（也就是一个 circular translate），我们得到 $N_r$，会发现 $\bigsqcup_{r} N_r = [0,1)$；并且每个 $N_r$ 的 measure 都是一样的.
+       \item   如果 $m(N)$ 不等于 0，那么 $m([0,1)) = \infty$；如果 $m(N)$ = 0，那么 $m([0,1)) = 0$；
+   \end{compactenumI}
+
+\section*{Hw2}
+\subsection{Normed vector space}
+\begin{defn}
+    \deflab{normed vector space}
+    \textbf{normed vector space:} 
+    \\vector space 上可以定义 norm 来表示每个 vector 的“大小”，norm 的定义是满足 \textbf{(1) positive definiteness; (2) homogeneity (3) triangle ineq 的 $||.||: V \rightarrow \mathbb{R}_{\geq0}$}
+\end{defn}
+
+\paragraph{Continutity on normed VS as a MS:} 对于两个 normed vector spaces 之间的 linear map，实际上是可以定义 continuous 的概念的。\textbf{我们可以用 $||T(v) - T(w)||_2 \rightarrow 0$ as $||v - w||_1 \rightarrow 0$} （或者 sequentially）来定义 \textbf{continuous by norm}.
+
+\paragraph{induced norm on $Hom(V_1, V_2)$}: 给定两个 normed vector spaces $V_1, V_2$，我们实际上也 induce 出了 $Hom(V_1, V_2)$ 上的一个 norm. 
+
+\begin{defn}
+   \deflab{bounded linear map}:\\
+   \textbf{bounded linear map:} \\
+   我们可以用 
+   $$||T|| = \sup_{v \in V_1, ||v|| != 0} \frac{||Tv||_2}{||v||_1}$$
+   来定义 \textbf{$T \in Hom(V_1, V_2)$ 的 norm}.
+   \\当这个 norm 不是无穷时，称这个 linear map bounded.
+\end{defn}
+   
+\paragraph{Finite dim VS 上 linear map bdd 且 ctn}
+\begin{theorem}
+    (1) \textbf{linear map bounded 当且仅当它 continuous.}
+    (2)  \textbf{有限维度的 vector space 之间的任意 linear map 一定 bounded（}因为一定可以选择 base 然后把线性变换用 matrix 来表示），所以一定 continuous.
+\end{theorem}
+
+
+\fql{一个涉及 infinite dimension 的 vector space 的 unbounded linear map 的例子: $$T = \frac{d}{dx}|_{x=0} \in Hom(C[0,1], \mathbb{R})$$}
+
+\subsection{$l^{\infty}(\mathbb{N})$ space}
+
+1. $l^{\infty}(\mathbb{N})$ 中的所有收敛到 0 的序列构成的集合，称之为 $l_0^{\infty}(\mathbb{N})$，这个集合 \textbf{$l_0^{\infty}(\mathbb{N})$ 从 bdd 提升到 ttl bdd 所需要的条件是其中所有序列是uniformly收敛的.}
+
+\subsection{separable(exists ctb dense subset) metric space}
+
+\fql{如果一个 metric space $X$ 是 separable 的，那么随意 enumerate 一个 dense sequence $(p_n)$，这个 sequence 的所有 subsequential limit 就是整个 $X$. 即对于 $X$ 中任意一个元素，都可以找到 $(p_n)$ 的一个 subsequence 使得它的 limit 是整个元素.}
+
+\\
+
+\begin{theorem}
+    \textbf{一个 ttl bdd 的 (subset as) metric space 一定是 separable 的.}
+\end{theorem}
+
+\begin{defn}
+    \textbf{isometric embedding}: \\
+    如果两个 metric space 之间的一个 map\textbf{ 保留 distance (即 $\forall x,y \in X, $ $d(f(x), f(y)) = d(x,y)$)} 那么就称这个 map 为一个 isometric embedding.
+\end{defn}
+
+\begin{theorem}
+    \textbf{任意 separable metric space 都可以 embedds isometrically into $l^{\infty}(\mathbb{N})$.}
+\end{theorem}
+
+\proof 构造：首先 enumeate  $X$ 的一个 dense sequence $(p_n)$，并取它的首项 $p_1$，然后对于每个 $x \in X$， induce 出 $(d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 这个序列. 可以发现从 $f: x \mapsto (d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 是一个 isometry embedding. 
+
+
+\section{Differentition on $\mathbb{R}^n$}
+
+\subsection{Continuity in MS}
+
+\fql{continuity 的定义: \textbf{open set 的 preimage 只能是 open set；等价于 closed set 的 preimage 只能是 closed set}\\}
+
+\begin{theorem}
+任意\textbf{ topological space 之间的连续映射} $ f:X \rightarrow Y$，\textbf{compact set 的 image 一定 compact}.
+\end{theorem}
+
+\begin{theorem}
+任意 \textbf{topological space 之间的连续映}射 $f:X \rightarrow Y$，如果 \textbf{X compact，那么这个映射是 uniformly ctn 的}.（逆命题不成立）
+\end{theorem}
+
+\subsection{Differentiation in \textbackslash{}mathbb\{R\}^n}
+
+\begin{enumerate}
+    \item l\_p norm on vector space: ||v||\_p = (\textbackslash{}sum\_{i = 1\}^n |v\_i|\^p)\^{1\textbackslash{}over p\}
+有一个结论：\textbf{在有限维 real vector space （真包含 $\mathbb\{R\}^n$）中，任意 $l_p$ norm 都等价}（无限维则不等价）
+
+具体即：
+
+(1) 对于任意 $p_1, p_2$，都存在 $C_1, C_2$ 使得对于所有 $v\in V$:
+
+$$
+C_1||v||_{p_1} \leq ||v||_{p_2} \leq C_2||v||_{p_1}
+$$
+
+(2) \textbf{任意 l\_p norm (通过差 norm 作为 metric) 定义出的有限维 topological vector space 都是等价的，于是它们在 continuity, differentiability 以及 convergence 等等概念上的形式都是一样的.}
+
+    \item 阐明了这件事情之后我们看欧式空间之间 differentiability 的定义：一个 f: U \textbackslash{}subset \textbackslash{}mathbb\{R\}^n \textbackslash{}rightarrow \textbackslash{}mathbb\{R\}^m 在某个点 x\_0 上 diffble 的定义就是在 x\_0 上可以被某个 Hom(\textbackslash{}mathbb\{R\}^n, \textbackslash{}mathbb\{R\}^m) 上的某个 Linear map 一阶近似，并且这个近似在 x 点附近 converge by norm（误差的下降速度 >> 邻域的收缩速度）
+
+这个在该点处可以近似这个函数的 linear map 就是 f 在 x\_0 处的 derivative Df(x\_0) ，它是唯一的
+
+这里的 norm 可以是任何 l\_p norm，但是 by (1) 我们知道都是等价的，所以不妨就都使用 l\_2 norm.
+    \item 根据定义，我们也可以 induce 出一个一个 remainder function 
+\end{enumerate}
+ 
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\section*{Bibliography}
+
+Here is an example of a citation \cite{1}.
+
+\BibTexMode{%
+   \bibliographystyle{alpha}
+   \bibliography{template}
+}%
+\BibLatexMode{\printbibliography}
+
+\end{document}
+
+%--------------------------------------------------------
+%
+% x.tex - end of file
+%--------------------------------------------------------
