@@ -198,8 +198,6 @@ complete 的 metric space 的任意 closed subset（我们知道 metric space �
 
 \fql{如果一个 metric space $X$ 是 separable 的，那么随意 enumerate 一个 dense sequence $(p_n)$，这个 sequence 的所有 subsequential limit 就是整个 $X$. 即对于 $X$ 中任意一个元素，都可以找到 $(p_n)$ 的一个 subsequence 使得它的 limit 是整个元素.}
 
-\\
-
 \begin{theorem}
     \textbf{一个 ttl bdd 的 (subset as) metric space 一定是 separable 的.}
 \end{theorem}
@@ -216,10 +214,8 @@ complete 的 metric space 的任意 closed subset（我们知道 metric space �
 \proof 构造：首先 enumeate  $X$ 的一个 dense sequence $(p_n)$，并取它的首项 $p_1$，然后对于每个 $x \in X$， induce 出 $(d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 这个序列. 可以发现从 $f: x \mapsto (d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 是一个 isometry embedding. 
 
 
-\section{Differentition on $\mathbb{R}^n$}
-
+\section{Differentiation on $\mathbb{R}^n$}
 \subsection{Continuity in MS}
-
 \fql{continuity 的定义: \textbf{open set 的 preimage 只能是 open set；等价于 closed set 的 preimage 只能是 closed set}\\}
 
 \begin{theorem}
@@ -230,30 +226,30 @@ complete 的 metric space 的任意 closed subset（我们知道 metric space �
 任意 \textbf{topological space 之间的连续映}射 $f:X \rightarrow Y$，如果 \textbf{X compact，那么这个映射是 uniformly ctn 的}.（逆命题不成立）
 \end{theorem}
 
-\subsection{Differentiation in \textbackslash{}mathbb\{R\}^n}
+\begin{defn}
+    \textbf{$l_p$ norm on vector spaces:}\\
+$$||v||_p = (\sum_{i = 1}^n |v_i|^p)^{1\over p}$$
+\end{defn}
 
-\begin{enumerate}
-    \item l\_p norm on vector space: ||v||\_p = (\textbackslash{}sum\_{i = 1\}^n |v\_i|\^p)\^{1\textbackslash{}over p\}
-有一个结论：\textbf{在有限维 real vector space （真包含 $\mathbb\{R\}^n$）中，任意 $l_p$ norm 都等价}（无限维则不等价）
+\begin{theorem}
+    在\textbf{有限维 real vector space} （真包含 $\mathbb{R}^n$）中，\textbf{任意 $l_p$ norm 都等价}（无限维则不等).\\
+    具体即：
+    \begin{compactenumI}
+        \item 对于任意 $p_1, p_2$，都存在 $C_1, C_2$ 使得对于所有 $v\in V$:
+        $$
+        C_1||v||_{p_1} \leq ||v||_{p_2} \leq C_2||v||_{p_1}
+        $$
+        \item 任意 $l_p$ norm (通过差 norm 作为 metric) 定义出的\textbf{有限维 topological vector space 都是等价的}，于是它们在 continuity, differentiability 以及 convergence 等等概念上的形式都是一样的.
+    \end{compactenumI}
+\end{theorem}
 
-具体即：
+\subsection{Derivative}
+\noindent 阐明了这件事情之后我们看欧式空间之间 differentiability 的定义：一个 $f: U \subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ 在某个点 $x_0$ 上 diffble 的定义就是 \textbf{在 $x_0$ 上可以被某个 $Hom(\mathbb{R}^n, \mathbb{R}^m)$ 上的某个 Linear map 一阶近似，并且这个近似在 x 点附近 converge by norm（误差的下降速度 $>>$ 邻域的收缩速度）}
+即：
+\begin{defn}
+    
+\end{defn}
 
-(1) 对于任意 $p_1, p_2$，都存在 $C_1, C_2$ 使得对于所有 $v\in V$:
-
-$$
-C_1||v||_{p_1} \leq ||v||_{p_2} \leq C_2||v||_{p_1}
-$$
-
-(2) \textbf{任意 l\_p norm (通过差 norm 作为 metric) 定义出的有限维 topological vector space 都是等价的，于是它们在 continuity, differentiability 以及 convergence 等等概念上的形式都是一样的.}
-
-    \item 阐明了这件事情之后我们看欧式空间之间 differentiability 的定义：一个 f: U \textbackslash{}subset \textbackslash{}mathbb\{R\}^n \textbackslash{}rightarrow \textbackslash{}mathbb\{R\}^m 在某个点 x\_0 上 diffble 的定义就是在 x\_0 上可以被某个 Hom(\textbackslash{}mathbb\{R\}^n, \textbackslash{}mathbb\{R\}^m) 上的某个 Linear map 一阶近似，并且这个近似在 x 点附近 converge by norm（误差的下降速度 >> 邻域的收缩速度）
-
-这个在该点处可以近似这个函数的 linear map 就是 f 在 x\_0 处的 derivative Df(x\_0) ，它是唯一的
-
-这里的 norm 可以是任何 l\_p norm，但是 by (1) 我们知道都是等价的，所以不妨就都使用 l\_2 norm.
-    \item 根据定义，我们也可以 induce 出一个一个 remainder function 
-\end{enumerate}
- 
 
 %------------------------------------------------------------------
 %------------------------------------------------------------------
