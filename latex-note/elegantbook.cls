@@ -387,41 +387,51 @@
   backend=\ELEGANT@bibend,
   citestyle=\ELEGANT@citestyle,
   bibstyle=\ELEGANT@bibstyle]{biblatex}
-
+  
 \ifdefstring{\ELEGANT@lang}{cn}{
-  \setlength\parindent{2em}
+  \renewcommand{\baselinestretch}{1.3}
+  \renewcommand{\contentsname}{目录}
+  \renewcommand{\figurename}{图}
+  \renewcommand{\tablename}{表}
+  \renewcommand{\partname}{\color{structurecolor}}
+  \renewcommand{\thepart}{第\zhnumber{\arabic{part}}部分}
+  \renewcommand{\listfigurename}{插图目录}
+  \renewcommand{\listtablename}{表格目录}
+  \renewcommand{\bibname}{参考文献}
+  \newcommand{\ebibname}{参考文献}
+  \renewcommand{\appendixname}{附录}
+  \renewcommand{\appendixtocname}{附录}
+  \renewcommand{\indexname}{索\hspace{2em}引}
   \newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
-  \renewcommand{\chaptername}{Chapter}
-  \renewcommand{\partname}{\color{structurecolor} Part}
-  \newcommand{\authorname}{\textbf{Author: }}
-  \newcommand{\institutename}{\textbf{Institute: }}
-  \newcommand{\datename}{\textbf{Date: }}
-  \newcommand{\versionname}{\textbf{Version: }}
+  \newcommand{\authorname}{\citshape Author：}
+  \newcommand{\institutename}{\citshape Institution：}
+  \newcommand{\datename}{\citshape Date：}
+  \newcommand{\versionname}{\citshape version：}
   \newcommand{\notename}{Note}
-  \newcommand{\proofname}{Proof}
-  \newcommand{\problemname}{Problem}
-  \newcommand{\definitionname}{Definition}
+  \renewcommand*{\proofname}{Proof}
+  \newcommand{\definitionname}{Def}
   \newcommand{\theoremname}{Theorem}
   \newcommand{\axiomname}{Axiom}
   \newcommand{\postulatename}{Postulate}
   \newcommand{\lemmaname}{Lemma}
   \newcommand{\propositionname}{Proposition}
   \newcommand{\corollaryname}{Corollary}
-  \newcommand{\examplename}{Example}
-  \newcommand{\exercisename}{Exercise}
+  \newcommand{\examplename}{Example} %
+  \newcommand{\instancename}{Instance} %
+  \newcommand{\problemname}{Problem} % 问题
+  \newcommand{\exercisename}{Exercise} % 练习=习题
   \newcommand{\remarkname}{Remark}
   \newcommand{\assumptionname}{Assumption}
   \newcommand{\conclusionname}{Conclusion}
-  \newcommand{\solutionname}{Solution}
+  \newcommand{\solutionname}{Sol.}
   \newcommand{\propertyname}{Property}
   \newcommand{\introductionname}{Introduction}
-  \renewcommand{\appendixname}{Appendix}
-  \newcommand{\ebibname}{Bibliography}
-  % \newcommand{\problemsetname}{Exercise}
-  \newcommand\bioinfo[2]{\gdef\@bioinfo{\textbf{#1}: #2}}
-  \newcommand{\updatename}{Updates:}
-  \newcommand{\historyname}{Version History}
+  \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
+  \newcommand{\updatename}{Update: }
+  \newcommand{\historyname}{History}
+  \newcommand{\beforechap}{Ch}
+  \newcommand{\afterchap}{:}
 }{\relax}
 
 
@@ -821,8 +831,8 @@
 
 \ifdefstring{\ELEGANT@lang}{cn}{
   \ifdefstring{\ELEGANT@scheme}{chinese}{
-    \newcommand{\xchaptertitle}{第\zhnumber{\arabic{chapter}}章} }{
-    \newcommand{\xchaptertitle}{第 \thechapter{} 章}} }{
+    \newcommand{\xchaptertitle}{Chapter \zhnumber{\arabic{chapter}}} }{
+    \newcommand{\xchaptertitle}{Chapter \thechapter{}}} }{
   \newcommand{\xchaptertitle}{\chaptername~\thechapter~}}
 
 \setcounter{secnumdepth}{5}
