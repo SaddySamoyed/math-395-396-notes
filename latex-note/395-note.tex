@@ -9,7 +9,7 @@
 \author{Qiulin Fan}
 \date{2024 Fall}
 
-\extrainfo{Note there are Chinese words mixed in the note so }
+\extrainfo{Notice that the note contain chunks of Chinese languages. I feel sorry if you could not read it cuz of that.}
 
 \logo{assets/M.jpg}
 \cover{assets/M.jpg}
@@ -269,6 +269,7 @@ $$||v||_p = (\sum_{i = 1}^n |v_i|^p)^{1\over p}$$
 我们可以由原函数和 derivative induce 出一个 remainder 函数，来表示在某点处 derivative 的 linear approximation 的误差程度随微小量 $h$ 变化的变化. 
 
 \begin{definition}
+我们定义 remainder function: (用来做分析时使用)
 \begin{align}
     r_{x_0} : \mathbb{R}^n &  \rightarrow \mathbb{R}^m \\
     h & \mapsto f(x_0 + h) - f(x_0) - Df(x_0) \cdot h
@@ -278,4 +279,73 @@ $$||v||_p = (\sum_{i = 1}^n |v_i|^p)^{1\over p}$$
 \noindent 对于任意的 $x_0$，总是有 $||\frac{r_{x_0}(h)}{h}|| \rightarrow 0$ as $h \rightarrow 0$，因而 $r(h)$ 是 $o(h)$ 的.
 
 
+
+\section{Directional Derivative}
+\begin{proposition}{Higher prospective of Directional Derivative}
+我们发现，实际上 $D_v f$ 和 $f$ 是来自同一个 function space $\mathcal{F}(\mathbb{R}^n, \mathbb{R}^m)$ 的.\\
+实际上，$D_v f$ 描述的对于每个 $x \in dom(f)$，在点 $x$ 处 $f$ 在 $v$ 这个方向上的变化率. 这里 $f$ 才是变量，$v$ 是固定的。\\
+$D_v f$ 对每个(存在该 directional derivative)的 $x \in dom(f)$ 都给出了一个 $\mathbb{R}^m$ 数值，对应 $f(x)$ 的值给出了 $f$ 在方向 $v$ 上的变化率 $D_v f(x)$. 所以整个 $D_v f$ 就是 $f$ 对应的一个变化率函数.
+\end{proposition}
+
+\begin{remark}
+    $\mathbb{R}^n$ 是一个 vector space. 我们自然想到，如果知道每个 $e_i$ 方向上 $f$ 对应的变化率函数 $D_{e_i} f$，那么就知道了整体 $f$ 在各个方向上的变化率函数. 我们对这个函数投一个点 $x = c_1 e_1 + \cdots + c_n e_n \in dom(f)$:
+    $$
+    Df(x_0)(x) = \sum_{i=1}^n c_i D_{e_i} f(x_0) 
+    $$
+    就可以得到这点上 $Df(x_0)$ 的作用.
+\end{remark}
+
+\noindent 我们有一个专门的称呼来指代 $D_{e_i} f$
+\begin{definition}{partial derivative} \label{partial derivative}
+    我们使用 $\frac{\partial }{ \partial x_i} f$ 来表示 $D_{e_i} f$
+\end{definition}
+
+接着刚才的 remark，我们发现
+\begin{theorem}
+    如果 $f $ 在 $x_0 \in dom(f) $ 处 diffble，那么它在 $x_0$ 处的 derivative 为：
+    \begin{align}
+        Df(x_0) 
+        & = \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} (x_0)& \frac{\partial f_1}{\partial x_2}(x_0) & \cdots & \frac{\partial f_1}{\partial x_n}(x_0) \\
+        \frac{\partial f_2}{\partial x_1} (x_0)& \frac{\partial f_2}{\partial x_2}(x_0) & \cdots & \frac{\partial f_2}{\partial x_n}(x_0) \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial f_m}{\partial x_1}(x_0) & \frac{\partial f_m}{\partial x_2} (x_0)& \cdots & \frac{\partial f_m}{\partial x_n}(x_0)
+        \end{pmatrix}
+    \end{align}
+
+    其中每一列就是 $D_{e_i} f = \frac{\partial}{\partial x_i} f$. 因而对于每个输入 $ c \in \mathbb{R}^n$，我们得到的输出都是 $\sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f(c) \in \mathbb{R}^m$.\\
+    
+    \begin{align}
+        Df(x_0) (c)
+        & = \begin{pmatrix}
+        \sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f_1(c) \\
+        \sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f_2(c) \\
+        \vdots  \\
+        \sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f_n(c)
+        \end{pmatrix}
+    \end{align}
+    
+\end{theorem}
+
+\begin{definition}{higher-order partial derivatives}
+    我们知道 $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ 的任意 partial derivative ${\partial \over \partial x_i} f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ 仍然是一个 $\mathbb{R}^n \rightarrow \mathbb{R}^m$ 的函数. 我们再对这个函数求 $e_j$ 方向上的 partial derivatve，可以得到另一个 ${\partial^2 \over \partial x_j \partial x_i} f: \mathbb{R}^n \rightarrow \mathbb{R}^m$.\\
+    recursively define: 
+    $$
+    {\partial^d \over \partial x_{k_1}\partial x_{k_2}\cdots \partial x_{k_d}}
+    $$
+    为一个 $d^\text{th}$-oder 的 partial derivative of $f$
+\end{definition}
+
+
+\section{$C^r$ class}
+\begin{definition}
+    如果 $f$ 的所有 $r^\text{th}$-order partial derivatives 都 \textbf{exist 并且 ctn}，则称 $f$ 是 $C^r$ 的.
+    \\$f \in C^r(\text{dom}(f))$
+\end{definition}
+
+
+
+\begin{remark}
+    对于 f 在点 $x$ 附近 being $C^1$ 的解释: $f$ 在点 $x$ 附近，每个 $e_i$ 切向量上的变化率函数都是连续的. 所以我们有一种直觉：$f$ 在这个点上是可以被一个 linear map 近似的.
+\end{remark}
 \end{document}
