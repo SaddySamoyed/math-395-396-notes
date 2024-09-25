@@ -278,10 +278,31 @@ $$||v||_p = (\sum_{i = 1}^n |v_i|^p)^{1\over p}$$
 
 \noindent 对于任意的 $x_0$，总是有 $||\frac{r_{x_0}(h)}{h}|| \rightarrow 0$ as $h \rightarrow 0$，因而 $r(h)$ 是 $o(h)$ 的.
 
-
+\begin{theorem}{$\mathbb{R}^n \rightarrow \mathbb{R}^m$ is similar to $\mathbb{R}^n \rightarrow \mathbb{R}$} \label{$f$ ctn/diff iff $f_i$ ctn/diffble for all $i$}
+    For $$f: \mathbb{R}^n \rightarrow \mathbb{R}^m = \begin{pmatrix}
+        f_1 \\ f_2 \\ \vdots \\ f_m
+    \end{pmatrix}
+    $$ we always have
+    $f$ ctn/diff iff $f_i$ ctn/diffble for all $i$
+\end{theorem}
+意思是在证明可导/连续时我们总是可以只考虑 $m=1$ 的情况. 这件事非常有用.
 
 \section{Directional Derivative}
-\begin{proposition}{Higher prospective of Directional Derivative}
+\begin{definition}
+    固定一个 $u \in \mathbb{R}^n$，define 
+    \begin{align}
+        D_u f(X_0) : \mathbb{R}^n & \rightarrow \mathbb{R}^m\\
+        x & \mapsto \lim_{t\rightarrow 0, t\in \mathbb{R}} \frac{f(x + tu) - f(x)}{t}
+    \end{align}
+
+        Notice that:
+        $$
+        D_u f(x_0) = \frac{d}{dt}\bigg| _{t=0} f(x_0 + tu)
+        $$
+\end{definition}
+
+
+\begin{proposition}{Intuition of Directional Derivative}
 我们发现，实际上 $D_v f$ 和 $f$ 是来自同一个 function space $\mathcal{F}(\mathbb{R}^n, \mathbb{R}^m)$ 的.\\
 实际上，$D_v f$ 描述的对于每个 $x \in dom(f)$，在点 $x$ 处 $f$ 在 $v$ 这个方向上的变化率. 这里 $f$ 才是变量，$v$ 是固定的。\\
 $D_v f$ 对每个(存在该 directional derivative)的 $x \in dom(f)$ 都给出了一个 $\mathbb{R}^m$ 数值，对应 $f(x)$ 的值给出了 $f$ 在方向 $v$ 上的变化率 $D_v f(x)$. 所以整个 $D_v f$ 就是 $f$ 对应的一个变化率函数.
@@ -313,7 +334,7 @@ $D_v f$ 对每个(存在该 directional derivative)的 $x \in dom(f)$ 都给出�
         \end{pmatrix}
     \end{align}
 
-    其中每一列就是 $D_{e_i} f = \frac{\partial}{\partial x_i} f$. 因而对于每个输入 $ c \in \mathbb{R}^n$，我们得到的输出都是 $\sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f(c) \in \mathbb{R}^m$.\\
+    其中每一列就是 $D_{e_i} f(x_0) = \frac{\partial}{\partial x_i} f(x_0)$. 因而对于每个输入 $ c \in \mathbb{R}^n$，我们得到的输出都是 $\sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f(x_0) \in \mathbb{R}^m$.\\
     
     \begin{align}
         Df(x_0) (c)
@@ -324,28 +345,88 @@ $D_v f$ 对每个(存在该 directional derivative)的 $x \in dom(f)$ 都给出�
         \sum_{i=1}^n c_i \frac{\partial}{\partial x_i} f_n(c)
         \end{pmatrix}
     \end{align}
-    
+我们称这个 matrix 为 $f$ 的 \textbf{Jacobian matrix at $x_0$}
 \end{theorem}
+
+\begin{remark}
+    $$
+        Df: A \subset \mathbb{R}^n \rightarrow \text{Hom}(\mathbb{R}^n, \mathbb{R}^m) 
+    $$
+    $$
+        x \mapsto 
+        \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_1} (x)& \frac{\partial f_1}{\partial x_2}(x) & \cdots & \frac{\partial f_1}{\partial x_n}(x) \\
+        \frac{\partial f_2}{\partial x_1} (x)& \frac{\partial f_2}{\partial x_2}(x) & \cdots & \frac{\partial f_2}{\partial x_n}(x) \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \frac{\partial f_m}{\partial x_1}(x) & \frac{\partial f_m}{\partial x_2} (x)& \cdots & \frac{\partial f_m}{\partial x_n}(x)
+        \end{pmatrix}
+    $$
+    \textbf{显然，如果在 $A$ 上每个 partial derivative 都是 continuous 的，那么这个 $Df$ 也是 continuous 的（if we define norm on $\text{Hom}(\mathbb{R}^n, \mathbb{R}^m) $}
+\end{remark}
 
 \begin{definition}{higher-order partial derivatives}
     我们知道 $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ 的任意 partial derivative ${\partial \over \partial x_i} f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ 仍然是一个 $\mathbb{R}^n \rightarrow \mathbb{R}^m$ 的函数. 我们再对这个函数求 $e_j$ 方向上的 partial derivatve，可以得到另一个 ${\partial^2 \over \partial x_j \partial x_i} f: \mathbb{R}^n \rightarrow \mathbb{R}^m$.\\
     recursively define: 
     $$
-    {\partial^d \over \partial x_{k_1}\partial x_{k_2}\cdots \partial x_{k_d}}
+    {\partial^d \over \partial x_{k_d}\partial x_{k_{d-1}}\cdots \partial x_{k_1}} = \frac{\partial }{\partial x_{k_d}}[{\partial^{d-1} \over \partial x_{k_{d-1}}\partial x_{k_{d-2}}\cdots \partial x_{k_1}}]
     $$
     为一个 $d^\text{th}$-oder 的 partial derivative of $f$
 \end{definition}
 
 
 \section{$C^r$ class}
-\begin{definition}
-    如果 $f$ 的所有 $r^\text{th}$-order partial derivatives 都 \textbf{exist 并且 ctn}，则称 $f$ 是 $C^r$ 的.
-    \\$f \in C^r(\text{dom}(f))$
+\begin{definition}{$C^r$ class}
+    如果在 $A \subset \text{dom}(f)$ 上， $f$ 的所有 $r^\text{th}$-order partial derivatives 都 \textbf{exist 并且 ctn}，则称 $f \in C^r(A)$.
+    \\如果对于任意 $r \in \mathbb{N}$ 都有 $f \in C^r(A)$，则称 $f \in C^{\infty}$
 \end{definition}
 
 
+\begin{remark}
+    $f \in C^{r+1}(A) \Leftrightarrow $ all partials of $f$ are in $C^r(A)$
+\end{remark}
+
+
+
+    如果 f 在点 $x$ 附近 being $C^1$: $f$ 在点 $x$ 附近，每个 $e_i$ 切向量上的变化率函数都是连续的. 所以我们有一种直觉：$f$ 在这个点上是可以被一个 linear map 近似的.
+
+\begin{theorem}{Sufficient condition for $f$ differentiable at some point}
+    如果 $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ 在点 $x_0$ 附近是 $C^1$ 的，那么它在 $x_0$ 上是 differentiable 的 (即 $Df(x_0)$ exists.\\
+    (Note: 此时在 $x_0$ 附近 $Df: A \subset \mathbb{R}^n \rightarrow \text{Hom}(\mathbb{R}^n, \mathbb{R}^m) $ 也是 continuous 的.)
+\end{theorem}
+\begin{proof}
+见L05.
+\end{proof}
 
 \begin{remark}
-    对于 f 在点 $x$ 附近 being $C^1$ 的解释: $f$ 在点 $x$ 附近，每个 $e_i$ 切向量上的变化率函数都是连续的. 所以我们有一种直觉：$f$ 在这个点上是可以被一个 linear map 近似的.
+    因而如果 $f \in C^1(dom(f))$, $f$ 就是 differentiable 的函数.
 \end{remark}
+
+
+\begin{theorem}{Mixed partials}
+    If $f$ is $C^2$ 则任取 $x \in \text{dom}(f)$，$f$ 在 $x$ 处的任意 $2^\text{nd}$-order partial 可以更换次序. 即:
+    $$
+    {\partial^2 \over \partial x_{j_1} \partial x_{j_2}}f(x_0) = {\partial^2 \over \partial x_{j_2} \partial x_{j_1}} f(x)
+    $$
+\end{theorem}
+\begin{proof}
+    见 L06.\\
+    对于这种 multivariable 的关于 diffbility/ ctnity 的证明，我们总是应该想到把它先等价为 $\mathbb{R}^n \rightarrow \mathbb{R}$，然后再对 $n$ 个变量进行逐个处理，运用 single variable analysis 的各种 mean value theorem 来处理.
+\end{proof}
+
+
+\begin{corollary}{Mixed partials}\label{Mixed partials}
+    自然可以得到：如果 $f \in C^r(A)$，那么 $f$ 的任意 $r$ 阶及以下阶 partial derivative 都可以换序. 即: $\forall m \leq r$ 以及 $\forall \pi \in S_m$:
+    $$
+     {\partial^m \over \partial x_{k_1}\partial x_{k_{2}}\cdots \partial x_{k_m}} = {\partial^m \over \partial x_{k_{\pi(1)}}\partial x_{k_{\pi(2)}}\cdots \partial x_{k_{\pi(m)}}}
+    $$
+    因而如果 $f\in C^\infty (A)$ 那么所有的 partial derivative 都可以换序.
+\end{corollary}
+
+
+\section{Multi-index notation and Taylor's theorem}
+
+
+
+
+
 \end{document}
