@@ -372,7 +372,10 @@ $D_v f$ 对每个(存在该 directional derivative)的 $x \in dom(f)$ 都给出�
     $$
     为一个 $d^\text{th}$-oder 的 partial derivative of $f$
 \end{definition}
-
+\begin{remark}
+    只有 partial derivative 是有多阶的，而 derivative $D$ 也急速hi全导数是没有多阶的，因为它本身就是一个 linear map. 因为 $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ 的任意阶段偏导数也是 $\mathbb{R}^n \rightarrow \mathbb{R}^m$ 的，但是全导数是一个从元素到线性变换的函数.\\
+    我们平时使用的单变量real-valued函数的高阶导数是 partial derivative 的特殊情况，这是在 $\mathbb{R} \rightarrow \mathbb{R}$ 上的函数只有一个变量，全导数和偏导数是同一个函数.
+\end{remark}
 
 \section{$C^r$ class}
 \begin{definition}{$C^r$ class}
@@ -423,7 +426,100 @@ $D_v f$ 对每个(存在该 directional derivative)的 $x \in dom(f)$ 都给出�
 \end{corollary}
 
 
-\section{Multi-index notation and Taylor's theorem}
+\section{Chain Rule, Product Rule and Taylor's theorem}
+\begin{definition}{multi-index notation} \label{multi-index}
+一个 multi-index 是一个 $n-$tuple，其中每个 entry 都是一个 non-neg integer.\\
+我们使用以下四个 notation 来进行简写:\\
+$$
+|\alpha| = \sum_{j = 1}^n \alpha_j
+$$
+$$
+\alpha! = \prod_{i = 1}^n (\alpha_j !)
+$$
+$$
+x^{\alpha} = {x_1}^{\alpha_1}{x_2}^{\alpha_2} \cdots {x_n}^{\alpha_n}
+$$
+$$
+\partial ^ \alpha f ={\partial^{|\alpha|} \over (\partial {x_1})^{\alpha_1} (\partial {x_2})^{\alpha_2} \cdots (\partial {x_n})^{\alpha^n}} f  
+$$
+\end{definition}
+这个 notation 的引入会使得很多定理的表述简洁很多.
+\begin{example}
+$$
+\partial ^{(2,1)} f = \frac{\partial^3}{\partial x_1 \partial x_2 \partial x_3 } f
+$$
+$$
+(3,3,0)! = 3!3!0! = 36
+$$
+\end{example}
+
+
+\subsection{Chain Rule}
+\noindent Recall chain rule in single variable analysis:
+$$f: A \subset \mathbb{R} \rightarrow B \subset \mathbb{R} \;\; \text{, } g: B \rightarrow \mathbb{R} 
+$$
+with A, B open; $f$ is diffble at some point $x$ and $g$ is diffble at $f(x)$.\\
+Then we have: 
+$$
+\frac{d}{dx} (g \circ f) (x) = g'(f(x)) f'(x)
+$$
+
+现在我们有 multi 的版本:
+\begin{theorem}
+    如果 $$f: A \subset \mathbb{R}^n \rightarrow B \subset \mathbb{R}^m \;\; \text{, } g: B \rightarrow \mathbb{R}^p 
+$$
+with A, B open; $f$ is diffble at some point $x$ and $g$ is diffble at $f(x)$.\\
+Then we have:
+$$
+D (g \circ f) (x) =Dg(f(x))\, Df(x)
+$$
+\end{theorem}
+和 single varable 的表述基本一模一样.
+\begin{proof}
+    见 L07. 证明思路即取 $f,g, g\circ f$ 的 remainder function 并发现在 $R_f, R_g$ 趋向 0 时 $R_{g\circ f}$ 也趋向 0.
+\end{proof}
+
+\subsection{Multinomial Theorem}
+\begin{theorem}{Multinomial Thm} \label{Multinomial Thm}
+$\forall (x_1, x_2, \cdots, x_n) \in \mathbb{R}^n$ 以及任意 $k \in \mathbb{Z}_{\geq 0}$ we have:
+$$
+{(x_1 + \cdots + x_n)}^k  = \sum_{|\alpha| = k} \frac{k!}{\alpha !} x^\alpha 
+$$
+\end{theorem}
+这是一个 combinatorics 的 proposition. 
+\begin{proof}
+    (Informal proof, but sufficient to show it.)\\
+    ${(x_1 + \cdots + x_n)}^k$ 每项就是每次在 $\{x_1, x_2, \cdots, x_n\}$ 中取一个元素，取 $k$ 次得到，一共有 $\sum_{|\alpha| = k} \frac{k!}{\alpha !} = k!$ 个项，每一项都是一个 $x^\alpha$ where  $|\alpha| = k$.\\
+    每个 $x^\alpha$ 会被取到重复次，这个重复的数量为 ${k! \over \alpha !}$\\
+     因为 $k! \over \alpha !$ 就是把一个 size 为 $k$ 的 set 分成 size 分别是 $\alpha_1, \cdots, \alpha_n$ 的子集的方法.\\
+     推导: 
+$$
+\# =  C^k_{\alpha_1} \times  C^{k-\alpha_1}_{\alpha_2}  \times C^{k-\alpha_1 - \alpha_2}_{\alpha_3} \times\cdots \times C^{k - \sum_{i=1}^{n-1} \alpha _i}_{\alpha_n} = {k! \over \alpha_1! \alpha_2 ! \cdots \alpha_n !}
+$$
+    （对于 for example:  $\alpha = \{1,0,2,2,0\}$ 即 $x_1 {x_3}^2 {x_4}^2$ 这一项，会被取到 ${k! \over \alpha !} = \frac{5!}{2!2!}$ 次. 这个次数等于$ 5 \times C^4_2 \times C^2_2 $ ）
+    \\ formal 的证明即 by induction，使用 binomial thm 即可.
+\end{proof}
+
+\subsection{Product Rule}
+\begin{theorem}{product rule} \label{product rule}
+$\forall \alpha \in \mathbb{N}_{\geq 0}^n$，$f,g: \mathbb{R}^n \rightarrow \mathbb{R}$, 都有：
+$$
+\partial^{\alpha} (fg) = \sum_{\beta + \gamma = \alpha} \frac{\alpha !}{\beta ! \gamma !} (\partial ^ \beta f) (\partial ^ \gamma g)
+$$
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
