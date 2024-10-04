@@ -510,10 +510,54 @@ $$
 
 
 
+\section{Inverse function Theorem}
+\begin{theorem}{Inverse function Theorem} \label{IFT}
+    如果 $f: A \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^m$ 是 $C^r$ 
+ ($r \geq 1$)的，对于任意 $x_0 \in A$ s.t. $\det{Df(x_0)} \not= 0$，我们都有：
+    \begin{enumerate}
+        \item 存在某个 $x_0$ 的 nbh $U$ 以及 $f(x_0)$ 的 nbh $V$ 使得 $f(U) = V$ 且 $f|_U : U \rightarrow V$ 是 bijective 的. (即 $f$ 在 $x_0$ 附近是 \textbf{locally bijective }的).
+        \item $f|_U$ 的 inverse function $g: V \rightarrow U$ 也是 $C^r$ 的，并且对于 $U$ 中任意 $x$，都有 $Dg(f(x)) = (Df(x))^{-1}$ \\ 
+        (这是显然的，因为 $I_n = D (g \circ f) (x) = Dg(f(x))Df(x)$)
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    比较直观。我们知道如果 $f \in C^1(A)$，意味着 Jacobian matrix 中每一项都是连续的函数，那么\textbf{整个 $Df: \mathbb{R}^n \rightarrow \mathbb{R}^{n \times n}$ 在 $x_0$ 附近也是连续的}；并且由于 \textbf{$\det :\mathbb{R}^{n \times n} \rightarrow \mathbb{R}$ determinant 函数是连续的}，我们知道整个 $Df$ 在 $x_0$ \textbf{locally 都是 non-sigular 的}. \\\\
+    我们可以类比 single variable 情况下：如果 $C_1$ 的函数 $f$ 的导函数 $f'$ 在某处不是 0，那么在这一块地方附近 $f$ 都 monotonic. 这是因为 $f'$ 连续，所以这附近 $f'$ 都非 0 且同向.\\\\
+    IFT 告诉我们的是：这个性质可以推广到多元函数，by: 单元函数导数值不为 0 扩展到多元函数导数的 det 不为0.\\
+    并且 IFT 还多告诉我们的一件事情是: 这个 local inverse function 会保留 $C^r$ 的性质.\\
+\end{remark}
+
+\begin{lemma}
+    对于任意的 matrix $C \in \mathbb{R}^{m \times n}$，并任取 $v \in \mathbb{R}^n$，我们都有:
+    $$
+    |Cx| \leq ||C|| \cdot |x|
+    $$
+    并且： 
+    $$
+||C||\leq nm \max_{1 \leq i \leq m, 1\leq j \leq n} |C_{ij}|
+$$
+where we take the sup norm of a linear map:
+$$
+||C|| = \sup_{x \in \mathbb{R}^n, |x| = 1} |Cx|
+$$
+\end{lemma}
+
+
+\begin{lemma}
+    如果 $f: A \rightarrow \mathbb{R}^n$ 是 $C^1$ 的，且 $Df(a)$ non-singular，即 $\det(Df(a)) \not = 0$，那么存在某个 $a$ 的 nbh $B_{\delta} (a)$ 使得对于任意 $x,y \in B_{\delta}(a)$，都有：
+    $$
+    |f(x_0) - f(x_1)| \geq \alpha |x_0 - x_1|
+    $$
+\end{lemma}
+\begin{note}
+ \textbf{这是一个比 locally injective 更强的条件.}
+\end{note}
 
 
 
-
+\begin{theorem}{Inverse function theorem}
+    
+\end{theorem}
 
 
 
