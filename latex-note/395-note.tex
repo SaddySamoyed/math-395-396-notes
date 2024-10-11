@@ -123,52 +123,11 @@ complete 的 metric space 的任意 closed subset（我们知道 metric space �
 \end{remark}
 
 
-\section{IBL1: density and Baire Category Theory}
-
-\begin{remark}
-    Fun fact: 在 discrete metric 下，$\mathbb{R}^n$ 中的单位闭球并不是单位球的 closure. 单位球的 closure 是整个 $\mathbb{R}^n$.
-\end{remark}
-
-
-\begin{theorem}{Baire Category Theory} \label{Baire Category Theory}
-    对于一个\textbf{ complete metric space，任意一个 sequence of open dense sets 的序列交还是 dense 的.}
-\end{theorem}
-
-通过 Baire Category Theory 可以证明出一个推论
-\begin{corollary}
-    \textbf{如果一个 complete metric space 自身是一个 perfect set，那么它一定是 uncountable 的. }
-    \\Rmk: perfect set 即它的 limit pts 集合等于它自身
-\end{corollary}
-
-   这个东西看起来非常废话。但是我们在 IBL 2 的 proposition 1 中会发现它有用的（\textbf{Cantor set 就是一个 complete perfect metric space，所以它是 uncountable 的}）
-
-
-\section{IBL 2: 定义 measure 的动机和尝试}
-
-\noindent 我们知道\textbf{ Cantor set 是一个 compact 且 closed 的集合（甚至 perfect }）（并且由于它在  $\mathbb{R}^n$ 中，\textbf{这表示它甚至是一个 complete metric space}）；并且它 uncountable；然而它却不包含任何开区间（我们知道它的 \textbf{Lebesgue measure = 0}）.
-
-\noindent 我们想要测量一个 $\mathbb{R}^n$ 子集的“长度”。我们想要这个测量函数满足：
-
-\begin{enumerate}
-    \item  可数个集合的 measure closed under addition;
-    \item  Congruent (通过 translate 或者旋转或者反射) 的集合的 measure 相同; 
-    \item  精准地测量出 $m([0,1)) = 1$. 
-\end{enumerate}
-
-
-\noindent 但是实际上我们发现不可能存在这样的函数. 
-\noindent 归谬过程：
-   \begin{enumerate}
-       \item   我们把 $[0,1)$ 之间所有可以通过加减有理数得到的元素都归为一个 congurent class (很直观地说，所有的有理数都会进入一个 congruent class，而最简根数不同的无理数以及各种 transcendental numbers 会形成各自的 congruent classes.)
-       \item  把 $[0,1)$ 之间的所有有理数放进一个集合 $R$，在每个 congruent class 中取一个元素，放进一个集合 $N$，我们会发现：任取 $r \in R$，通过把 $N$ 整体地 translate $r$ 个大小并把放不下的放到左边（也就是一个 circular translate），我们得到 $N_r$，会发现 $\bigsqcup_{r} N_r = [0,1)$；并且每个 $N_r$ 的 measure 都是一样的.
-       \item   如果 $m(N)$ 不等于 0，那么 $m([0,1)) = \infty$；如果 $m(N)$ = 0，那么 $m([0,1)) = 0$；
-   \end{enumerate}
-
-\section*{Hw2}
+\section{Hw2: About normed Vector space and $l^\infty{\mathbb{N}}$}
 \subsection{Normed vector space}
 \begin{definition}
     \textbf{normed vector space:} 
-    \\vector space 上可以定义 norm 来表示每个 vector 的“大小”，norm 的定义是满足 \textbf{(1) positive definiteness; (2) homogeneity (3) triangle ineq 的 $||.||: V \rightarrow \mathbb{R}_{\geq0}$}
+    \\vector space 上可以定义 norm 来表示每个 vector 的“大小”，norm 的定义是满足\\ \textbf{(1) positive definiteness; (2) homogeneity (3) triangle ineq 的 $||.||: V \rightarrow \mathbb{R}_{\geq0}$}
 \end{definition}
 
 \paragraph{Continutity on normed VS as a MS:} 对于两个 normed vector spaces 之间的 linear map，实际上是可以定义 continuous 的概念的。\textbf{我们可以用 $||T(v) - T(w)||_2 \rightarrow 0$ as $||v - w||_1 \rightarrow 0$} （或者 sequentially）来定义 \textbf{continuous by norm}.
@@ -501,12 +460,87 @@ $$
 \end{proof}
 
 \subsection{Product Rule}
+
+\begin{lemma}{在 $\mathbb{R} \rightarrow \mathbb{R}$ 上的函数的 product rule}
+令 $f_1, \cdots f_m: \mathbb{R} \rightarrow \mathbb{R}$
+
+$$
+\frac{d^k {(f_1,\cdots f_m)}}{dx^k} = \sum_{|\alpha| = k} \frac{k!}{\alpha !} (\frac{d^{\alpha_1} f_1}{dx^{\alpha_1}}) \cdots (\frac{d^{\alpha_m} f_m}{dx^{\alpha_m}})
+$$
+
+\end{lemma}
+
+\begin{note}
+    特别地，$$
+    \frac{d^k}{dx^k} (fg) = \sum_{a+b = k} \frac{k!}{a!b!} (\frac{d^a}{dx^a}f) (\frac{d^b}{dx^b} g)
+    $$
+    这个式子也等价于 $$
+    \sum_{a = 0}^k \frac{k!}{a!(k-a)!} (\frac{d^a}{dx^a}f) (\frac{d^{k-a}}{dx^{k-a}} g)
+    $$
+\end{note}
+
+\begin{proof}
+    见 HW5 G. \\
+\end{proof}
+
 \begin{theorem}{product rule} \label{product rule}
-$\forall \alpha \in \mathbb{N}_{\geq 0}^n$，$f,g: \mathbb{R}^n \rightarrow \mathbb{R}$, 都有：
+$\forall \alpha \in \mathbb{Z}_{\geq 0}^n$，$f,g: \mathbb{R}^n \rightarrow \mathbb{R}$, 如果 $f,g \in C^{|\alpha|} (\mathbb{R}^n)$, then：
 $$
 \partial^{\alpha} (fg) = \sum_{\beta + \gamma = \alpha} \frac{\alpha !}{\beta ! \gamma !} (\partial ^ \beta f) (\partial ^ \gamma g)
 $$
 \end{theorem}
+\begin{proof}
+    由 lemma 由归纳得到，见 L08.
+\end{proof}
+\begin{note}
+    实际上这里 f,g 是 $\mathbb{R}^n \rightarrow \mathbb{R}$ 的函数并不是重要的，重要的是 $\alpha$ 和几个变量有关系。如果 $f,g:\mathbb{R}^{100} \rightarrow \mathbb{R} $，$\alpha \in \mathbb{Z}_{\geq 0} ^{100}$ 但是只有一个 entry 不是 0，那么我们可以看作 $\alpha \in \mathbb{Z}_{\geq 0}^1$，使用 $\mathbb{Z}_{\geq 0}^1$ 上的 Product rule.
+\end{note}
+
+
+\begin{lemma}{Taylor Thm in $\mathbb{R}$}
+如果 $f: I \subseteq \mathbb{R} \rightarrow \mathbb{R} \inc C^k(I)$，并且 f 是 $(k+1)$ - diffble 的.\\
+(即，$f$ 几乎是 $C^{k+1}$ 的，但是并不需要 k+1 阶导数也连续，条件更宽)\\
+任取 $a \in I$，我们定义 \textbf{the $k^\text{th}$ Taylor polynomial centered at $a$}:
+$$
+T_{a,k}(x) = f(a) + \sum_{j=1}^k \frac{f^{(j)}(a)}{j!} (x-a)^j
+$$
+Then: 这个 $T_{a,k}(x)$ 是 \textbf{best $k^\text{th}$-order polynomial approximation centered at $a$}: $$
+f(x) - T_{a,k}(x) =  R_{a,k} (x) = \frac{f^{(k+1)}(c_x)}{(k+1)!} (x-a)^{k+1} = o(|x-a|^k)
+$$
+Note: 这里的 remainder 和 a,k 都有关系. 是：
+对于每个 $x \in I$，$c_x \in [a,x]$ 是由 Cauchy MVT 决定的一个中间值.
+\end{lemma}
+
+\begin{remark}
+   但是这仍然并不能说明如果 $f \in C^{\infty}(I)$，就一定有 $f(x) = T_{a, \infty}(x), \forall x,a \in I$. \\
+   Note:  $C^\omega (\mathbb{R}) \subset C^\infty(\mathbb{R}).$\\
+    一个光滑函数 $f$ 在 $I$ 上解析的条件是在 $I$ 上这个余项函数是处处收敛到 0 的.
+    具体: $
+    \forall \text{compact } K \subseteq I, \; \exists m \in \mathbb{R} \text { s.t. } $
+    $$
+    \bigg |\frac{d^j}{dx^j} f(x) \bigg | \leq m^{k+1} j! 
+    $$
+    for all $x \in K$ and for all order $j$.
+\end{remark}
+
+\begin{proof}
+    具体见 L08.\\
+    思路：Recall that Rolle MVT $\rightarrow$ Lagrange MVT $\rightarrow$ Cauchy's MVT\\
+    我们使用 Cauchy's MVT apply to 余项来证明 Taylor's Thm.
+\end{proof}
+
+
+\begin{theorem}{Taylor's Thm}\label{Taylor's Thm}
+    
+\end{theorem}
+
+
+
+
+
+
+
+
 
 
 
@@ -555,17 +589,60 @@ $$
 
 
 
-\begin{theorem}{Inverse function theorem}
-    
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{IBL All}
+
+\section{IBL1: density and Baire Category Theory}
+
+\begin{remark}
+    Fun fact: 在 discrete metric 下，$\mathbb{R}^n$ 中的单位闭球并不是单位球的 closure. 单位球的 closure 是整个 $\mathbb{R}^n$.
+\end{remark}
+
+
+\begin{theorem}{Baire Category Theory} \label{Baire Category Theory}
+    对于一个\textbf{ complete metric space，任意一个 sequence of open dense sets 的序列交还是 dense 的.}
 \end{theorem}
 
+通过 Baire Category Theory 可以证明出一个推论
+\begin{corollary}
+    \textbf{如果一个 complete metric space 自身是一个 perfect set，那么它一定是 uncountable 的. }
+    \\Rmk: perfect set 即它的 limit pts 集合等于它自身
+\end{corollary}
+
+   这个东西看起来非常废话。但是我们在 IBL 2 的 proposition 1 中会发现它有用的（\textbf{Cantor set 就是一个 complete perfect metric space，所以它是 uncountable 的}）
 
 
+\section{IBL 2: 定义 measure 的动机和尝试}
+
+\noindent 我们知道\textbf{ Cantor set 是一个 compact 且 closed 的集合（甚至 perfect }）（并且由于它在  $\mathbb{R}^n$ 中，\textbf{这表示它甚至是一个 complete metric space}）；并且它 uncountable；然而它却不包含任何开区间（我们知道它的 \textbf{Lebesgue measure = 0}）.
+
+\noindent 我们想要测量一个 $\mathbb{R}^n$ 子集的“长度”。我们想要这个测量函数满足：
+
+\begin{enumerate}
+    \item  可数个集合的 measure closed under addition;
+    \item  Congruent (通过 translate 或者旋转或者反射) 的集合的 measure 相同; 
+    \item  精准地测量出 $m([0,1)) = 1$. 
+\end{enumerate}
 
 
-
-
-
+\noindent 但是实际上我们发现不可能存在这样的函数. 
+\noindent 归谬过程：
+   \begin{enumerate}
+       \item   我们把 $[0,1)$ 之间所有可以通过加减有理数得到的元素都归为一个 congurent class (很直观地说，所有的有理数都会进入一个 congruent class，而最简根数不同的无理数以及各种 transcendental numbers 会形成各自的 congruent classes.)
+       \item  把 $[0,1)$ 之间的所有有理数放进一个集合 $R$，在每个 congruent class 中取一个元素，放进一个集合 $N$，我们会发现：任取 $r \in R$，通过把 $N$ 整体地 translate $r$ 个大小并把放不下的放到左边（也就是一个 circular translate），我们得到 $N_r$，会发现 $\bigsqcup_{r} N_r = [0,1)$；并且每个 $N_r$ 的 measure 都是一样的.
+       \item   如果 $m(N)$ 不等于 0，那么 $m([0,1)) = \infty$；如果 $m(N)$ = 0，那么 $m([0,1)) = 0$；
+   \end{enumerate}
 
 
 
