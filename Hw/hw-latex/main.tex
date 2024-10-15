@@ -10,6 +10,93 @@
 
 \chapter{hw1}
 
+\section*{Problem A}
+Suppose \((X, d)\) is a metric space. For \(0 < \epsilon < 1\), show that \(d^\epsilon\) is also a metric on \(X\).
+
+If \(X = [0, 1]\) is the unit interval and \(d\) is the usual metric, show that \(X\) has "infinite length" using the metric \(d^\epsilon\), in that
+
+\[
+\sup_{0 = t_0 < t_1 < \cdots < t_n = 1} \sum_{i=1}^{n} d^\epsilon(t_i, t_{i-1}) = \infty.
+\]
+
+Here the supremum is taken over all \(n\) and all \(n + 1\) tuples of points \(t_i\) as in the subscript.
+
+\textit{Optional context:} If you’d like to know where the metrics \(d^\epsilon\) appear, try looking up the Assouad Embedding Theorem. If you’d like to know more about the notion of length used here, try looking up rectifiable curves.
+
+\section*{Bonus Problem}
+If \(X\) is an \(a \times b\) matrix, and \(Y\) is a \(b \times c\) matrix, it takes \(abc\) multiplications to compute \(XY\) according to the usual formula for matrix multiplication. (There are \(ac\) entries in \(XY\), and each is a sum of \(b\) products.) Thus, let’s estimate the time it takes to multiply these two matrices as \(abc\).
+
+Say \(A_1\) is a \(5 \times 1\) matrix, \(A_2\) is a \(1 \times 5\) matrix, \(A_3\) is a \(5 \times 2\) matrix, \(A_4\) is a \(2 \times 5\) matrix, \(A_5\) is a \(5 \times 1\) matrix, and \(A_6\) is a \(1 \times 10\) matrix.
+
+If you want to compute \(A_1 A_2 A_3 A_4 A_5 A_6\), how should you bracket this product so that the sum of the time estimates for the multiplications is as small as possible? For example, should you do
+\[
+(A_1 (A_2 A_3)) ((A_4 A_5) A_6)?
+\]
+Or
+\[
+(A_1 (A_2 (A_3 (A_4 (A_5 A_6)))))?
+\]
+Or something else?
+
+In general, you will have to show your work, but for this first bonus problem you only need to submit the final answer.
+
+\textit{Hint 1:} See hint posted on my office door (EH 5848).
+
+\textit{Hint 2:} Only use this Hint 2 if you can’t figure it out on your own after spending at least 10 minutes looking at Hint 1. In general, you can’t use Wikipedia or internet resources unless explicitly allowed, but for this first bonus problem, you can. See the Wikipedia entry titled “Matrix chain multiplication.”
+
+
+
+
+
+\chapter{hw2}
+
+\section*{Problem A}
+If \( \|\cdot\| \) is a norm on a vector space \( V \), show that \( d(x, y) = \|x - y\| \) defines a metric on \( V \).
+
+\section*{Problem B}
+Let \( T: V_1 \to V_2 \) be a linear map between normed vector spaces. The norm on \( V_i \) will be denoted \( \|\cdot\|_i \). Define
+
+\[
+\|T\| = \sup_{v \in V_1, v \neq 0} \frac{\|T v\|_2}{\|v\|_1} = \sup_{v \in V_1, \|v\|_1 = 1} \|T v\|_2.
+\]
+
+This is either a non-negative real number or infinity. The linear map is called bounded if it is not infinity. Show that \( T \) is continuous if and only if it is bounded.
+
+\section*{Problem C}
+Give an example of an unbounded linear map.
+
+\section*{Problem D}
+Give an example of a sequence \( (T_i) \) of diagonalizable \( 2 \times 2 \) real matrices whose eigenvalues stay bounded but for which \( \|T_i\| \to \infty \). (Here the matrices define linear maps from \( \mathbb{R}^2 \) to itself, and we use the Euclidean norm on \( \mathbb{R}^2 \).)
+
+\section*{Problem E}
+Show that if a subset of a metric space is totally bounded, then it is also separable (i.e., there exists a countable dense subset).
+
+\section*{Problem F}
+Let \( X \) be defined as infinitely many copies of \( [0, 1] \) with all their left endpoints glued together, with the natural metric \( d \).
+
+Formally, we can first define \( \hat{X} = \mathbb{N} \times [0, 1] \), and define an equivalence relation on \( \hat{X} \) by \( (i, x) \sim (j, y) \) if and only if \( (i, x) = (j, y) \) or \( x = y = 0 \). Let \( X \) be the set of equivalence classes, and define a metric \( d \) by setting
+
+\[
+d([ (i, x) ], [ (j, y) ]) = |x| + |y| \quad \text{if } i \neq j \quad \text{and} \quad d([ (i, x) ], [ (j, y) ]) = |x - y| \quad \text{if } i = j.
+\]
+
+You should convince yourself that this makes sense but don’t have to write this up.
+
+Prove that \( (X, d) \) is bounded but not totally bounded.
+
+\section*{Problem G}
+Let \( c_0 \) be the subspace of \( \ell^\infty(\mathbb{N}) \) of sequences that converge to zero, with the sup metric. Show that a subset \( Q \) of \( c_0 \) is totally bounded if and only if it is bounded and for all \( \epsilon > 0 \), there exists \( N > 0 \) such that for all \( (x_n) \in Q \) and all \( n \geq N \), we have \( |x_n| < \epsilon \).
+
+\section*{Bonus Problem}
+A map \( f: X \to Y \) between metric spaces is called an isometric embedding if
+
+\[
+d(f(x_1), f(x_2)) = d(x_1, x_2)
+\]
+
+for all \( x_1, x_2 \in X \). If such a map exists, we say \( X \) embeds isometrically in \( Y \).
+
+Show that every separable metric space embeds isometrically into \( \ell^\infty(\mathbb{N}) \).
 
 
 
@@ -17,8 +104,148 @@
 
 
 
+\chapter{hw3}
+
+\section*{Problem A}
+Let \( (X_1, d_1) \) and \( (X_2, d_2) \) be two metric spaces. We say that a function \( f : X \to Y \) is Lipschitz with constant \( C \) if for any \( x, y \in X \), we have
+\[
+d_2(f(x), f(y)) \leq C d_1(x, y).
+\]
+\begin{enumerate}
+    \item Show that Lipschitz maps are uniformly continuous, i.e., for all \( \epsilon > 0 \) there exists \( \delta > 0 \) such that if \( x_1, x_2 \in X \) and \( d_1(x_1, x_2) < \delta \), then \( d_2(f(x_1), f(x_2)) < \epsilon \).
+    \item Let \( f_n : X_1 \to X_2 \) be Lipschitz maps with common Lipschitz constant \( C \). Suppose that \( f_n \) converges uniformly to \( f \), i.e., for all \( \epsilon > 0 \), there exists \( N > 0 \) such that for all \( n > N \) and all \( x \in X_1 \),
+    \[
+    d_2(f_n(x), f(x)) < \epsilon.
+    \]
+    Is \( f \) Lipschitz? What if we only assume that the \( f_n \) are Lipschitz (without giving a common Lipschitz constant)?
+\end{enumerate}
+
+\section*{Problem B}
+We say that a metric space \( X \) is connected if it cannot be written as \( X = A \cup B \) where \( A \) and \( B \) are nonempty disjoint open subsets of \( X \).
+\begin{enumerate}
+    \item Show that if \( f : X \to Y \) is a continuous function between metric spaces \( X \) and \( Y \), then \( f(X) \) is connected if \( X \) is connected.
+    \item Conclude that if \( f : X \to \mathbb{R} \) and \( X \) is a connected metric space, then \( f \) admits all intermediate values \( m \in (\inf f, \sup f) \). That is, for any such \( m \), there exists \( x_0 \in X \) such that \( f(x_0) = m \).
+\end{enumerate}
+
+\section*{Problem C}
+Let \( f : X \to Y \) be a continuous bijective (one-to-one and onto) mapping between metric spaces \( X \) and \( Y \).
+\begin{enumerate}
+    \item Suppose that \( X \) is compact. Show that the inverse function \( f^{-1} : Y \to X \) is also continuous.
+    \item Give an example to show that the requirement that \( X \) is compact is necessary.
+\end{enumerate}
+
+\section*{Problem D}
+Let \( f \) be a real-valued function defined on \( \mathbb{R}^n \) (or an open subset of \( \mathbb{R}^n \)). Recall that the directional derivative \( D_v f(p) \) of \( f \) at \( p \) in the direction \( v \) is the vector
+\[
+D_v f(p) = \lim_{t \to 0} \frac{f(p + tv) - f(p)}{t}
+\]
+if this limit exists.
+\begin{enumerate}
+    \item If \( c \in \mathbb{R} \) and \( D_v f(p) \) exists, prove that \( D_{cv} f(p) \) exists and \( D_{cv} f(p) = c \cdot D_v f(p) \).
+    \item For \( f : \mathbb{R}^2 \to \mathbb{R} \) defined by
+    \[
+    f(x, y) = \sqrt{|xy|}
+    \]
+    and \( v = (1, 0) \), \( v' = (0, 1) \), show that \( D_v f(0, 0) \) and \( D_{v'} f(0, 0) \) exist but \( D_{v+v'} f(0, 0) \) does not exist.
+    \item Let \( f : \mathbb{R}^2 \to \mathbb{R} \) be defined by
+    \[
+    f(x, y) = \frac{xy^2}{x^2 + y^2}
+    \]
+    for \( (x, y) \neq (0, 0) \) and \( f(0, 0) = 0 \). Prove that \( D_v f(0, 0) \) exists for every \( v = (a, b) \in \mathbb{R}^2 \), vanishing if \( v = 0 \) and equal to
+    \[
+    \frac{ab^2}{a^2 + b^2}
+    \]
+    otherwise.
+\end{enumerate}
+\textit{Remark 1.} This formula for \( D_v f(0, 0) \) is not linear in \( v \).\\
+\textit{Remark 2.} Using polar coordinates, it is easy to see that \( f \) is continuous at \( (0, 0) \).
+
+\section*{Problem E}
+Give the statement of the Baire Category Theorem (from Worksheet 1). (Test yourself by seeing if you can write it down from memory!)
+
+\section*{Problem F}
+Submit a write-up of Problem B from Worksheet 2.
+
+\section*{Bonus Problem}
+A metric space \( (X, d) \) is said to be uniformly disconnected if there is \( \epsilon_0 > 0 \) so that no pair of distinct points \( x, y \in X \) can be connected by an \( \epsilon_0 \)-chain, where an \( \epsilon_0 \)-chain connecting \( x \) and \( y \) is a sequence of points
+\[
+x = x_0, x_1, \dots, x_m = y
+\]
+satisfying
+\[
+d(x_i, x_{i+1}) \leq \epsilon_0 d(x, y).
+\]
+\begin{enumerate}
+    \item Show that the Cantor set is uniformly disconnected.
+    \item Show that a metric space \( (X, d) \) is uniformly disconnected if and only if there is an ultrametric \( d' \) on \( X \) for which there is some \( C > 1 \) such that
+    \[
+    \frac{d'(x, y)}{C} \leq d(x, y) \leq C d'(x, y).
+    \]
+\end{enumerate}
+An ultrametric is a metric which satisfies the following improvement of the triangle inequality:
+\[
+d(x, z) \leq \max(d(x, y), d(y, z))
+\]
+for all \( x, y, z \). The discrete metric, where the distance between any pair of distinct points is 1, is an example of an ultrametric. Many other more interesting and important examples exist.
 
 
+
+
+
+\chapter{hw4}
+
+\section*{Problem A}
+Let \( F : \mathbb{R}^n \to \mathbb{R}^m \) satisfy
+\[
+F(tx) = tF(x)
+\]
+for all positive real numbers \( t \) and all \( x \in \mathbb{R}^n \). Assume \( F \) is differentiable at the origin. Show that \( F \) is linear.
+
+\section*{Problem B}
+Let \( A \subset \mathbb{R}^n \) be open and \( f : A \to \mathbb{R}^m \). Suppose that the partial derivatives \( \frac{\partial f_i}{\partial x_j} \) (for \( 1 \leq i \leq m \) and \( 1 \leq j \leq n \)) exist and are bounded on \( A \). Show that \( f \) is continuous on \( A \).
+
+\section*{Problem C}
+Let \( f : \mathbb{R}^2 \to \mathbb{R}^2 \) be defined by the equation:
+\[
+f(r, \theta) = (r \cos \theta, r \sin \theta).
+\]
+\begin{enumerate}
+    \item Calculate \( Df \) and \( \det Df \).
+    \item Let \( S = [1, 2] \times [0, \pi/2] \). Find \( f(S) \) and sketch it.
+    \item Show that \( f \) is a homeomorphism from \( S \) onto \( f(S) \) and compute the inverse function \( f^{-1} \).
+    \item Compute \( Df^{-1} \) and \( \det Df^{-1} \).
+    \item What relation can you find between \( Df \) and \( Df^{-1} \)?
+\end{enumerate}
+
+\section*{Problem D}
+Give an example of a function \( F : \mathbb{R}^2 \to \mathbb{R}^2 \) such that, at the origin, all directional derivatives exist and are zero, but \( F \) is not differentiable at the origin.
+
+\section*{Problem E}
+Define \( f : \mathbb{R}^2 \to \mathbb{R} \) by setting \( f(0) = 0 \) and
+\[
+f(x, y) = \frac{xy(x^2 - y^2)}{x^2 + y^2}.
+\]
+\begin{enumerate}
+    \item Show that \( \frac{\partial f}{\partial x} \) and \( \frac{\partial f}{\partial y} \) exist at \( (0, 0) \).
+    \item Compute \( \frac{\partial f}{\partial x} \) and \( \frac{\partial f}{\partial y} \) for \( (x, y) \neq 0 \).
+    \item Show that \( f \in C^1(\mathbb{R}^2) \).
+    \item Show that \( \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) \) and \( \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) \) exist everywhere on \( \mathbb{R}^2 \), but they are not equal at \( (0, 0) \).
+\end{enumerate}
+
+\section*{Bonus}
+Recall that an ultrametric space is a metric space where one has the following stronger than usual form of the triangle inequality:
+\[
+d(x, z) \leq \max(d(x, y), d(y, z)).
+\]
+\begin{enumerate}
+    \item Show that, in an ultrametric space, open balls are closed.
+    \item Show that, in an ultrametric space, if two balls intersect, one of the two must be contained in the other.
+    \item Show that, in an ultrametric space, every point of a ball is the center of the ball. That is, if \( y \in B_r(x) \), then \( B_r(x) = B_r(y) \).
+    \item Let \( G \) be a connected weighted undirected graph. (The weighting is the assignment of a positive number to each edge.) Let \( V(G) \) be the set of vertices. Given a path in the graph (a sequence of adjacent edges), define the length of the path to be the largest weight of an edge crossed by the path. Given \( v, w \in V(G) \), define \( d(v, w) \) to be the smallest length of a path from \( v \) to \( w \). Show that \( d \) is an ultrametric on \( V(G) \).
+    \item Show that any finite ultrametric arises as in the previous part.
+\end{enumerate}
+
+\textit{Just for fun (don’t hand in):} Imagine you have an electric car, and you live in a country that provides free charging stations, and you’re not in a hurry. Why might you end up thinking about an ultrametric?
 
 
 
