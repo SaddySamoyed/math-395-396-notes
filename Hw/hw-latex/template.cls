@@ -387,7 +387,7 @@
   backend=\ELEGANT@bibend,
   citestyle=\ELEGANT@citestyle,
   bibstyle=\ELEGANT@bibstyle]{biblatex}
-
+  
 \ifdefstring{\ELEGANT@lang}{cn}{
   \renewcommand{\baselinestretch}{1.3}
   \renewcommand{\contentsname}{目录}
@@ -402,36 +402,36 @@
   \renewcommand{\appendixname}{附录}
   \renewcommand{\appendixtocname}{附录}
   \renewcommand{\indexname}{索\hspace{2em}引}
-  \newcommand\figref[1]{\textbf{图}~\ref{#1}}
-  \newcommand\tabref[1]{\textbf{表}~\ref{#1}}
+  \newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
+  \newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
   \newcommand{\authorname}{\citshape Author：}
-  \newcommand{\institutename}{\citshape 组织：}
-  \newcommand{\datename}{\citshape 时间：}
-  \newcommand{\versionname}{\citshape 版本：}
+  \newcommand{\institutename}{\citshape Institution：}
+  \newcommand{\datename}{\citshape Date：}
+  \newcommand{\versionname}{\citshape version：}
   \newcommand{\notename}{Note}
   \renewcommand*{\proofname}{Proof}
-  \newcommand{\definitionname}{DEF}
-  \newcommand{\theoremname}{THM}
-  \newcommand{\axiomname}{公理}
-  \newcommand{\postulatename}{公设}
-  \newcommand{\lemmaname}{引理}
-  \newcommand{\propositionname}{命题}
-  \newcommand{\corollaryname}{推论}
-  \newcommand{\examplename}{例题} %
-  \newcommand{\instancename}{示例} %
-  \newcommand{\problemname}{问题} % 问题
-  \newcommand{\exercisename}{练习} % 练习=习题
-  \newcommand{\remarkname}{注}
-  \newcommand{\assumptionname}{假设}
-  \newcommand{\conclusionname}{结论}
-  \newcommand{\solutionname}{解}
-  \newcommand{\propertyname}{性质}
-  \newcommand{\introductionname}{内容提要}
+  \newcommand{\definitionname}{Def}
+  \newcommand{\theoremname}{Theorem}
+  \newcommand{\axiomname}{Axiom}
+  \newcommand{\postulatename}{Postulate}
+  \newcommand{\lemmaname}{Lemma}
+  \newcommand{\propositionname}{Proposition}
+  \newcommand{\corollaryname}{Corollary}
+  \newcommand{\examplename}{Example} %
+  \newcommand{\instancename}{Instance} %
+  \newcommand{\problemname}{Problem} % 问题
+  \newcommand{\exercisename}{Exercise} % 练习=习题
+  \newcommand{\remarkname}{Remark}
+  \newcommand{\assumptionname}{Assumption}
+  \newcommand{\conclusionname}{Conclusion}
+  \newcommand{\solutionname}{Sol.}
+  \newcommand{\propertyname}{Property}
+  \newcommand{\introductionname}{Introduction}
   \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
-  \newcommand{\updatename}{更新：}
-  \newcommand{\historyname}{版本更新历史}
-  \newcommand{\beforechap}{第}
-  \newcommand{\afterchap}{章}
+  \newcommand{\updatename}{Update: }
+  \newcommand{\historyname}{History}
+  \newcommand{\beforechap}{Ch}
+  \newcommand{\afterchap}{:}
 }{\relax}
 
 
@@ -439,7 +439,7 @@
   \setlength\parindent{2em}
   \newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
-  \renewcommand{\chaptername}{Chapter}
+  \renewcommand{\chaptername}{}
   \renewcommand{\partname}{\color{structurecolor} Part}
   \newcommand{\authorname}{\textbf{Author: }}
   \newcommand{\institutename}{\textbf{Institute: }}
@@ -831,8 +831,8 @@
 
 \ifdefstring{\ELEGANT@lang}{cn}{
   \ifdefstring{\ELEGANT@scheme}{chinese}{
-    \newcommand{\xchaptertitle}{第\zhnumber{\arabic{chapter}}章} }{
-    \newcommand{\xchaptertitle}{第 \thechapter{} 章}} }{
+    \newcommand{\xchaptertitle}{Chapter \zhnumber{\arabic{chapter}}} }{
+    \newcommand{\xchaptertitle}{Chapter \thechapter{}}} }{
   \newcommand{\xchaptertitle}{\chaptername~\thechapter~}}
 
 \setcounter{secnumdepth}{5}
