@@ -15,6 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section*{1A: 证明 metric space 是 topological space}
 \bold{Problem A:} Let $(X,d)$ be a metric space. Recall that a set $U$ is said to be open if for all $x\in U$ there exists $\epsilon>0$ such that $B_\epsilon(x) \subset U$.
 \begin{enumerate}
 \item Show that the open sets according to this definition define a topology on $X$. 
@@ -28,10 +29,14 @@ $$ \{ y \in X : d(x,y)\leq r\}$$
 is in fact a closed set by the definition above. 
 \item Give an example of a metric space $(X,d)$, a point $x$, and an $r>0$ such that 
 $$\{ y \in X : d(x,y)\leq r\}$$
-is not the closure of $B_r(x)$. 
+is not the closure of $B_r(x)$.
+
+\begin{solution}
+    考虑 discrete toplogy
+\end{solution}
 \end{enumerate}
 
-\bold{Problem B:} Recall that a metric space is called complete if every Cauchy sequence converges. 
+Recall that a metric space is called complete if every Cauchy sequence converges. 
 
 The Baire Category Theorem states the following: 
 
@@ -42,9 +47,25 @@ is dense in $X$.
 \end{theorem}
 
 
-\begin{enumerate}
-\item Show that this is false without the assumption of completeness by considering the rationals with the usual metric. 
-\item Prove the Baire Category Theorem as follows. 
+\section*{1B: Baire Category Thm 在不 complete MS 中的反例}
+Show that this is false without the assumption of completeness by considering the rationals with the usual metric. 
+\begin{solution}
+    考虑 
+    $$
+    {q_n} = \{ \text{all m/n with in lowest term } \}  $$
+对于任意 $n \in \bN$
+    $$
+    U_n = \bQ \backslash \{q_n\}
+    $$ 都是一个 dense and open set in $\bQ$. 但是
+    $$
+    \bigcap_ {i = 1} ^ \infty U_i = \emptyset
+    $$
+\end{solution}
+
+\section*{1C: 证明 Baire Category Thm}
+
+Prove the Baire Category Theorem as follows. 
+
 \begin{enumerate} 
 \item Show that it suffices to show that for all $x_0\in X$ and $r_0>0$ the intersection contains a point of the ball $B_{r_0}(x_0)$. 
 \item With $r_i, x_i$ already having been defined, show that you can pick $x_{i+1} \in X, 0< r_{i+1}< r_i/2$ so that 
@@ -52,9 +73,10 @@ $$\overline{B_{r_{i+1}} (x_{i+1})} \subset B_{r_i}(x_i) \cap U_{i+1}.$$
 \item Show that the sequence $(x_i)$ is a Cauchy sequence. 
 \item Show that the limit of $(x_i)$ is a point of $\bigcap_{n=1}^\infty U_n$ contained in $B_{r_0}(x_0)$.
 \end{enumerate}
-\end{enumerate}
 
-\bold{Problem C:} Suppose that $(X,d)$ is a (non-empty) complete metric space in which every point is a limit point. Use the Baire Category Theorem to show $X$ is uncountable. 
+\section*{1D: complete perfect MS is unctbl}
+
+Suppose that $(X,d)$ is a (non-empty) complete metric space in which every point is a limit point. Use the Baire Category Theorem to show $X$ is uncountable. 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
