@@ -2,13 +2,11 @@
 
 \usepackage{amsmath}%
 \usepackage{amssymb}%
-\title{Homework 5}
+\title{395 Homework}
 \author{}
-\date{Due Friday September 27 at 7PM (Bonus 24 hours later)}
-
 \begin{document}   
 
-\chapter{hw1}
+\chapter*{Hw 1: about metric spaces}
 
 \section*{Problem A}
 Suppose \((X, d)\) is a metric space. For \(0 < \epsilon < 1\), show that \(d^\epsilon\) is also a metric on \(X\).
@@ -48,7 +46,7 @@ In general, you will have to show your work, but for this first bonus problem yo
 
 
 
-\chapter{hw2}
+\chapter*{Hw 2: about ttl bdd, sup norm and cpt}
 
 \section*{Problem A}
 If \( \|\cdot\| \) is a norm on a vector space \( V \), show that \( d(x, y) = \|x - y\| \) defines a metric on \( V \).
@@ -104,7 +102,7 @@ Show that every separable metric space embeds isometrically into \( \ell^\infty(
 
 
 
-\chapter{hw3}
+\chapter*{Hw 3: about Lipschitz map and Differentiation}
 
 \section*{Problem A}
 Let \( (X_1, d_1) \) and \( (X_2, d_2) \) be two metric spaces. We say that a function \( f : X \to Y \) is Lipschitz with constant \( C \) if for any \( x, y \in X \), we have
@@ -192,7 +190,7 @@ for all \( x, y, z \). The discrete metric, where the distance between any pair 
 
 
 
-\chapter{hw4}
+\chapter*{Hw 4: about partial derivatives}
 
 \section*{Problem A}
 Let \( F : \mathbb{R}^n \to \mathbb{R}^m \) satisfy
@@ -249,7 +247,7 @@ d(x, z) \leq \max(d(x, y), d(y, z)).
 
 
 
-\chapter{hw5}
+\chapter*{Hw 5: about chain rule, prod rule and Taylor's Thm}
 
 \section*{Problem A}
 Let $F : \mathbb{R}^3 \to \mathbb{R}^3$ be defined by
@@ -349,7 +347,7 @@ A real symmetric $n \times n$ matrix $A$ is called positive definite if $x^T A x
 
 You may use without proof that a real symmetric matrix has an orthonormal basis of eigenvectors. A hint for the last part is available on the office door, but as always, try it without first!
 
-\chapter{hw6}
+\chapter*{Hw 6: about IVT}
 
 \noindent
 \textbf{Due:} Friday, October 4 at 7 PM (Bonus 24 hours later)\\
@@ -451,7 +449,7 @@ Let $M_n(\mathbb{R})$ denote the set of $n$-by-$n$ real matrices. It has a topol
     \item Is $\exp$ injective?
 \end{enumerate}
 
-\chapter{hw7}
+\chapter*{Hw 7: about IVT and Implicit Function Thm}
 
 For hints, see office door. But try without the hints first. There are no IBL problems this week.
 
@@ -519,7 +517,7 @@ is convex if and only if the Hessian of $f$ is positive semi-definite at each po
 
 
 
-\chapter{hw8}
+\chapter*{Hw 8: about Implicit Function Thm}
 
 \section*{Problem A}
 Let \( f : \mathbb{R}^3 \to \mathbb{R}^2 \) be of class \( C^1 \) and such that \( f(1, 2, 3) = 0 \) and
@@ -574,7 +572,7 @@ for all \( x, y \in X \).
 
 
 
-\chapter{hw 9}
+\chapter*{Hw 9: about Riemann Integrability}
 
 \section*{Problem A}
 Let $f : X \to Y$ be a function between metric spaces. Show that the set of points at which $f$ is continuous is a countable intersection of open sets.
@@ -616,6 +614,61 @@ For this question, you can use without proof that if $(a, b)$ is an open interva
     \item So in particular, nasty sets like the Cantor set can be level sets of smooth functions. Why doesn’t this contradict the Implicit Function Theorem? What more would you have to assume about $f$ to get that $f^{-1}(0)$ can’t be a nasty set like the Cantor set?
     \item Show that there exist two smooth functions $f, g : \mathbb{R}^2 \to \mathbb{R}$ such that the intersection of their graphs is the Cantor set in the $x$-axis.
 \end{enumerate}
+
+
+
+
+\chapter*{Hw 10: about Fubini's Thm and integrablity}
+
+\section*{Problem A}
+Let $B$ be a box in $\mathbb{R}^n$. Show that if $f, g : B \to \mathbb{R}$ are both integrable, then so is the function $M$ defined by
+\[
+M(x) = \max(f(x), g(x)).
+\]
+
+\section*{Problem B}
+Let $B$ be a box in $\mathbb{R}^n$. Show that if $f : B \to \mathbb{R}$ is integrable, then so is $|f|$ and moreover
+\[
+\int_B f(x) \, dx \leq \int_B |f(x)| \, dx.
+\]
+
+\section*{Problem C}
+\begin{enumerate}
+    \item Prove that there exists a dense subset $S \subset [0, 1]^2$ such that the intersection of $S$ with any vertical line is at most one point, and the intersection of $S$ with any horizontal line is at most one point.
+    \item Let $f(x, y) : [0, 1]^2 \to \mathbb{R}$ be the characteristic function (indicator function) of $S$, i.e. $f(x, y) = 1$ for $(x, y) \in S$ and $0$ otherwise. Show that $f(x, \cdot)$ is an integrable function of $y$, and $f(\cdot, y)$ is an integrable function of $x$, but $f$ is not integrable on $[0, 1]^2$ as a function of two variables.
+\end{enumerate}
+
+\section*{Problem D}
+Let $A$ be an open subset of $\mathbb{R}^2$, and let $f : A \to \mathbb{R}$ be $C^2$. Let $Q$ be a box contained in $A$.
+\begin{enumerate}
+    \item Use Fubini’s Theorem and the Fundamental Theorem of Calculus to show that
+    \[
+    \int_Q \frac{\partial^2}{\partial x \partial y} f(x, y) \, dx \, dy = \int_Q \frac{\partial^2}{\partial y \partial x} f(x, y) \, dy \, dx.
+    \]
+    \item Give a new proof (other than the one given earlier in class) of the equality of mixed partials 
+    \[
+    \frac{\partial^2}{\partial x \partial y} f(x, y) = \frac{\partial^2}{\partial y \partial x} f(x, y).
+    \]
+\end{enumerate}
+
+\section*{Problem E}
+Show that $f : B \to \mathbb{R}$ is Darboux integrable if and only if $f$ is Riemann integrable.
+
+\section*{Problem F}
+Given a function $f : \mathbb{R}^n \to \mathbb{R}$ that is $C^2$ and a $n \times n$ matrix $A$, define a new function by $g(x) = f(Ax)$. Calculate $Dg(0)$ in terms of $Df(0)$ and $A$. Calculate the Hessian of $g$ at 0 in terms of the Hessian of $f$ at 0.
+
+\section*{Problem G}
+Given a function $f : \mathbb{R}^n \to \mathbb{R}$ that is $C^2$, give a formula for the degree two Taylor polynomial of $f$ at 0 in terms of the derivative and Hessian of $f$ at 0.
+
+\section*{Problem I}
+Write up Problem B from IBL Worksheet 8 (on outer regularity).
+
+\section*{Bonus}
+Show that there does not exist a function $f : \mathbb{R} \to \mathbb{R}$ that is discontinuous on the irrationals and continuous on the rationals. (Hint: There is a short solution. You’re welcome to use IBL results if you want to.)
+
+
+
+
 
 
 

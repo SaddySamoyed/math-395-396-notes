@@ -390,17 +390,17 @@
   
 \ifdefstring{\ELEGANT@lang}{cn}{
   \renewcommand{\baselinestretch}{1.3}
-  \renewcommand{\contentsname}{目录}
-  \renewcommand{\figurename}{图}
-  \renewcommand{\tablename}{表}
+  \renewcommand{\contentsname}{Contents}
+  \renewcommand{\figurename}{Figure}
+  \renewcommand{\tablename}{Table}
   \renewcommand{\partname}{\color{structurecolor}}
   \renewcommand{\thepart}{第\zhnumber{\arabic{part}}部分}
   \renewcommand{\listfigurename}{插图目录}
   \renewcommand{\listtablename}{表格目录}
-  \renewcommand{\bibname}{参考文献}
-  \newcommand{\ebibname}{参考文献}
-  \renewcommand{\appendixname}{附录}
-  \renewcommand{\appendixtocname}{附录}
+  \renewcommand{\bibname}{Bibliography}
+  \newcommand{\ebibname}{Bibliography}
+  \renewcommand{\appendixname}{appendix}
+  \renewcommand{\appendixtocname}{appendix}
   \renewcommand{\indexname}{索\hspace{2em}引}
   \newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
@@ -439,7 +439,7 @@
   \setlength\parindent{2em}
   \newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
-  \renewcommand{\chaptername}{Chapter}
+  \renewcommand{\chaptername}{HW}
   \renewcommand{\partname}{\color{structurecolor} Part}
   \newcommand{\authorname}{\textbf{Author: }}
   \newcommand{\institutename}{\textbf{Institute: }}
@@ -1332,3 +1332,134 @@
 
 % restore the tt default family to lmodern tt family
 \renewcommand\ttdefault{lmtt}
+
+
+
+
+\newcommand{\red}{\color{black}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\black}{\color{black}}
+
+%%%%%%%%%%%%%%%%%%%
+% NEW COMMANDS
+%%%%%%%%%%%%%%%%%%%
+\newcommand{\nc}{\newcommand}
+\newcommand{\rnc}{\renewcommand}
+% other
+\newcommand{\e}{\varepsilon}
+% annotation
+%\usepackage[marginpar=2.5cm]{geometry}
+%\newcommand{\ann}[1]{\marginpar{\tiny{#1}}}
+% emphbold
+%\newcommand{\eb}[1]{\emph{\textbf{#1}}}
+
+%%%%%%%%%%%%%%%%%%%
+% STANDARD FONTS
+%%%%%%%%%%%%%%%%%%%
+% mathbb
+\nc\bA{\mathbb{A}}
+\nc\bB{\mathbb{B}}
+\nc\bC{\mathbb{C}}
+\nc\bD{\mathbb{D}}
+\nc\bE{\mathbb{E}}
+\nc\bF{\mathbb{F}}
+\nc\bG{\mathbb{G}}
+\nc\bH{\mathbb{H}}
+\nc\bI{\mathbb{I}}
+\nc{\bJ}{\mathbb{J}}
+\nc\bK{\mathbb{K}}
+\nc\bL{\mathbb{L}}
+\nc\bM{\mathbb{M}}
+\nc\bN{\mathbb{N}}
+\nc\bO{\mathbb{O}}
+\nc\bP{\mathbb{P}}
+\nc\bQ{\mathbb{Q}}
+\nc\bR{\mathbb{R}}
+\nc\bS{\mathbb{S}}
+\nc\bT{\mathbb{T}}
+\nc\bU{\mathbb{U}}
+\nc\bV{\mathbb{V}}
+\nc\bW{\mathbb{W}}
+\nc\bY{\mathbb{Y}}
+\nc\bX{\mathbb{X}}
+\nc\bZ{\mathbb{Z}}
+% mathcal
+\nc\cA{\mathcal{A}}
+\nc\cB{\mathcal{B}}
+\nc\cC{\mathcal{C}}
+\nc\cD{\mathcal{D}}
+\nc\cE{\mathcal{E}}
+\nc\cF{\mathcal{F}}
+\nc\cG{\mathcal{G}}
+\nc\cH{\mathcal{H}}
+\nc\cI{\mathcal{I}}
+\nc{\cJ}{\mathcal{J}}
+\nc\cK{\mathcal{K}}
+\nc\cL{\mathcal{L}}
+\nc\cM{\mathcal{M}}
+\nc\cN{\mathcal{N}}
+\nc\cO{\mathcal{O}}
+\nc\cP{\mathcal{P}}
+\nc\cQ{\mathcal{Q}}
+\nc\cR{\mathcal{R}}
+\nc\cS{\mathcal{S}}
+\nc\cT{\mathcal{T}}
+\nc\cU{\mathcal{U}}
+\nc\cV{\mathcal{V}}
+\nc\cW{\mathcal{W}}
+\nc\cY{\mathcal{Y}}
+\nc\cX{\mathcal{X}}
+\nc\cZ{\mathcal{Z}}
+% mathbf
+\nc\bfA{\mathbf{A}}
+\nc\bfB{\mathbf{B}}
+\nc\bfC{\mathbf{C}}
+\nc\bfD{\mathbf{D}}
+\nc\bfE{\mathbf{E}}
+\nc\bfF{\mathbf{F}}
+\nc\bfG{\mathbf{G}}
+\nc\bfH{\mathbf{H}}
+\nc\bfI{\mathbf{I}}
+\nc{\bfJ}{\mathbf{J}}
+\nc\bfK{\bk}
+\nc\bfL{\mathbf{L}}
+\nc\bfM{\mathbf{M}}
+\nc\bfN{\mathbf{N}}
+\nc\bfO{\mathbf{O}}
+\nc\bfP{\mathbf{P}}
+\nc\bfQ{\mathbf{Q}}
+\nc\Q{\mathbf{Q}}
+\nc\bfR{\mathbf{R}}
+\nc\R{\mathbf{R}}
+\nc\bfS{\mathbf{S}}
+\nc\bfT{\mathbf{T}}
+\nc\bfU{\mathbf{U}}
+\nc\bfV{\mathbf{V}}
+\nc\bfW{\mathbf{W}}
+\nc\bfY{\mathbf{Y}}
+\nc\bfX{\mathbf{X}}
+\nc\bfZ{\mathbf{Z}}
+\nc\Z{\mathbf{Z}}
+
+% mathfrak
+\nc\mfS{\mathfrak{S}}
+\nc\mfg{\mathfrak{g}}
+
+
+\renewcommand{\bold}[1]{\medskip \noindent {\bf #1 }\nopagebreak}
+
+%%%%%%%%%%%%%%%%%%%
+% MATH OPERATORS
+%%%%%%%%%%%%%%%%%%%
+\nc{\dmo}{\DeclareMathOperator}
+\nc{\wt}{\widetilde}
+\nc{\wh}{\widehat}
+\rnc{\Re}{\operatorname{Re}}
+\rnc{\Im}{\operatorname{Im}}
+\dmo{\Hom}{Hom}
+\dmo{\Id}{Id}
+\dmo{\cone}{cone}
+\dmo{\diam}{diam}
+\dmo{\sys}{sys}
+\dmo{\Link}{Link}
+\dmo{\Cay}{Cay}

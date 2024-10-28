@@ -1,228 +1,17 @@
-
-\documentclass[12pt]{amsart}
-
-\usepackage{enumitem, mathabx}
-\usepackage[hidelinks]{hyperref}
-\usepackage{todonotes, wasysym}
-
-\usepackage{import}
-\usepackage{xifthen}
-\usepackage{pdfpages}
-\usepackage{transparent}
-\usepackage{graphics}
-\usepackage{caption}
-\usepackage{mathrsfs}
-\usepackage{mathtools}
-\usepackage{subcaption}
-\usepackage{overpic}
-\usepackage{amsthm, thmtools}
-\usepackage{thm-restate}
-\usepackage{tikz-cd}
-\usepackage{bm}
-\usepackage[margin=3cm]{geometry}
-\newcommand*{\incfig}[2][1]{%
-    \def\svgscale{#1}
-    \import{./Class 4 images/}{#2.tex}
-}
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{fact}[theorem]{Fact}
-\newtheorem{observation}[theorem]{Observation}
-
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{xca}{Optional Exercise}
-
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{question}[theorem]{Question}
-\newtheorem{problem}[theorem]{Problem}
-
-%%%%%%%%%%%%%%%%%%%
-% NEW COMMANDS
-%%%%%%%%%%%%%%%%%%%
-\newcommand{\nc}{\newcommand}
-\newcommand{\rnc}{\renewcommand}
-% other
-\newcommand{\e}{\varepsilon}
-% annotation
-%\usepackage[marginpar=2.5cm]{geometry}
-%\newcommand{\ann}[1]{\marginpar{\tiny{#1}}}
-% emphbold
-%\newcommand{\eb}[1]{\emph{\textbf{#1}}}
-
-\newcommand{\red}{\color{black}}
-\newcommand{\blue}{\color{blue}}
-\newcommand{\black}{\color{black}}
-
-%%%%%%%%%%%%%%%%%%%
-% STANDARD FONTS
-%%%%%%%%%%%%%%%%%%%
-% mathbb
-\nc\bA{\mathbb{A}}
-\nc\bB{\mathbb{B}}
-\nc\bC{\mathbb{C}}
-\nc\bD{\mathbb{D}}
-\nc\bE{\mathbb{E}}
-\nc\bF{\mathbb{F}}
-\nc\bG{\mathbb{G}}
-\nc\bH{\mathbb{H}}
-\nc\bI{\mathbb{I}}
-\nc{\bJ}{\mathbb{J}}
-\nc\bK{\mathbb{K}}
-\nc\bL{\mathbb{L}}
-\nc\bM{\mathbb{M}}
-\nc\bN{\mathbb{N}}
-\nc\bO{\mathbb{O}}
-\nc\bP{\mathbb{P}}
-\nc\bQ{\mathbb{Q}}
-\nc\bR{\mathbb{R}}
-\nc\bS{\mathbb{S}}
-\nc\bT{\mathbb{T}}
-\nc\bU{\mathbb{U}}
-\nc\bV{\mathbb{V}}
-\nc\bW{\mathbb{W}}
-\nc\bY{\mathbb{Y}}
-\nc\bX{\mathbb{X}}
-\nc\bZ{\mathbb{Z}}
-% mathcal
-\nc\cA{\mathcal{A}}
-\nc\cB{\mathcal{B}}
-\nc\cC{\mathcal{C}}
-\nc\cD{\mathcal{D}}
-\nc\cE{\mathcal{E}}
-\nc\cF{\mathcal{F}}
-\nc\cG{\mathcal{G}}
-\nc\cH{\mathcal{H}}
-\nc\cI{\mathcal{I}}
-\nc{\cJ}{\mathcal{J}}
-\nc\cK{\mathcal{K}}
-\nc\cL{\mathcal{L}}
-\nc\cM{\mathcal{M}}
-\nc\cN{\mathcal{N}}
-\nc\cO{\mathcal{O}}
-\nc\cP{\mathcal{P}}
-\nc\cQ{\mathcal{Q}}
-\nc\cR{\mathcal{R}}
-\nc\cS{\mathcal{S}}
-\nc\cT{\mathcal{T}}
-\nc\cU{\mathcal{U}}
-\nc\cV{\mathcal{V}}
-\nc\cW{\mathcal{W}}
-\nc\cY{\mathcal{Y}}
-\nc\cX{\mathcal{X}}
-\nc\cZ{\mathcal{Z}}
-% mathbf
-\nc\bfA{\mathbf{A}}
-\nc\bfB{\mathbf{B}}
-\nc\bfC{\mathbf{C}}
-\nc\bfD{\mathbf{D}}
-\nc\bfE{\mathbf{E}}
-\nc\bfF{\mathbf{F}}
-\nc\bfG{\mathbf{G}}
-\nc\bfH{\mathbf{H}}
-\nc\bfI{\mathbf{I}}
-\nc{\bfJ}{\mathbf{J}}
-\nc\bfK{\bk}
-\nc\bfL{\mathbf{L}}
-\nc\bfM{\mathbf{M}}
-\nc\bfN{\mathbf{N}}
-\nc\bfO{\mathbf{O}}
-\nc\bfP{\mathbf{P}}
-\nc\bfQ{\mathbf{Q}}
-\nc\Q{\mathbf{Q}}
-\nc\bfR{\mathbf{R}}
-\nc\R{\mathbf{R}}
-\nc\bfS{\mathbf{S}}
-\nc\bfT{\mathbf{T}}
-\nc\bfU{\mathbf{U}}
-\nc\bfV{\mathbf{V}}
-\nc\bfW{\mathbf{W}}
-\nc\bfY{\mathbf{Y}}
-\nc\bfX{\mathbf{X}}
-\nc\bfZ{\mathbf{Z}}
-\nc\Z{\mathbf{Z}}
-
-% mathfrak
-\nc\mfS{\mathfrak{S}}
-\nc\mfg{\mathfrak{g}}
-
-
-\renewcommand{\bold}[1]{\medskip \noindent {\bf #1 }\nopagebreak}
-
-%%%%%%%%%%%%%%%%%%%
-% MATH OPERATORS
-%%%%%%%%%%%%%%%%%%%
-\nc{\dmo}{\DeclareMathOperator}
-\nc{\wt}{\widetilde}
-\nc{\wh}{\widehat}
-\rnc{\Re}{\operatorname{Re}}
-\rnc{\Im}{\operatorname{Im}}
-\dmo{\Hom}{Hom}
-\dmo{\Id}{Id}
-\dmo{\cone}{cone}
-\dmo{\diam}{diam}
-\dmo{\sys}{sys}
-\dmo{\Link}{Link}
-\dmo{\Cay}{Cay}
-
-
-\title{Math 395 IBL Unofficial Solutions}
-
+\documentclass[lang=cn,11pt]{template}
+\usepackage{amsmath}%
+\usepackage{amssymb}%
+\usepackage[UTF8]{ctex}
+\title{395 IBL}
 
 \begin{document}
-\maketitle
-\thispagestyle{empty}
-
-\thispagestyle{empty}
-%%%%%%%%%%%%%%%%%%%
-% TABLE OF CONTENTS
-%%%%%%%%%%%%%%%%%%%
-% allows subsections (depth 1) to be displayed in table of contents
-
-This is a completely unofficial document, created to allow students to share IBL solutions with each other. The solutions will not be checked by the instructor. 
-
-\vfill
-
-If you want to share a solution with your classmates, please type your solution beginning with the following: 
-
-\bold{Solution by [insert name] (UM ID (start of email address)), last updated [insert date]:}
-
-For example:
-
-\bold{Solution by Alex Wright (alexmw), last updated Oct 22:}
-
-\vfill
-
-It is ok to have more than one solution. If there is already a solution and you'd like to type another just type yours after the existing solutions. 
-
-\vfill
-
-If you have a question about a solution you can try emailing the student who wrote it; and if that doesn't work you can annotate the solution like this. \todo{Alex Oct 22: I don't see why A implies B.} You should clean up / remove your old annotations once they're addressed. 
-
-\vfill
-
-Do not post solutions to questions that are on the HW before the HW is due. 
-
-\vfill
-
-\thispagestyle{empty}
-
-\newpage
-
+\frontmatter
 \tableofcontents
+\mainmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 1}
+\chapter{Baire Category Theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -246,11 +35,12 @@ is not the closure of $B_r(x)$.
 
 The Baire Category Theorem states the following: 
 
-\begin{thm}
-Let $(X,d)$ be a complete metric space, and let $(U_n)_{n=1}^\infty$ be a sequence of open dense sets in $X$. Then 
+\begin{theorem}
+    Let $(X,d)$ be a complete metric space, and let $(U_n)_{n=1}^\infty$ be a sequence of open dense sets in $X$. Then 
 $$\bigcap_{n=1}^\infty U_n$$
 is dense in $X$. 
-\end{thm}
+\end{theorem}
+
 
 \begin{enumerate}
 \item Show that this is false without the assumption of completeness by considering the rationals with the usual metric. 
@@ -269,7 +59,7 @@ $$\overline{B_{r_{i+1}} (x_{i+1})} \subset B_{r_i}(x_i) \cap U_{i+1}.$$
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 2}
+\chapter{Tempt to define measure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -328,7 +118,7 @@ Banach-Tarski tells us that we can split the unit ball in $\R^3$ into finitely m
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 3}
+\chapter{Pixel measure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -397,7 +187,7 @@ Find a subset $E$ of $\R$ such that both $m_{\mathrm{pixel}}(E)$ and $m_{\mathrm
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 4}
+\chapter{Jordan measure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -460,7 +250,7 @@ From this we conclude that some familiar sets like triangles in $\R^2$ and balls
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 5}
+\chapter{Jordan measurability and Riemann Integrability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -494,7 +284,7 @@ We define the lower and upper Darboux integrals respectively as
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 6}
+\chapter{Lebesgue outer measure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -559,7 +349,7 @@ where the union above is taken over boxes $B_j \subset \R^d$. This is the Lebesg
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 7}
+\chapter{Lebesgue measurability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -603,14 +393,52 @@ By the monotinicity of Legesgue outer measure, it suffices to prove: the Lebesgu
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 8}
+\chapter{outer regularity}
+Recall:
+The Lebesgue outer measure of $E \subset \mathbb{R}^d$ is
+
+\[
+m^*(E) = \inf_{E \subset \bigcup_{j=1}^{\infty} B_j} \sum_{j=1}^{\infty} |B_j|
+\]
+
+where the union above is taken over boxes $B_j \subset \mathbb{R}^d$. A set $E \subset \mathbb{R}^d$ is said to be Lebesgue measurable if for every $\varepsilon > 0$, there exists an open set $U \subset \mathbb{R}^d$ containing $E$ such that 
+
+\[
+m^*(U \setminus E) \leq \varepsilon.
+\]
+
+If $E$ is measurable, we refer to $m(E) = m^*(E)$ as the Lebesgue measure of $E$.
+
+So far, you've proved monotonicity and countable sub-additivity; the Lebesgue measure agrees with elementary measure on elementary sets; and that $m^*$ lies between Jordan inner and outer measure. You also understood Lebesgue measure for countable unions of almost disjoint boxes, where the Lebesgue measure is the sum of the volumes of the boxes.
+
+\subsection*{Problem A:} 
+Show that any open subset $E$ of $\mathbb{R}^d$ can be written as the countable union of almost disjoint boxes (even countable union of almost disjoint closed cubes).
+
+\subsection*{Problem B:} 
+Let $E \subset \mathbb{R}^d$ be an arbitrary set. Show that
+
+\[
+m^*(E) = \inf_{E \subset U, \, U \text{ open}} m^*(U).
+\]
+
+This is called outer regularity.
+
+\subsection*{Problem C:} 
+Give an example of a set $E \subset \mathbb{R}^d$ such that the reverse statement
+
+\[
+m^*(E) = \sup_{U \subset E, \, U \text{ open}} m^*(U)
+\]
+
+is false. (We will see that the right version of inner regularity is obtained by approximating the set $E$ by compact sets contained in it.)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Worksheet 9}
+\chapter{WS 9}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
