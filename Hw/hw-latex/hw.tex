@@ -1,10 +1,15 @@
-\documentclass[lang=en,11pt]{template}
+\documentclass[lang=cn,11pt]{template}
 
 \usepackage{amsmath}%
 \usepackage{amssymb}%
 \title{395 Homework}
-\author{}
+\author{Qiulin Fan}
 \begin{document}   
+\frontmatter
+\tableofcontents
+\mainmatter
+
+
 
 \chapter*{Hw 1: about metric spaces}
 
@@ -618,53 +623,212 @@ For this question, you can use without proof that if $(a, b)$ is an open interva
 
 
 
-\chapter*{Hw 10: about Fubini's Thm and integrablity}
+\chapter{HW 10}
 
-\section*{Problem A}
-Let $B$ be a box in $\mathbb{R}^n$. Show that if $f, g : B \to \mathbb{R}$ are both integrable, then so is the function $M$ defined by
+\section*{Problem A: Integrability of the Maximum Function}
+Let \( B \) be a box in \( \mathbb{R}^n \). Show that if \( f, g : B \rightarrow \mathbb{R} \) are both integrable, then so is the function \( M \) defined by
 \[
 M(x) = \max(f(x), g(x)).
 \]
 
-\section*{Problem B}
-Let $B$ be a box in $\mathbb{R}^n$. Show that if $f : B \to \mathbb{R}$ is integrable, then so is $|f|$ and moreover
+\section*{Problem B: Integrability of Absolute Value}
+Let \( B \) be a box in \( \mathbb{R}^n \). Show that if \( f : B \rightarrow \mathbb{R} \) is integrable, then so is \( |f| \) and moreover
 \[
 \int_B f(x) \, dx \leq \int_B |f(x)| \, dx.
 \]
 
-\section*{Problem C}
+\section*{Problem C: Dense Subset and Non-Integrability}
 \begin{enumerate}
-    \item Prove that there exists a dense subset $S \subset [0, 1]^2$ such that the intersection of $S$ with any vertical line is at most one point, and the intersection of $S$ with any horizontal line is at most one point.
-    \item Let $f(x, y) : [0, 1]^2 \to \mathbb{R}$ be the characteristic function (indicator function) of $S$, i.e. $f(x, y) = 1$ for $(x, y) \in S$ and $0$ otherwise. Show that $f(x, \cdot)$ is an integrable function of $y$, and $f(\cdot, y)$ is an integrable function of $x$, but $f$ is not integrable on $[0, 1]^2$ as a function of two variables.
+    \item Prove that there exists a dense subset \( S \subset [0, 1]^2 \) such that the intersection of \( S \) with any vertical line is at most one point, and the intersection of \( S \) with any horizontal line is at most one point.
+    \item Let \( f(x, y) : [0, 1]^2 \rightarrow \mathbb{R} \) be the characteristic function of \( S \) (i.e., \( f(x, y) = 1 \) for \( (x, y) \in S \) and 0 otherwise). Show that \( f(x, \cdot) \) is an integrable function of \( y \) and \( f(\cdot, y) \) is an integrable function of \( x \), but \( f \) is not integrable on \( [0, 1]^2 \) as a function of two variables.
 \end{enumerate}
 
-\section*{Problem D}
-Let $A$ be an open subset of $\mathbb{R}^2$, and let $f : A \to \mathbb{R}$ be $C^2$. Let $Q$ be a box contained in $A$.
+\section*{Problem D: Equality of Mixed Partials}
+Let \( A \) be an open subset of \( \mathbb{R}^2 \); and let \( f : A \rightarrow \mathbb{R} \) be \( C^2 \). Let \( Q \) be a box contained in \( A \).
 \begin{enumerate}
     \item Use Fubini’s Theorem and the Fundamental Theorem of Calculus to show that
     \[
     \int_Q \frac{\partial^2}{\partial x \partial y} f(x, y) \, dx \, dy = \int_Q \frac{\partial^2}{\partial y \partial x} f(x, y) \, dy \, dx.
     \]
-    \item Give a new proof (other than the one given earlier in class) of the equality of mixed partials 
-    \[
-    \frac{\partial^2}{\partial x \partial y} f(x, y) = \frac{\partial^2}{\partial y \partial x} f(x, y).
-    \]
+    \item Provide a new proof (other than the one given in class) of the equality of mixed partials \( \frac{\partial^2}{\partial x \partial y} f(x, y) = \frac{\partial^2}{\partial y \partial x} f(x, y) \).
 \end{enumerate}
 
-\section*{Problem E}
-Show that $f : B \to \mathbb{R}$ is Darboux integrable if and only if $f$ is Riemann integrable.
+\section*{Problem E: Darboux and Riemann Integrability Equivalence}
+Show that \( f : B \rightarrow \mathbb{R} \) is Darboux integrable if and only if \( f \) is Riemann integrable.
 
-\section*{Problem F}
-Given a function $f : \mathbb{R}^n \to \mathbb{R}$ that is $C^2$ and a $n \times n$ matrix $A$, define a new function by $g(x) = f(Ax)$. Calculate $Dg(0)$ in terms of $Df(0)$ and $A$. Calculate the Hessian of $g$ at 0 in terms of the Hessian of $f$ at 0.
+\section*{Problem F: Gradient and Hessian Transformations under Linear Map}
+Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \) and an \( n \times n \) matrix \( A \), define a new function \( g(x) = f(Ax) \). Calculate \( Dg(0) \) in terms of \( Df(0) \) and \( A \). Also, calculate the Hessian of \( g \) at 0 in terms of the Hessian of \( f \) at 0.
+\begin{proof}
+    注意到:
+    $$
+    (H_f)_{\text{row i}} = D \frac{\partial f}{\partial x_i}
+    $$
+    这里我们用到 chain rule 的一个平凡 corollary:
+    $$
+    \frac{\partial u}{\partial x_i} = \sum_i \frac{\partial u}{\partial y_j} \frac{\partial y_j}{\partial x_i}
+    $$
+\end{proof}
 
-\section*{Problem G}
-Given a function $f : \mathbb{R}^n \to \mathbb{R}$ that is $C^2$, give a formula for the degree two Taylor polynomial of $f$ at 0 in terms of the derivative and Hessian of $f$ at 0.
+\section*{Problem G: Degree Two Taylor Polynomial}
+Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \), give a formula for the degree two Taylor polynomial of \( f \) at 0 in terms of the derivative and Hessian of \( f \) at 0.
 
-\section*{Problem I}
-Write up Problem B from IBL Worksheet 8 (on outer regularity).
 
-\section*{Bonus}
-Show that there does not exist a function $f : \mathbb{R} \to \mathbb{R}$ that is discontinuous on the irrationals and continuous on the rationals. (Hint: There is a short solution. You’re welcome to use IBL results if you want to.)
+
+\section*{Bonus: Discontinuity on Irrationals and Continuity on Rationals}
+Show that there does not exist a function \( f : \mathbb{R} \rightarrow \mathbb{R} \) that is discontinuous on the irrationals and continuous on the rationals.
+
+
+
+
+
+
+\chapter{Hw 11}
+
+\section*{Problem A: Taylor Polynomial and Linear Transformation}
+Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \) and satisfies \( Df(0) = 0 \), show that there exists an invertible \( n \times n \) matrix such that the function \( g(x) = f(Ax) \) has a degree two Taylor polynomial at 0 of the form
+\[
+C + \sum a_i x_i^2
+\]
+where each \( a_i \) is a real number and \( C \) is a constant.
+
+\section*{Problem B: Summation of Doubly Infinite Sequence}
+Let \( a : \mathbb{N}^2 \rightarrow \mathbb{R}^+ \) be a non-negative doubly infinite sequence with \( a_{n,m} \) as the \((n,m)\) term. Show that
+\[
+\sum_{(n,m) \in \mathbb{N}^2} a_{n,m} = \sum_{n \in \mathbb{N}} \sum_{m \in \mathbb{N}} a_{n,m}.
+\]
+
+\section*{Problem C: Semiring Structure}
+Check that \( \mathbb{R} = [0, \infty) \cup \{\infty\} \) is a semiring, with the expected definitions of addition and multiplication, and the definition \( 0 \cdot \infty = 0 \).
+
+\section*{Problem D: Upper Semi-Continuity of Oscillation}
+Let \( X \) be a metric space. A function \( f : X \rightarrow \mathbb{R} \) is upper semi-continuous at \( x_0 \) if
+\[
+\limsup_{x \rightarrow x_0} f(x) \leq f(x_0).
+\]
+Show that if \( g : \mathbb{R} \rightarrow \mathbb{R} \) is a bounded function, then \( x \mapsto \operatorname{osc} g(x) \) is upper semi-continuous.
+
+\section*{Problem E: Compact Regions and Fubini's Theorem}
+Consider a region \( S \subset \mathbb{R}^{n+1} \) that is simple if there exists a compact Jordan measurable set \( C \) and two bounded continuous functions \( \varphi, \psi : C \rightarrow \mathbb{R} \) such that
+\[
+S = \{ (x, t) \in \mathbb{R}^n \times \mathbb{R} : x \in C; \varphi(x) \leq t \leq \psi(x) \}.
+\]
+
+\section*{Problem F: Integrability Over Open Sets}
+Let \( A \) be an open subset of \( \mathbb{R}^n \), and let \( f : A \rightarrow \mathbb{R} \) be continuous. Prove that \( \int_A f \) exists in the extended sense if and only if \( \int_{U_N} |f| \) is bounded, where \( U_1 \subset U_2 \subset \dots \) is a sequence of open sets whose union is \( A \).
+
+\section*{Problem G: Integrability of Functions over Specified Sets}
+For each function \( f \) and set \( A \), determine whether \( f \) is integrable over \( A \) and calculate \( \int_A f \).
+
+\section*{Problem H: Jordan Measurability and Measure Calculation}
+Show that the set
+\[
+\{ (x_1, \dots, x_n) \in [0, 1]^n : \sum x_i \leq 1 \}
+\]
+is Jordan measurable and compute its measure.
+
+\section*{Problem I: Independent Learning Exercise 9C}
+Write up the solution for Independent Learning Exercise 9C.
+
+\section*{Problem J: Independent Learning Exercise 9D}
+Write up the solution for Independent Learning Exercise 9D.
+
+\section*{Bonus: Nowhere Dense Subset with Positive Measure}
+Construct a closed, nowhere dense subset of \([0,1]\) that does not have measure 0.
+
+
+
+
+
+
+
+
+\chapter{HW 12}
+
+\section*{Problem A: Integration on Bounded Sets}
+Let \( S \) be a bounded set in \( \mathbb{R}^n \), and let \( f : S \rightarrow \mathbb{R} \) be a bounded function; let \( A = \text{Int}(S) \) be the interior of \( S \). Suppose that \( f \) is integrable on \( S \).
+
+1. Show that \( f \) is integrable on \( A \) and that
+   \[
+   \int_A f = \int_S f.
+   \]
+
+2. Deduce that if \( S \) is Jordan measurable, then \( A \) is Jordan measurable as well and \( m(A) = m(S) \).
+
+Warning: \( A \) is always Lebesgue measurable, since \( A \) is open and open sets are Lebesgue measurable. However, for example, when \( S = [0, 1] \setminus \mathbb{Q} \), it’s possible to have \( S \) Lebesgue measurable but for \( A \) and \( S \) to have different Lebesgue measures. Such examples must have \( S \) not Jordan measurable.
+
+\section*{Problem B: Volume of Balls in \( \mathbb{R}^n \)}
+Let \( B^n_a(x) \) denote the ball in \( \mathbb{R}^n \) centered at \( x \) and radius \( a \).
+
+1. Show that
+   \[
+   \text{vol}(B^n_a(x)) = \Gamma_n a^n
+   \]
+   where \( \Gamma_n = \text{vol}(B^n_0(1)) \).
+
+2. What is \( \Gamma_1 \) and \( \Gamma_2 \)?
+
+3. Compute \( \Gamma_n \) in terms of \( \Gamma_{n-2} \), and deduce a formula for \( \Gamma_n \) for any \( n \).
+
+Just for fun, don’t hand it in: As the dimension gets large, what happens to the volume of the unit ball divided by the volume of \( [-1, 1]^n \) (the smallest box containing the unit ball)? If you pick a point at random in the box, is it likely to be in the ball?
+
+\section*{Problem C: Volume of a Cone Over an Open Set}
+Let \( A \) be an open Jordan measurable set in \( \mathbb{R}^{n-1} \). Given a point \( p \in \mathbb{R}^n \) with \( p_n > 0 \), let \( S \) be the subset of \( \mathbb{R}^n \) defined by
+\[
+S = \{ (1 - t)a + tp : a \in A \times \{0\}, 0 < t < 1 \}.
+\]
+(S is the union of all open line segments in \( \mathbb{R}^n \) joining \( p \) to points of \( A \times \{0\} \). You might think of it as a cone over \( A \).)
+
+1. Define a diffeomorphism \( g \) of \( A \times (0, 1) \) with \( S \).
+
+2. Find the volume of \( S \) in terms of the area of \( A \).
+
+\section*{Problem D: Volume of an Ellipsoid}
+Compute the volume inside the ellipsoid
+\[
+\frac{(x - u)^2}{a^2} + \frac{(y - v)^2}{b^2} + \frac{(z - w)^2}{c^2} = 1
+\]
+where \( a, b, c > 0 \) and \( u, v, w \in \mathbb{R} \).
+
+\section*{Problem E: Volume of a Solid Bounded by a Surface and Plane}
+Compute the volume of the solid in \( \mathbb{R}^3 \) bounded below by the surface \( z = x^2 + 2y^2 \) and above by the plane \( z = 2x + 6y + 1 \).
+
+\section*{Problem F: Gaussian Integral}
+Evaluate
+\[
+\int_{-\infty}^{\infty} e^{-x^2} \, dx.
+\]
+
+\section*{Problem G: Integrability of \( |x|^e \) Over the Unit Ball and Its Complement}
+For which exponents \( e \in \mathbb{R} \) is \( f(x) = |x|^e \) integrable over the unit ball in \( \mathbb{R}^n \)? For which exponents is it integrable over the complement of the closed unit ball?
+
+\section*{Problem I: Write-up of IBL10A}
+Write up IBL10A.
+
+\section*{Problem J: Write-up of IBL10C}
+Write up IBL10C.
+
+\section*{Bonus: Proving a Case of Sard’s Theorem}
+The purpose of this bonus is to prove the easiest case of Sard’s Theorem, a central tool in the study of manifolds.
+
+1. If \( f : \mathbb{R} \rightarrow \mathbb{R} \) is continuous and \( I \) is a compact interval, then \( f(I) \) is a compact interval. (You don’t need to prove this; it follows easily from the fact that a continuous image of a compact set is compact and a continuous image of a connected set is connected.) Show that if \( f \) is differentiable with \( |f'| \leq \delta \) on \( I \), then
+   \[
+   |f(I)| \leq \delta |I|,
+   \]
+   where \( |I| \) denotes the length of an interval \( I \).
+
+2. Suppose \( f : \mathbb{R} \rightarrow \mathbb{R} \) is \( C^1 \). Show that
+   \[
+   f(\{x \in \mathbb{R} : f'(x) = 0\})
+   \]
+   has measure zero. You should do this by first showing that for each \( n \),
+   \[
+   f(\{x \in [-n, n] : f'(x) = 0\})
+   \]
+   has measure zero, using that \( f' \) is continuous and hence uniformly continuous on \( [-n, n] \).
+
+
+
+
 
 
 
