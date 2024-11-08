@@ -3,6 +3,8 @@
 \usepackage[UTF8]{ctex}
 \usepackage{amsmath}%
 \usepackage{amssymb}%
+\usepackage{esint}%
+
 
 \title{Math 395: Honor Analysis I}
 \subtitle{Covering Anlysis on Manifold 2-5, instructed by Alex Wright}
@@ -593,6 +595,7 @@ $$
 
 
 
+\section{Implicit Function Thm}
 
 
 
@@ -601,49 +604,341 @@ $$
 
 
 
-\chapter{IBL All}
 
-\section{IBL1: density and Baire Category Theory}
 
+
+
+\chapter{Integration}
+\section{Riemann Integrability over a box}
+
+
+
+\section{Lebesgue's Characterization of Riemann integrable functions over a box}
+
+
+
+
+\section{Fubini's Thm}
+\begin{theorem}{Fubini's Thm}\label{Fubini's Thm}
+    Conditions:\\
+    (1) Let $Q = A \times B$, 其中 $A \subseteq \bR^k$, $B \subseteq \bR^l$ 都是 boxes.\\
+    (2) Let $f: Q \rightarrow \bR$ be bounded.\\
+    
+    Statement: \\
+    If $f$ Riem intable over $Q$, 那么 
+    $$
+    \ul{I}: x \mapsto \underline{\int_B} f(x,y) dy
+    $$
+    以及 
+    $$
+    \ol{I}:  x \mapsto \overline{\int_B} f(x,y) dy
+    $$
+    都是 \textbf{Riem intble over A} 的，并且有 
+
+    $$
+    \int_Q f = \int_A \underline{\int_B} f(x,y) \,dy \,dx = \int_A \overline{\int_B} f(x,y) \,dy \,dx
+    $$
+    
+\end{theorem}
+\begin{proof}
+    一个 partition $P$ 一定可以分为 $P = (P_A, P_B)$, 它的每个 subbox $R = R_A \times R_B$.\\
+    对于一个 $R$, 任取 $x_0 \in R_A$, 我们都有 $$m_R(f) \leq m_{R_B} f(x_0, \cdot)$$\\
+    Summing over all $R_B \in P_B$, 我们有: 任取 $x_0 \in R_A$, 
+    $$
+    \sum_{R_B \in P_B} m_{R_A \times R_B} (f) v(R_B) \leq \sum_{R_B \in P_B} m_{R_B}(f(x_0, \cdot)) v(R_B) = L(f(x,\cdot), P_B) \leq I(x)
+    $$
+    Taking the inf over all possible $x_0$,
+    $$
+     \sum_{R_B \in P_B} m_{R_A \times R_B} f v(R_B) \leq m_{R_A}(\ul{I})
+    $$
+    而后 sum over all possible $R_A$, 得到:
+    $$
+    L(f,P) \leq L(\ul{I}, P_A)
+    $$
+    于是我们可以把 $L(\ul{I}, P_A), U(\ul{I}, P_A) $ bound 在 $L(f,P), U(f,P)$ 之间. Have four similar arguments. This gives the result.
+\end{proof}
+
+
+
+\subsection{Corollaries}
+
+\begin{corollary}{Corollary 1}
+    Conditions:和 Fubini Thm 相同\\
+    Statement:\\
+    $\int_B f(x,y) dy \;$  exists a.e. on $A$.
+\end{corollary}
 \begin{remark}
-    Fun fact: 在 discrete metric 下，$\mathbb{R}^n$ 中的单位闭球并不是单位球的 closure. 单位球的 closure 是整个 $\mathbb{R}^n$.
+    即 $m (\{ x |  y \mapsto f(x,y) \text{ not intble over B} \}) = 0$ 
 \end{remark}
 
 
-\begin{theorem}{Baire Category Theory} \label{Baire Category Theory}
-    对于一个\textbf{ complete metric space，任意一个 sequence of open dense sets 的序列交还是 dense 的.}
-\end{theorem}
 
-通过 Baire Category Theory 可以证明出一个推论
-\begin{corollary}
-    \textbf{如果一个 complete metric space 自身是一个 perfect set，那么它一定是 uncountable 的. }
-    \\Rmk: perfect set 即它的 limit pts 集合等于它自身
+\begin{corollary}{Corollary 2}{Natural Corollary}
+Conditions: $Q \subseteq \bR ^ n$ 是一个 box.
+
+Statement: 如果 $f: Q \rightarrow \bR$ ctn, 那么
+$$
+\int_Q f = \int^{b_1}_{a_1} \int^{b_2}_{a_2} \cdots \int^{b_n}_{a_n} f \; d x_n \cdots d x_1
+$$
 \end{corollary}
 
-   这个东西看起来非常废话。但是我们在 IBL 2 的 proposition 1 中会发现它有用的（\textbf{Cantor set 就是一个 complete perfect metric space，所以它是 uncountable 的}）
+\begin{proof}
+    平凡推论. ctn 函数, 不论 $Q$ 如何分维度 boxes, 都是 intble 的. 所以 by induction 可以一个一个维度积分.
+\end{proof}
 
 
-\section{IBL 2: 定义 measure 的动机和尝试}
-
-\noindent 我们知道\textbf{ Cantor set 是一个 compact 且 closed 的集合（甚至 perfect }）（并且由于它在  $\mathbb{R}^n$ 中，\textbf{这表示它甚至是一个 complete metric space}）；并且它 uncountable；然而它却不包含任何开区间（我们知道它的 \textbf{Lebesgue measure = 0}）.
-
-\noindent 我们想要测量一个 $\mathbb{R}^n$ 子集的“长度”。我们想要这个测量函数满足：
-
-\begin{enumerate}
-    \item  可数个集合的 measure closed under addition;
-    \item  Congruent (通过 translate 或者旋转或者反射) 的集合的 measure 相同; 
-    \item  精准地测量出 $m([0,1)) = 1$. 
-\end{enumerate}
 
 
-\noindent 但是实际上我们发现不可能存在这样的函数. 
-\noindent 归谬过程：
-   \begin{enumerate}
-       \item   我们把 $[0,1)$ 之间所有可以通过加减有理数得到的元素都归为一个 congurent class (很直观地说，所有的有理数都会进入一个 congruent class，而最简根数不同的无理数以及各种 transcendental numbers 会形成各自的 congruent classes.)
-       \item  把 $[0,1)$ 之间的所有有理数放进一个集合 $R$，在每个 congruent class 中取一个元素，放进一个集合 $N$，我们会发现：任取 $r \in R$，通过把 $N$ 整体地 translate $r$ 个大小并把放不下的放到左边（也就是一个 circular translate），我们得到 $N_r$，会发现 $\bigsqcup_{r} N_r = [0,1)$；并且每个 $N_r$ 的 measure 都是一样的.
-       \item   如果 $m(N)$ 不等于 0，那么 $m([0,1)) = \infty$；如果 $m(N)$ = 0，那么 $m([0,1)) = 0$；
-   \end{enumerate}
 
 
+\section{Riemann Integrability over bounded sets}
+
+\begin{definition}{integral over bounded sets}
+    Conditions:\\
+    (1) $S \sub \bR^n$ bdd, \\
+    (2) $f: S \rightarrow \bR$ bdd\\
+    Define: 
+    $$
+    f_S (x) = \begin{cases}
+        f(x) \; \text{, if } x \in S \\
+        0 \; \text{, else}
+    \end{cases}
+   $$
+   Now we define \textbf{the integral of $f$ over $S$}: 
+   $$
+   \int_S f(x) dx = \int_Q f_S (x) dx
+   $$
+   p.t that $\int_Q f_S (x) dx$ exists.
+\end{definition}
+\begin{remark}
+    我们把 integral 推广到任意 bounded set 上, 通过取一个 $S$ 的 covering box, 并取一个辅助函数, 在 $S$ 上面是 $f$, 在 $S$ 外面是 $0$.\\
+    我们容易提出这一问题: 这个定义成立的前提是, 我们必须确定, 取不同的 covering boxes 得到的这个新函数的积分都是相同的. 下面这个 Lemma 表明了这一点. 
+\end{remark}
+
+\subsection{well-definedness of Riem integral over bdd set}
+\begin{lemma}{The reason why our def of integral over bounded sets is fine:}
+    Conditions:\\
+    (1) $Q, Q' \sub \bR^n$ bdd.\\
+    (2) $f: \bR^n \rar \bR$ supported only on $Q \intsec Q'$.\\
+    Statement:\\
+    (1) $f$ intble over $Q$ $\eq$ $f$ intble over $Q'$ \\
+    并且 (2)
+    $$
+    \int_Q f = \int_{Q'} f 
+    $$
+\end{lemma}
+
+
+
+\subsection{properties of Riem integral over bdd sets}
+\begin{theorem}{properties of Riem integral over bdd sets}
+    Conditions:\\
+    (1) $S \sub \bR^n$ be bdd.\\
+    (2) $f,g: S\rar \bR$ intble.\\
+    Statement:
+    \begin{enumerate}
+        \item \textbf{Linearity of integral and intbility}: 
+        $\forall c \in \bR$, $f + cg$ is also intble, 并且 
+        $$ \int_S (f + cg) = \int_S f + c \int_S g$$
+        \item 
+        $M,m: S \rar \BR $ defined by 
+        $$
+        M: x \mapsto \max{(f(x), g(x))}
+        $$
+        $$
+        m: x \mapsto \min{(f(x), g(x))}
+        $$
+        也是 intble 的.
+
+        \item 
+        $$f \leq g \; \forall x \implies \int_S f \leq \int_S g$$
+
+        \item 
+        $|f|$ 也是 intble 的, 并且 
+        $$
+        |\int_S f | \leq \int_S |f|
+        $$
+
+        \item \textbf{Monotonicity}: Let $T sub S$. If $f$ nonneg 且在 $T$ 上也 intble. Then:
+        $$
+        \int_T f \leq \int_S f
+        $$
+
+        \item \textbf{Additivity}: 
+        $f$ intble on $S_1, S_2$ $\implies$ $f$ intble on $S_1 \union S_2$, $S_1 \intsec S_2$.\\
+        并且有:
+        $$
+        \int_{S_1 \union S_2} = \int_{S_1} f + \int_{S_2} f - \int_{S_1 \intsec S_2} f
+        $$
+
+        \item 对于 \textbf{bdd 且 disjoint} $S_1, \cdots, S_m$, 有:
+        $$
+        \int_{\union_n S_n} f = \sum_n \int_{S_n} f
+        $$
+    \end{enumerate}
+    
+\end{theorem}
+
+
+\subsection{Riem intble on bdd set 的等价条件}
+\begin{remark}
+    我们知道, $f$ intble on $S$ 的条件其实即存在一个 $Q \supset S$ 使得 $m(D_{f_S}) = 0$.\\
+    我们可以把它等价为更加直接的条件:
+\end{remark}
+
+\begin{theorem}{Characterization of Riem Intbility on bdd sets}\label{Characterization of Riem Intbility on bdd sets}
+    Conditions:\\
+    (1) $S \sub \bR^n$ be bdd.\\
+    (2) $f,g: S\rar \bR$ intble.\\
+    Define:\\
+    (1) $D_f = \{x \in S | f \text{ not ctn at } x\}$\\
+    (2) $E = \{ x_0 \in \partial S  | \displaystyle \lim_{x \rar x_0} f(x) \not = 0 \}$
+    \\Then:
+    $$
+    f \text{ Riem intble } \displaystyle\eq m(D_f) = m(E) = 0
+    $$
+\end{theorem}
+\begin{remark}
+    不需要证明. 实际上, 取一个 covering box, 创造出来的新函数的不连续点集比起原来的不连续点集合, 多出来的点的就是这里的 $E$.
+    $$
+    D_{f_S} \slash D_f = E
+    $$
+\end{remark}
+
+
+\begin{theorem}{Jordan measurable 对于 integrability 的意义} \label{equivalent conditions for Jordan-mesurability}
+    Condition: $S \sub \BR^n $ is bdd.\\
+    Statement: TFAE.
+    \begin{enumerate}
+        \item $S$ is Jordan measurable.
+        \item const function $f = 1$ 在 $S$ 上 Riem intble.
+        \item  $m(\partial S) = 0$
+        \item  $\ol{m_J}(\partial S) = 0 $
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    1,3,4 等价 by IBL, 显然.\\
+    证明 2, 3 等价: 考虑 indicator function of S, on 一个任意的包含 S 的 box.
+\end{proof}
+
+\begin{remark}
+Define: 
+$$
+\chi_S (x) = \begin{cases}
+    1 \; , x \in S \\
+    0 \; , x \not\in S
+\end{cases}
+$$
+注意到
+$$
+D_{\chi_S} = \partial S
+$$
+\end{remark}
+
+
+\begin{corollary}{To compute Jordan measure}
+    $S$ Jordan measurable $\implies$ 
+    $$
+    m_J (E) = \int_S 1 
+    $$
+\end{corollary}
+
+
+
+\begin{corollary}
+    $S$ is Jordan measurable $\eq$ all ctn function from $S \rar \bR$ are Riem intble on $S$.
+\end{corollary}
+
+
+
+
+\section{Improper Integrals}
+\begin{definition}{All Jordan measurable sets on $\bR$}
+    记录一些 notations.\\
+    $$
+    \cJ = \{ \text{all Jordan measurable sets on } \bR^n \}
+    $$
+    $$
+    \cJ_c = \{ \text{all Jordan measurable compact sets on } \bR^n \}
+    $$
+\end{definition}
+
+
+\begin{definition}{negative and positive parts of a function}
+    $$
+    f_+ (x) = \max(f(x), 0)
+    $$
+    $$
+    f_- (x) = \max(-f(x), 0)
+    $$
+\end{definition}
+
+\begin{note}
+    $f_+, f_-$ are all non-negative.\\
+    并且有
+    $$
+    f = f_+ - f_-
+    $$
+    $$
+    |f| = f_+ + f_-
+    $$
+\end{note}
+
+
+\begin{remark}
+    如果 $f$ ctn, 那么一定有 $f_+, f_-$ 也 ctn.
+\end{remark}
+
+
+\begin{definition}{extended integral}
+    Condition:\\
+    (1) $A \sub \BR^d$ open.\\
+    (2) $f:A\rar \bR $ ctn.\\
+    Define: the extended integral of $f$ over $A$:
+    Case 1, for non-neg $f$:
+    $$
+    \int_A f = \sup_{D \sub A, D\in \cJ_c} \int_D f
+    $$
+    Case 2, for normal $f$:
+    $$
+    \int_A f = \int_A f_+ + \int_A f_-
+    $$
+\end{definition}
+\begin{remark}
+    extended integral 的理念: 对于任意一个 open set 上的 real-valued 函数, 我们把它的积分定义为这个 open set 包含的所有 compact J-measurable 子集上的函数积分的上确界.\\\\
+    这个 extended def 主要服务于定义域 unbounded 的函数. 我们的 ordinary integral 只 define 在了 bounded set 上, 而我们现在把它扩展到某些 bounded set 上.\\
+    我们施加的额外条件是这个函数连续. 所以现在我们对任何 $\BR^n \rar \bR$ 的连续函数都可以尝试求其 extended integral 是否存在.\\\\
+    而注意到两个问题:\\
+    (1) 这个定义对于 bounded set 上的连续函数也成立. 因而对于 bounded set 上的连续函数, 我们现在有两个积分定义, $ord \int_A f$ 和 $ext \int_A f$. \textbf{我们需要 justify 这两个定义对于这样的函数是等价的.}\\
+    (2) 这个 extended integral 不仅 extend 了积分定义 from bounded set to unbounded set, 并且也扩展了 integrability. 即: \textbf{有些函数可以不是 Riemann integrable 的, 但是 extended integral 却存在.}
+\end{remark}
+
+\begin{example}
+    下面是一个不 Riemann integrable 但是却存在 extended integral 的函数.
+    考虑 $A$ bdd, open, not J-measurable(rectifiable).\\
+    于是 by \ref{equivalent conditions for Jordan-mesurability}, 我们知道 $f(x) = 1, x\in A$ 是 not Riem intble 的.\\
+    但是, by def of extended integral, 它却存在 extended integral.
+\end{example}
+
+\paragraph*{}现在我们 justify 这两个定义对于这样的函数是等价的. 关键在于: 任何 bounded open set 都可以用 compact elementary set 来无限逼近.
+
+\begin{lemma}{open set can be approximated by cpt set}
+    任意 open $A \in \bR^n$, 都有 a seq of compact elementary sets $(C_i)$ s.t. 
+    $$
+    C_i \sub C_{i+1}^{\circ} \forall i
+    $$
+    并且
+    $$
+    A = \bigunion_{i=1}^\infty C_i
+    $$
+\end{lemma}
+
+\begin{remark}
+    我们在 IBL 还有过另外一个 statement: 一个 open set in $\bR^n$ 都是一个 ctbl union of almost disjoint boxes. 这两个 statement 都给出了用 ctbl collection of cpt sets 以至普通的 bounded boxes 来分解 open set 的方法.
+\end{remark}
+
+\begin{proof}
+    
+\end{proof}
 
 \end{document}
