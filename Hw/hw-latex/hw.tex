@@ -712,6 +712,28 @@ Consider a region \( S \subset \mathbb{R}^{n+1} \) that is simple if there exist
 \[
 S = \{ (x, t) \in \mathbb{R}^n \times \mathbb{R} : x \in C; \varphi(x) \leq t \leq \psi(x) \}.
 \]
+Here we assume that \( \phi \leq \psi \) on \( C \).
+
+\begin{enumerate}
+    \item Explain why \( S \) is compact.
+    \item Show that \( \partial S = E_1 \cup E_2 \cup E_3 \) where
+    \[
+    E_1 = \{ (x, t) \in \mathbb{R}^n \times \mathbb{R} : x \in \partial C; \phi(x) \leq t \leq \psi(x) \},
+    \]
+    \[
+    E_2 = \{ (x, t) \in \mathbb{R}^n \times \mathbb{R} : x \in C; t = \phi(x) \},
+    \]
+    \[
+    E_3 = \{ (x, t) \in \mathbb{R}^n \times \mathbb{R} : x \in C; t = \psi(x) \}.
+    \]
+    \item Show that \( E_1, E_2, E_3 \) all have Lebesgue measure 0.
+    \item Conclude that \( S \) is Jordan measurable.
+    \item Prove Fubini's theorem for simple regions: Let \( f : S \to \mathbb{R} \) be a continuous function. Then \( f \) is integrable over \( S \), and
+    \[
+    \int_S f = \int_C \left( \int_{t = \phi(x)}^{t = \psi(x)} f(x, t) \, dt \right) dx.
+    \]
+\end{enumerate}
+
 
 \section*{Problem F: Integrability Over Open Sets}
 Let \( A \) be an open subset of \( \mathbb{R}^n \), and let \( f : A \rightarrow \mathbb{R} \) be continuous. Prove that \( \int_A f \) exists in the extended sense if and only if \( \int_{U_N} |f| \) is bounded, where \( U_1 \subset U_2 \subset \dots \) is a sequence of open sets whose union is \( A \).
@@ -720,17 +742,11 @@ Let \( A \) be an open subset of \( \mathbb{R}^n \), and let \( f : A \rightarro
 For each function \( f \) and set \( A \), determine whether \( f \) is integrable over \( A \) and calculate \( \int_A f \).
 
 \section*{Problem H: Jordan Measurability and Measure Calculation}
-Show that the set
+Show that the set 
 \[
 \{ (x_1, \dots, x_n) \in [0, 1]^n : \sum x_i \leq 1 \}
 \]
 is Jordan measurable and compute its measure.
-
-\section*{Problem I: Independent Learning Exercise 9C}
-Write up the solution for Independent Learning Exercise 9C.
-
-\section*{Problem J: Independent Learning Exercise 9D}
-Write up the solution for Independent Learning Exercise 9D.
 
 \section*{Bonus: Nowhere Dense Subset with Positive Measure}
 Construct a closed, nowhere dense subset of \([0,1]\) that does not have measure 0.

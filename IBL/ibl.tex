@@ -515,15 +515,22 @@ Show that any open subset $E$ of $\mathbb{R}^d$ can be written as the countable 
 实际上与 $\bR$ 上的用 ctbl closed intervals 来逼近任意一个 open interval 如出一辙. 下面的 process 给出了一个更加 generalized 的算法.\\
 Let $G \subset \mathbb{R}^n$ be open. \\
 We construct a family of boxes as follows: 
-\begin{enumerate}
-    \item  First, we bisect $\mathbb{R}^n$ into almost disjoint cubes $\{Q_i : i \in \mathbb{N}\}$ of side one with integer coordinates.
-    \item \begin{enumerate}
-        \item If $Q_i \subset G$, we include $Q_i$ in the family, and if $Q_i$ is disjoint from $G$, we exclude it.
-        \item Otherwise, we bisect the sides of $Q_i$ to obtain $2^n$ almost disjoint cubes of side one-half and repeat the procedure. Iterating this process arbitrarily many times, we obtain a countable family of almost disjoint cubes.
-    \end{enumerate}
-\end{enumerate}
-The union of the cubes in this family is contained in $G$, since we only include cubes that are contained in $G$. Conversely, if $x \in G$, then since $G$ is open some sufficiently small cube in the bisection procedure that contains $x$ is entirely contained in $G$, and the largest such cube is included in the family. Hence the union of the family contains $G$, and is therefore equal to $G$.
-In fact, the proof shows that every open set is an almost disjoint union of dyadic cubes.
+
+Let
+$$
+R_1 = \{ [a_1 - 1, a_1] \times \cdots \times [a_d -1, a_d] \bigg| a_1, \cdots, a_d \in \mathbb{Z} \}
+$$
+$$
+Q_1 = \{B \in R_1 \bigg| B \subset O\}
+$$
+And for each $n \geq 2$, let
+$$
+R_n = \{  [\frac{a_1 - 1}{2^n}, \frac{a_1}{2^n}] \times \cdots \times  [\frac{a_d-1}{2^n}, \frac{a_d-1}{2^n}] \bigg| a_1, \cdots, a_d \in \mathbb{Z}\}
+$$
+and $$
+Q_n = \{ B \in R_n \bigg| B \subset O \backslash (\bigunion_{N=1}^{n-1} Q_N) \}
+$$
+Previously we have proved that $\bigunion_{n \in \mathbb{N}} Q_n = O$.\\
 \end{proof}
 
 
@@ -608,15 +615,17 @@ If \( E_1, E_2, E_3, \ldots \subset \mathbb{R}^d \) are a sequence of Lebesgue m
 
 
 
-
+Try finish the proof the my two claims, and then finish the proof of the whole theorem
 \section*{9C: closed set is Lebesgue measurable}
 \begin{theorem}
 Every closed set in \( \mathbb{R}^d \) is Lebesgue measurable.
 \end{theorem}
 Hint: Reduce to the compact case. Then, use that any open set is the countable union of almost disjoint closed cubes, as well as some of the properties reviewed above.
 \begin{proof}
+It suffices to prove that compact sets in $\mathbb{R}^d$ are Lebesgue-measurable, since even if $E$ is not bounded, we can write    $$E =  \bigunion_{n \in \mathbb{N}} (E \cap [-n, n]) $$
+where each set is closed and bounded thus cpt. As long as we prove the statement for compact sets, we can get $E$ is Lebesgue measurable since countable union of Lebesgue measurable sets is Lebesgue measurable.\\
+\textbf{Proof for compact sets:} Let $K \in \bR ^d $ be cpt, Then $O = K^c$ is open.\\
 
-    
 \end{proof}
 
 
