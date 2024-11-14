@@ -1480,3 +1480,18 @@
 \newcommand{\bigunion}{\displaystyle\bigcup}
 \newcommand{\bigintsec}{\displaystyle\bigcap}
 \newcommand{\BR}{\mathbb{R}}
+
+\newcommand{\insertpic}[4][width=\textwidth]{
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[#1]{#2}
+        \caption{#3}
+        \label{#4}
+    \end{figure}
+}
+
+\newcommand{\pic}[2][1]{
+    \begin{center}
+        \includegraphics[width=#1\textwidth]{#2}
+    \end{center}
+}
