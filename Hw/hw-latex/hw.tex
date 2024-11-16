@@ -758,10 +758,10 @@ Construct a closed, nowhere dense subset of \([0,1]\) that does not have measure
 
 
 
-\chapter{HW 12}
+\chapter*{HW 12}
 
-\section*{Problem A: Integration on Bounded Sets}
-Let \( S \) be a bounded set in \( \mathbb{R}^n \), and let \( f : S \rightarrow \mathbb{R} \) be a bounded function; let \( A = \text{Int}(S) \) be the interior of \( S \). Suppose that \( f \) is integrable on \( S \).
+\section*{12A: Integration on Bounded Sets}
+Let \( S \) be a bounded set in \( \mathbb{R}^n \), and let \( f : S \rightarrow \mathbb{R} \) be a bounded continuous function; let \( A = \text{Int}(S) \) be the interior of \( S \). Suppose that \( f \) is integrable on \( S \).
 
 1. Show that \( f \) is integrable on \( A \) and that
    \[
@@ -772,14 +772,22 @@ Let \( S \) be a bounded set in \( \mathbb{R}^n \), and let \( f : S \rightarrow
 
 Warning: \( A \) is always Lebesgue measurable, since \( A \) is open and open sets are Lebesgue measurable. However, for example, when \( S = [0, 1] \setminus \mathbb{Q} \), it’s possible to have \( S \) Lebesgue measurable but for \( A \) and \( S \) to have different Lebesgue measures. Such examples must have \( S \) not Jordan measurable.
 
-\section*{Problem B: Volume of Balls in \( \mathbb{R}^n \)}
+\begin{proof}
+    $f$ Riemann integrable on $S$, so $m(D_f) = 0$ and $m(\{x_0 \in \partial S | \lim_{x \rightarrow x_0} f(x)  \not = 0  \}) = 0$.\\
+    My question: Since $f$ is ctn on $S$, does it mean that for all $x_0 \in S - \partial S $, $\lim_{x \rightarrow x_0} f(x) = f(x_0)$? 
+\end{proof}
+
+
+
+
+\section*{12B: Volume of Balls in \( \mathbb{R}^n \)}
 Let \( B^n_a(x) \) denote the ball in \( \mathbb{R}^n \) centered at \( x \) and radius \( a \).
 
 1. Show that
    \[
    \text{vol}(B^n_a(x)) = \Gamma_n a^n
    \]
-   where \( \Gamma_n = \text{vol}(B^n_0(1)) \).
+   where \( \Gamma_n = \text{vol}(B^n_1(0)) \).
 
 2. What is \( \Gamma_1 \) and \( \Gamma_2 \)?
 
@@ -798,30 +806,24 @@ S = \{ (1 - t)a + tp : a \in A \times \{0\}, 0 < t < 1 \}.
 
 2. Find the volume of \( S \) in terms of the area of \( A \).
 
-\section*{Problem D: Volume of an Ellipsoid}
+\section*{12D: Volume of Ellipsoid}
 Compute the volume inside the ellipsoid
 \[
 \frac{(x - u)^2}{a^2} + \frac{(y - v)^2}{b^2} + \frac{(z - w)^2}{c^2} = 1
 \]
 where \( a, b, c > 0 \) and \( u, v, w \in \mathbb{R} \).
 
-\section*{Problem E: Volume of a Solid Bounded by a Surface and Plane}
+\section*{12E: Volume of a Solid Bounded by a Surface and Plane}
 Compute the volume of the solid in \( \mathbb{R}^3 \) bounded below by the surface \( z = x^2 + 2y^2 \) and above by the plane \( z = 2x + 6y + 1 \).
 
-\section*{Problem F: Gaussian Integral}
+\section*{12F: Gaussian Integral}
 Evaluate
 \[
 \int_{-\infty}^{\infty} e^{-x^2} \, dx.
 \]
 
-\section*{Problem G: Integrability of \( |x|^e \) Over the Unit Ball and Its Complement}
+\section*{12G: Integrability of \( |x|^e \) Over the Unit Ball and Its Complement}
 For which exponents \( e \in \mathbb{R} \) is \( f(x) = |x|^e \) integrable over the unit ball in \( \mathbb{R}^n \)? For which exponents is it integrable over the complement of the closed unit ball?
-
-\section*{Problem I: Write-up of IBL10A}
-Write up IBL10A.
-
-\section*{Problem J: Write-up of IBL10C}
-Write up IBL10C.
 
 \section*{Bonus: Proving a Case of Sard’s Theorem}
 The purpose of this bonus is to prove the easiest case of Sard’s Theorem, a central tool in the study of manifolds.

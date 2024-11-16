@@ -1445,6 +1445,19 @@
 \nc\mfS{\mathfrak{S}}
 \nc\mfg{\mathfrak{g}}
 
+% mathsfscr
+
+\nc\sA{\mathscr{A}}
+
+
+
+
+
+
+
+
+
+
 
 \renewcommand{\bold}[1]{\medskip \noindent {\bf #1 }\nopagebreak}
 
@@ -1495,3 +1508,43 @@
         \includegraphics[width=#1\textwidth]{#2}
     \end{center}
 }
+
+
+\NewDocumentCommand{\xrar}{m}{%
+  \xrightarrow{#1}%
+}
+
+
+\DeclareMathOperator{\supp}{supp}
+
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\SET}{SET}
+\DeclareMathOperator{\Nat}{Nat}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Map}{Map}
+
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\ord}{ord}
+
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Mult}{Mult}
+\DeclareMathOperator{\rref}{rref}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\proj}{proj}
+
+\DeclareMathOperator*{\curl}{curl}
+\DeclareMathOperator*{\divergence}{div}
+\renewcommand*{\div}{\divergence}
