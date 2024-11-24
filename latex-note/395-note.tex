@@ -125,62 +125,8 @@ complete 的 metric space 的任意 closed subset（我们知道 metric space �
     我们在 lec 1 中讲到  $l^{\infty}(\mathbb{N})$ 中的单位球是 closed + bdd 但是不 compact. 由于这是一个 Banach space 它也是 complete 的，by 3；不过它的问题出在并不是 ttl bdd 的.
 \end{remark}
 
-
-\section{Hw2: About normed Vector space and $l^\infty{\mathbb{N}}$}
-\subsection{Normed vector space}
-\begin{definition}
-    \textbf{normed vector space:} 
-    \\vector space 上可以定义 norm 来表示每个 vector 的“大小”，norm 的定义是满足\\ \textbf{(1) positive definiteness; (2) homogeneity (3) triangle ineq 的 $||.||: V \rightarrow \mathbb{R}_{\geq0}$}
-\end{definition}
-
-\paragraph{Continutity on normed VS as a MS:} 对于两个 normed vector spaces 之间的 linear map，实际上是可以定义 continuous 的概念的。\textbf{我们可以用 $||T(v) - T(w)||_2 \rightarrow 0$ as $||v - w||_1 \rightarrow 0$} （或者 sequentially）来定义 \textbf{continuous by norm}.
-
-\paragraph{induced norm on $Hom(V_1, V_2)$}: 给定两个 normed vector spaces $V_1, V_2$，我们实际上也 induce 出了 $Hom(V_1, V_2)$ 上的一个 norm. 
-
-\begin{definition}
-   \textbf{bounded linear map:} \\
-   我们可以用 
-   $$||T|| = \sup_{v \in V_1, ||v|| != 0} \frac{||Tv||_2}{||v||_1}$$
-   来定义 \textbf{$T \in Hom(V_1, V_2)$ 的 norm}.
-   \\当这个 norm 不是无穷时，称这个 linear map bounded.
-\end{definition}
    
-\paragraph{Finite dim VS 上 linear map bdd 且 ctn}
-\begin{theorem}
-    (1) \textbf{linear map bounded 当且仅当它 continuous.}
-    (2)  \textbf{有限维度的 vector space 之间的任意 linear map 一定 bounded（}因为一定可以选择 base 然后把线性变换用 matrix 来表示），所以一定 continuous.
-\end{theorem}
 
-\begin{remark}
-    一个涉及 infinite dimension 的 vector space 的 unbounded linear map 的例子: $$T = \frac{d}{dx}|_{x=0} \in Hom(C[0,1], \mathbb{R})$$
-\end{remark}
-
-
-\subsection{$l^{\infty}(\mathbb{N})$ space}
-
-1. $l^{\infty}(\mathbb{N})$ 中的所有收敛到 0 的序列构成的集合，称之为 $l_0^{\infty}(\mathbb{N})$，这个集合 \textbf{$l_0^{\infty}(\mathbb{N})$ 从 bdd 提升到 ttl bdd 所需要的条件是其中所有序列是uniformly收敛的.}
-
-\subsection{separable(exists ctb dense subset) metric space}
-
-\begin{remark}
-    如果一个 metric space $X$ 是 separable 的，那么随意 enumerate 一个 dense sequence $(p_n)$，这个 sequence 的所有 subsequential limit 就是整个 $X$. 即对于 $X$ 中任意一个元素，都可以找到 $(p_n)$ 的一个 subsequence 使得它的 limit 是整个元素
-\end{remark}
-
-
-\begin{theorem}
-    \textbf{一个 ttl bdd 的 (subset as) metric space 一定是 separable 的.}
-\end{theorem}
-
-\begin{definition}
-    \textbf{isometric embedding}: \\
-    如果两个 metric space 之间的一个 map\textbf{ 保留 distance (即 $\forall x,y \in X, $ $d(f(x), f(y)) = d(x,y)$)} 那么就称这个 map 为一个 isometric embedding.
-\end{definition}
-
-\begin{theorem}
-    \textbf{任意 separable metric space 都可以 embedds isometrically into $l^{\infty}(\mathbb{N})$.}
-\end{theorem}
-
-\proof 构造：首先 enumeate  $X$ 的一个 dense sequence $(p_n)$，并取它的首项 $p_1$，然后对于每个 $x \in X$， induce 出 $(d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 这个序列. 可以发现从 $f: x \mapsto (d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 是一个 isometry embedding. 
 
 \chapter{Differentiation}
 \section{Differentiation on $\mathbb{R}^n$}
@@ -976,7 +922,7 @@ $$
 
 
 
-\section{$C^1$ fucntion maps meas 0 set to meas 0 set}
+\section{diffeo preserves meas-0}
 \begin{theorem}{$C^1$ map 把零测集映射至零测集}
 Conditions:\\
 (1) $A \sub \bR^n$ open\\
@@ -1033,7 +979,7 @@ $\forall E\sub A $ s.t. $m(E)= 0$, 都有 $m(g(E)) = 0$
 \end{remark}
 
 
-\section{diffeomorphism preserves boundary and interior AND J-measurability}
+\section{diffeo preserves topological behavior AND J-measbility}
 \begin{theorem}{diffeomorphism preserves boundary and interior 以及 J-meas}
 Conditions:\\
 (1) $A,B \sub \bR^n$ open\\
@@ -1113,8 +1059,10 @@ $$
 
 \section{Partition of Unity}
 
-\begin{lemma}{构造 supported only on a box 的光滑函数}
-    对于任意 box $B \sub \bR^n$, 都存在 $C^{\infty}$ 的 non-neg 函数 $\phi: \bR^n \rar \bR$ 使得 $\supp(\phi) = Q^{\circ}$
+\subsection{bump function lemma AND cube partition lemma}
+
+\begin{lemma}{bump function Lemma: 构造 supported only on a box 的光滑函数}
+    对于任意 box $B \sub \bR^n$, 都存在 $C^{\infty}$ 的 non-neg 函数 $\phi: \bR^n \rar \bR$ 使得 $\supp(\phi) = \ol{Q}$
 \end{lemma}
 \begin{proof}
     构造:
@@ -1142,7 +1090,7 @@ $$
 
 
 
-\begin{lemma}{Cube Partition Lemma}
+\begin{lemma}{Cube Partition Lemma: 分解 open set 为重叠程度是 locally finite 的 cubes}
 Let $\sA$ be a collection of open sets in $\bR^n$. Let $A  = \union_{S \in \sA} S$.\\
 There exists a seq of closed boxes(actually cubes) $Q_1, Q_2, \cdots, $ s.t.
 \begin{enumerate}
@@ -1173,6 +1121,54 @@ There exists a seq of closed boxes(actually cubes) $Q_1, Q_2, \cdots, $ s.t.
     这是 natural 的使用 ctbl 个 closed box(cube this time) 来 得到 open set 的方法.\\
     并且, 这个 \textbf{disjointness of each $B_i$ and $D_{i-2}$ gives local finiteness:} 对于任意一个 $x\in A$, $x \in D_i ^{\circ}$ for some $D_i$. 根据我们的构造: $D_i$ 至多只会 intersec cubes in $C_1, \cdots, C_{i+1}$. 
 \end{proof}
+
+
+\subsection{Partition of Unity on topological space}
+
+
+
+
+
+\subsection{Partition of Unity Thm on $\bR^n$}
+
+
+
+partition of unity 的意义：
+这些 $\phi_i(x)$ 就像是权重函数. 对于任意一点，它们的和都是 1；并且，在一点附近只有有限个权重函数不是0，使得它具有计算意义。
+
+Idea：我们想要把 open set 上的 real-valued 函数拆分成一个一个 box 上的，这样它的性质就变得非常好，以至于可以使用 Riemman Integration 中的所有工具，比如 Fubini's Thm.
+
+
+我们之前的尝试：拆分这个 open set!
+1. 把 open set 看作一个嵌套的 cpt set seq 的极限
+问题：仍然不是 boxes. 并且没有拆分
+
+2. 拆分成 almost disjoint closed boxes
+问题: 首先, 没有 control over 每个 closed box 的 boundary, 不能把函数等价成这些可数个分段上的函数; 并且无限个分段的函数也不好处理.
+
+
+我们发现只拆分定义域, 拆分成 almost disjoint closed boxes 已经是最好的情况了. 但是仍然不能很好地拆分一个函数.
+
+
+而 Partition of Unity 则是一个完美的拆分函数的工具. 它拆分函数本身, 不是仅仅拆分定义域. 它并不严格地要求区间之间的分离程度, 而是通过构造和为 constant 1 的权重函数, 每一个权重函数都只在一小块区域上非0, 于是把函数转换成所有权重函数与自身乘积的累和; 并且, 我们要求这些权重函数的 supports 是 locally finite 的, 于是对于任意一点, 我们都能拆分函数成有限个权重函数与自身乘积的和. 
+
+这样, 区间之间只需要 locally finite 就可以, 比 disjoint 宽松许多, 但是却在每点上都能写出函数的表达式. 
+
+
+在 $\bR^n$ 上, 我们发现不仅可以构造 POU, 并且可以把性质做得更好, 做出 compact J-meas support (actually cube), 并且 $C^\infty$ 的 POU. 并且, 对于任意指定的 open covering, 我们都可以做出由它 dominate 的 POU.
+
+这是有用的. 尤其是在积分中, 我们把一个开集上的函数上的积分, 拆分成 a seq of cubes 上的函数的积分和; 权重函数的 $C^\infty$ 性质使得它完全不影响原本函数的光滑性.
+
+
+
+
+\subsection{Integration via POU}
+
+
+
+
+
+\section{proof of COV}
 
 
 
