@@ -430,7 +430,7 @@
   \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
   \newcommand{\updatename}{Update: }
   \newcommand{\historyname}{History}
-  \newcommand{\beforechap}{WS}
+  \newcommand{\beforechap}{HW}
   \newcommand{\afterchap}{:}
 }{\relax}
 
@@ -497,8 +497,8 @@
 
 \ifdefstring{\ELEGANT@lang}{cn}{
   \ifdefstring{\ELEGANT@scheme}{chinese}{
-    \newcommand{\xchaptertitle}{Problem set \zhnumber{\arabic{chapter}}} }{
-    \newcommand{\xchaptertitle}{Problem set \thechapter{}}} }{
+    \newcommand{\xchaptertitle}{HW \zhnumber{\arabic{chapter}}} }{
+    \newcommand{\xchaptertitle}{HW \thechapter{}}} }{
   \newcommand{\xchaptertitle}{\chaptername~\thechapter~}}
 
 \setcounter{secnumdepth}{5}
