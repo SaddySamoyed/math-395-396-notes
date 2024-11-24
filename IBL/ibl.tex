@@ -644,14 +644,86 @@ If \( E_1, E_2, E_3, \ldots \subset \mathbb{R}^d \) are a sequence of Lebesgue m
 
 
 \chapter{Equiv Conditions for measurablity and Countable Additivity}
+\begin{remark}
+We now know open and closed sets are Lebesgue measurable, as are countable unions or intersections of Lebesgue measurable sets. 
+We know finite additivity for sets that have positive distance to each other, and countable additivity for almost disjoint boxes.
+\end{remark}
 
-\section*{10A: Measurable $\eq$ approximatable by open Sets}
-A set \( E \) is measurable if and only if for every \( \epsilon > 0 \), one can find an open set \( U \) such that \( m^*(E \Delta U) \leq \epsilon \). In other words, \( E \) differs from an open set by a set of outer measure \( \epsilon \).
 
-\section*{10B: Measurable $\eq$ approximatable by closed Sets}
+
+\section*{Lebesgue measurability: can be well approximated by an open/closed set}
+
+
+\subsection*{10A: Symmetric difference}
+If \( A, B, C \) are subsets of a set, show:
+\[
+A \Delta B \subset (A \Delta C) \cup (C \Delta B).
+\]
+\begin{remark}
+def of symmetric diff: 
+$$
+A \Delta B =( A \cup B ) \backslash (A \cap B) = (A \backslash B) \cup (B\backslash A)
+$$
+sym diff 越加入更多 set 越大.
+\end{remark}
+
+
+
+\subsection*{10B: L-meas $\eq$ approximatable by open Sets}
+\begin{theorem}
+    A set \( E \) is measurable if and only if for every \( \epsilon > 0 \), one can find an open set \( U \) such that \( m^*(E \Delta U) \leq \epsilon \). In other words, \( E \) differs from an open set by a set of outer measure \( \epsilon \).
+\end{theorem}
+
+
+\begin{remark}
+To show the difficult direction:\\
+和 9D 一样：当我们想要两个相近似的集合最好有包含关系，但是根据已知的条件又构造不出包含关系的时候，我们可以通过近似条件构造一个 measure 无限接近的序列, 并且通过 intersection 来获得一个 \textbf{measure 0 set}, 最后通过交并补的方式来得到想要的近似且包含的关系.
+\begin{enumerate}
+    \item Fix \( \epsilon > 0 \). For each \( n \), let \( U_n \) be an open set with \( m^*(E \Delta U_n) \leq \frac{\epsilon}{2^{n+67}} \).
+    \item \( U = \bigcup U_n \) is open. 且普通的 set diff 的 measure 总是小于等于 sym diff 的大小, we have \( m^*(U \backslash E) \leq ( m^*(U \Delta E)  \leq \sum_n m^*(U_n \Delta E) \leq \frac{\epsilon}{2} \).
+    \item Show that \( E \setminus \cup_n U_n \) has measure zero, and hence there is an open set \( V \) containing \( E \setminus \cup_n U_n \) with \( m^*(V) \leq \frac{\epsilon}{2} \).
+    \item Consider the set \( U \cup V \).
+\end{enumerate}
+\end{remark}
+
+\subsection*{10C}
+If \( E \) is measurable, then:
+\[
+m^*(E) = \sup_R m(E \cap B_R(0)).
+\]
+
+\begin{remark}
+Hint: Use outer regularity and that every open set can be written as a countable union of almost disjoint boxes.
+\end{remark}
+
+\subsection*{10D}
+If \( E \) is measurable, then:
+\[
+m^*(E) = \sup_K m^*(K),
+\]
+where \( K \) ranges over all closed subsets of \( E \).
+
+\begin{remark}
+Hint: Prove that for all \( \epsilon > 0 \), there is an open subset \( U \) containing \( E^c \) with \( m^*(U \setminus E^c) < \epsilon \). Then take \( K = U^c \).
+\end{remark}
+
+\section*{10E: Inner regularity}
+\begin{theorem}
+If \( E \) is measurable, then:
+\[
+m^*(E) = \sup_K m^*(K),
+\]
+where \( K \) ranges over all compact subsets of \( E \). (This is called inner regularity.)
+\end{theorem}
+
+
+
+
+
+\subsection*{10F: Measurable $\eq$ approximatable by closed Sets}
 A set \( E \) is measurable if and only if for every \( \epsilon > 0 \), one can find a closed set \( F \) such that \( m^*(E \Delta F) \leq \epsilon \). In other words, \( E \) differs from a closed set by a set of outer measure \( \epsilon \).
 
-\section*{10C: Countable Additivity}
+\section*{10G: Countable Additivity}
 \begin{theorem}
 If \( E_1, E_2, \dots \subset \mathbb{R}^d \) is a countable sequence of disjoint Lebesgue measurable sets, then
 \[
@@ -660,6 +732,14 @@ m\left( \bigcup_{n=1}^{\infty} E_n \right) = \sum_{n=1}^{\infty} m(E_n).
 This property is known as countable additivity.
 \end{theorem}
 
+
+
+
+\section*{10H: Why we need $\epsilon \over {2^n}$}
+Let \( a_{n,m} = \frac{1}{nm} \), for \( n \) and \( m \) positive integers. Show that:
+\[
+\inf_n \sum_m a_{n,m} \neq \sum_n \inf_m a_{n,m}.
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

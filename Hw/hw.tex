@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}%
 \usepackage{amssymb}%
+\usepackage{pdfpages}
 \title{395 Homework}
 \author{Qiulin Fan}
 \begin{document}   
@@ -11,9 +12,9 @@
 
 
 
-\chapter*{Hw 1: about metric spaces}
+\chapter{on metric spaces}
 
-\section*{Problem A}
+\section{rooted metric gives $(0,1)$ infinite length}
 Suppose \((X, d)\) is a metric space. For \(0 < \epsilon < 1\), show that \(d^\epsilon\) is also a metric on \(X\).
 
 If \(X = [0, 1]\) is the unit interval and \(d\) is the usual metric, show that \(X\) has "infinite length" using the metric \(d^\epsilon\), in that
@@ -26,7 +27,9 @@ Here the supremum is taken over all \(n\) and all \(n + 1\) tuples of points \(t
 
 \textit{Optional context:} If you’d like to know where the metrics \(d^\epsilon\) appear, try looking up the Assouad Embedding Theorem. If you’d like to know more about the notion of length used here, try looking up rectifiable curves.
 
-\section*{Bonus Problem}
+
+
+\section{Matrix chain multiplication}
 If \(X\) is an \(a \times b\) matrix, and \(Y\) is a \(b \times c\) matrix, it takes \(abc\) multiplications to compute \(XY\) according to the usual formula for matrix multiplication. (There are \(ac\) entries in \(XY\), and each is a sum of \(b\) products.) Thus, let’s estimate the time it takes to multiply these two matrices as \(abc\).
 
 Say \(A_1\) is a \(5 \times 1\) matrix, \(A_2\) is a \(1 \times 5\) matrix, \(A_3\) is a \(5 \times 2\) matrix, \(A_4\) is a \(2 \times 5\) matrix, \(A_5\) is a \(5 \times 1\) matrix, and \(A_6\) is a \(1 \times 10\) matrix.
@@ -40,23 +43,27 @@ Or
 (A_1 (A_2 (A_3 (A_4 (A_5 A_6)))))?
 \]
 Or something else?
+HintL: Wikipedia entry titled “Matrix chain multiplication.”
+\begin{solution}
+    Dynamic Programming. I have no idea why it appears here, but it is dynamic programming.
+\end{solution}
 
-In general, you will have to show your work, but for this first bonus problem you only need to submit the final answer.
-
-\textit{Hint 1:} See hint posted on my office door (EH 5848).
-
-\textit{Hint 2:} Only use this Hint 2 if you can’t figure it out on your own after spending at least 10 minutes looking at Hint 1. In general, you can’t use Wikipedia or internet resources unless explicitly allowed, but for this first bonus problem, you can. See the Wikipedia entry titled “Matrix chain multiplication.”
-
-
+\includepdf[pages=-]{395-hw-01-fixed.pdf}
 
 
 
-\chapter*{Hw 2: about ttl bdd, sup norm and cpt}
+\chapter{on ttl bdd, sup norm and cptness}
 
-\section*{Problem A}
+\section{metric induced by vector norm}
+\begin{definition}
+    \textbf{normed vector space:} 
+    \\vector space 上可以定义 norm 来表示每个 vector 的“大小”，norm 的定义是满足\\ \textbf{(1) positive definiteness; (2) homogeneity (3) triangle ineq 的 $||.||: V \rightarrow \mathbb{R}_{\geq0}$}
+\end{definition}
 If \( \|\cdot\| \) is a norm on a vector space \( V \), show that \( d(x, y) = \|x - y\| \) defines a metric on \( V \).
 
-\section*{Problem B}
+\section{operator norm: linear map is ctn iff bdd (因而有限维 vector spaces 间的 linear operator 一定 ctn 且 bdd)}
+
+\begin{definition}{operator norm}\label{operator norm}
 Let \( T: V_1 \to V_2 \) be a linear map between normed vector spaces. The norm on \( V_i \) will be denoted \( \|\cdot\|_i \). Define
 
 \[
@@ -65,16 +72,43 @@ Let \( T: V_1 \to V_2 \) be a linear map between normed vector spaces. The norm 
 
 This is either a non-negative real number or infinity. The linear map is called bounded if it is not infinity. Show that \( T \) is continuous if and only if it is bounded.
 
-\section*{Problem C}
-Give an example of an unbounded linear map.
+\end{definition}
 
-\section*{Problem D}
-Give an example of a sequence \( (T_i) \) of diagonalizable \( 2 \times 2 \) real matrices whose eigenvalues stay bounded but for which \( \|T_i\| \to \infty \). (Here the matrices define linear maps from \( \mathbb{R}^2 \) to itself, and we use the Euclidean norm on \( \mathbb{R}^2 \).)
+\begin{remark}
+    给定两个 normed vector spaces $V_1, V_2$，我们实际上也 induce 出了 $Hom(V_1, V_2)$ 上的一个 norm, 即此处的 operator norm.\\
+    $Hom(V_1, V_2)$ 上还可以定义 Frobenious norm (treat like $\bR^{n \times n}$) 以及 sup norm (sup norm in $\bR^{n \times n}$).
+\end{remark}
 
-\section*{Problem E}
+\begin{remark}
+  我们可以用 $||T(v) - T(w)||_2 \rightarrow 0$ as $||v - w||_1 \rightarrow 0$ （或者 sequentially）来定义 \textbf{continuous by norm}.  
+\end{remark}
+
+\begin{theorem}{Finite dim VS 上 linear map bdd 且 ctn}\label{Finite dim VS 上 linear map bdd 且 ctn}
+    (1) \textbf{linear map bounded 当且仅当它 continuous.}
+    (2)  \textbf{有限维度的 vector space 之间的任意 linear map 一定 bounded（}因为一定可以选择 base 然后把线性变换用 matrix 来表示），所以一定 continuous.
+\end{theorem}
+
+
+
+
+\section{unbounded linear map in infinite dim vector space}
+\begin{enumerate}
+    \item Give an example of an unbounded linear map.
+    \begin{solution}
+        一个 infinite dimension 的 vector space 的 unbounded linear map 的例子: $$T = \frac{d}{dx}|_{x=0} \in Hom(C[0,1], \mathbb{R})$$
+    \end{solution}
+    \item Give an example of a sequence \( (T_i) \) of diagonalizable \( 2 \times 2 \) real matrices whose eigenvalues stay bounded but for which \( \|T_i\| \to \infty \). (Here the matrices define linear maps from \( \mathbb{R}^2 \) to itself, and we use the Euclidean norm on \( \mathbb{R}^2 \).)
+\end{enumerate}
+
+\section{ttl bdd metric space 一定 separable (有 ctbl dense subset)}
 Show that if a subset of a metric space is totally bounded, then it is also separable (i.e., there exists a countable dense subset).
 
-\section*{Problem F}
+\begin{remark}
+    如果一个 metric space $X$ 是 separable 的，那么随意 enumerate 一个 dense sequence $(p_n)$，这个 sequence 的所有 subsequential limit 就是整个 $X$. 即对于 $X$ 中任意一个元素，都可以找到 $(p_n)$ 的一个 subsequence 使得它的 limit 是整个元素
+\end{remark}
+
+
+\section{quotient topology}
 Let \( X \) be defined as infinitely many copies of \( [0, 1] \) with all their left endpoints glued together, with the natural metric \( d \).
 
 Formally, we can first define \( \hat{X} = \mathbb{N} \times [0, 1] \), and define an equivalence relation on \( \hat{X} \) by \( (i, x) \sim (j, y) \) if and only if \( (i, x) = (j, y) \) or \( x = y = 0 \). Let \( X \) be the set of equivalence classes, and define a metric \( d \) by setting
@@ -87,10 +121,17 @@ You should convince yourself that this makes sense but don’t have to write thi
 
 Prove that \( (X, d) \) is bounded but not totally bounded.
 
-\section*{Problem G}
+\section{space of converging sequence 中 ttl bdd 的判断标准}
 Let \( c_0 \) be the subspace of \( \ell^\infty(\mathbb{N}) \) of sequences that converge to zero, with the sup metric. Show that a subset \( Q \) of \( c_0 \) is totally bounded if and only if it is bounded and for all \( \epsilon > 0 \), there exists \( N > 0 \) such that for all \( (x_n) \in Q \) and all \( n \geq N \), we have \( |x_n| < \epsilon \).
 
-\section*{Bonus Problem}
+
+\begin{remark}
+$l^{\infty}(\mathbb{N})$ 中的所有收敛到 0 的序列构成的集合，称之为 $l_0^{\infty}(\mathbb{N})$，这个集合 \textbf{$l_0^{\infty}(\mathbb{N})$ 从 bdd 提升到 ttl bdd 所需要的条件是其中所有序列是uniformly收敛的.}
+    
+\end{remark}
+
+
+\section{Bonus: isometry embedding}
 A map \( f: X \to Y \) between metric spaces is called an isometric embedding if
 
 \[
@@ -101,15 +142,24 @@ for all \( x_1, x_2 \in X \). If such a map exists, we say \( X \) embeds isomet
 
 Show that every separable metric space embeds isometrically into \( \ell^\infty(\mathbb{N}) \).
 
+\begin{definition}
+    \textbf{isometric embedding}: \\
+    如果两个 metric space 之间的一个 map\textbf{ 保留 distance (即 $\forall x,y \in X, $ $d(f(x), f(y)) = d(x,y)$)} 那么就称这个 map 为一个 isometric embedding.
+\end{definition}
+
+\begin{theorem}
+    \textbf{任意 separable metric space 都可以 embedds isometrically into $l^{\infty}(\mathbb{N})$.}
+\end{theorem}
+
+\proof 构造：首先 enumeate  $X$ 的一个 dense sequence $(p_n)$，并取它的首项 $p_1$，然后对于每个 $x \in X$， induce 出 $(d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 这个序列. 可以发现从 $f: x \mapsto (d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 是一个 isometry embedding. 
+
+\includepdf[pages=-]{395-hw-02-fixed.pdf}
 
 
 
 
-
-
-\chapter*{Hw 3: about Lipschitz map and Differentiation}
-
-\section*{Problem A}
+\chapter{on Lipschitz map and differentiation}
+\section{Lipschitz condition: stronger than uniformly ctn}
 Let \( (X_1, d_1) \) and \( (X_2, d_2) \) be two metric spaces. We say that a function \( f : X \to Y \) is Lipschitz with constant \( C \) if for any \( x, y \in X \), we have
 \[
 d_2(f(x), f(y)) \leq C d_1(x, y).
@@ -123,19 +173,25 @@ d_2(f(x), f(y)) \leq C d_1(x, y).
     Is \( f \) Lipschitz? What if we only assume that the \( f_n \) are Lipschitz (without giving a common Lipschitz constant)?
 \end{enumerate}
 
-\section*{Problem B}
+\section{ctn map between topological spaces preserves connectness}
 We say that a metric space \( X \) is connected if it cannot be written as \( X = A \cup B \) where \( A \) and \( B \) are nonempty disjoint open subsets of \( X \).
 \begin{enumerate}
     \item Show that if \( f : X \to Y \) is a continuous function between metric spaces \( X \) and \( Y \), then \( f(X) \) is connected if \( X \) is connected.
     \item Conclude that if \( f : X \to \mathbb{R} \) and \( X \) is a connected metric space, then \( f \) admits all intermediate values \( m \in (\inf f, \sup f) \). That is, for any such \( m \), there exists \( x_0 \in X \) such that \( f(x_0) = m \).
 \end{enumerate}
 
-\section*{Problem C}
+\section{ctn bijective map from a cpt topological space to a Hausdorff space is a homeomorphism}
 Let \( f : X \to Y \) be a continuous bijective (one-to-one and onto) mapping between metric spaces \( X \) and \( Y \).
 \begin{enumerate}
     \item Suppose that \( X \) is compact. Show that the inverse function \( f^{-1} : Y \to X \) is also continuous.
     \item Give an example to show that the requirement that \( X \) is compact is necessary.
 \end{enumerate}
+\begin{remark}
+    实际上这个条件可更宽松. \textbf{任意一个 continuous bijective map from a compact topological space to a Hausdorff space 都是一个 homeomorphism.}\\
+    这是因为 continuous function maps compact set to compact set, 而 \textbf{compact topological space 中的 closed set 一定 compact}; 且 \textbf{Hausdorff space 中 compact set 一定 closed.}\\ 
+    所以任取 closed set in $X$, 由于 X compact, 这个集合也 compact; 且它的 preimage by $f^{-1}$ is closed since $f$ ctn. 因而 $f^{-1}$ 是 ctn 的.
+\end{remark}
+
 
 \section*{Problem D}
 Let \( f \) be a real-valued function defined on \( \mathbb{R}^n \) (or an open subset of \( \mathbb{R}^n \)). Recall that the directional derivative \( D_v f(p) \) of \( f \) at \( p \) in the direction \( v \) is the vector
@@ -163,13 +219,8 @@ if this limit exists.
 \textit{Remark 1.} This formula for \( D_v f(0, 0) \) is not linear in \( v \).\\
 \textit{Remark 2.} Using polar coordinates, it is easy to see that \( f \) is continuous at \( (0, 0) \).
 
-\section*{Problem E}
-Give the statement of the Baire Category Theorem (from Worksheet 1). (Test yourself by seeing if you can write it down from memory!)
 
-\section*{Problem F}
-Submit a write-up of Problem B from Worksheet 2.
-
-\section*{Bonus Problem}
+\section{Bonus: uniformly disconnectness and ultrametric}
 A metric space \( (X, d) \) is said to be uniformly disconnected if there is \( \epsilon_0 > 0 \) so that no pair of distinct points \( x, y \in X \) can be connected by an \( \epsilon_0 \)-chain, where an \( \epsilon_0 \)-chain connecting \( x \) and \( y \) is a sequence of points
 \[
 x = x_0, x_1, \dots, x_m = y
@@ -191,11 +242,12 @@ d(x, z) \leq \max(d(x, y), d(y, z))
 \]
 for all \( x, y, z \). The discrete metric, where the distance between any pair of distinct points is 1, is an example of an ultrametric. Many other more interesting and important examples exist.
 
+\includepdf[pages=-]{395-hw-03-fixed.pdf}
 
 
 
 
-\chapter*{Hw 4: about partial derivatives}
+\chapter{on Partial Derivatives}
 
 \section*{Problem A}
 Let \( F : \mathbb{R}^n \to \mathbb{R}^m \) satisfy
@@ -252,7 +304,7 @@ d(x, z) \leq \max(d(x, y), d(y, z)).
 
 
 
-\chapter*{Hw 5: about chain rule, prod rule and Taylor's Thm}
+\chapter{on chain rule, prod rule and Taylor's Thm}
 
 \section*{Problem A}
 Let $F : \mathbb{R}^3 \to \mathbb{R}^3$ be defined by
@@ -351,8 +403,8 @@ A real symmetric $n \times n$ matrix $A$ is called positive definite if $x^T A x
 \end{enumerate}
 
 You may use without proof that a real symmetric matrix has an orthonormal basis of eigenvectors. A hint for the last part is available on the office door, but as always, try it without first!
-
-\chapter*{Hw 6: about IVT}
+\newpage
+\chapter{on about IVT}
 
 \noindent
 \textbf{Due:} Friday, October 4 at 7 PM (Bonus 24 hours later)\\
@@ -454,7 +506,7 @@ Let $M_n(\mathbb{R})$ denote the set of $n$-by-$n$ real matrices. It has a topol
     \item Is $\exp$ injective?
 \end{enumerate}
 
-\chapter*{Hw 7: about IVT and Implicit Function Thm}
+\chapter{on IFT and Implicit Function Thm}
 
 For hints, see office door. But try without the hints first. There are no IBL problems this week.
 
@@ -522,7 +574,7 @@ is convex if and only if the Hessian of $f$ is positive semi-definite at each po
 
 
 
-\chapter*{Hw 8: about Implicit Function Thm}
+\chapter{on about Implicit Function Thm}
 
 \section*{Problem A}
 Let \( f : \mathbb{R}^3 \to \mathbb{R}^2 \) be of class \( C^1 \) and such that \( f(1, 2, 3) = 0 \) and
@@ -577,7 +629,7 @@ for all \( x, y \in X \).
 
 
 
-\chapter*{Hw 9: about Riemann Integrability}
+\chapter{on Riemann Integrability}
 
 \section*{Problem A}
 Let $f : X \to Y$ be a function between metric spaces. Show that the set of points at which $f$ is continuous is a countable intersection of open sets.
@@ -623,7 +675,7 @@ For this question, you can use without proof that if $(a, b)$ is an open interva
 
 
 
-\chapter{HW 10}
+\chapter{on Riemann Integration}
 
 \section*{Problem A: Integrability of the Maximum Function}
 Let \( B \) be a box in \( \mathbb{R}^n \). Show that if \( f, g : B \rightarrow \mathbb{R} \) are both integrable, then so is the function \( M \) defined by
@@ -682,7 +734,7 @@ Show that there does not exist a function \( f : \mathbb{R} \rightarrow \mathbb{
 
 
 
-\chapter{Hw 11}
+\chapter{on J-meas and Fubini's Thm}
 
 \section*{Problem A: Taylor Polynomial and Linear Transformation}
 Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \) and satisfies \( Df(0) = 0 \), show that there exists an invertible \( n \times n \) matrix such that the function \( g(x) = f(Ax) \) has a degree two Taylor polynomial at 0 of the form
@@ -758,7 +810,7 @@ Construct a closed, nowhere dense subset of \([0,1]\) that does not have measure
 
 
 
-\chapter*{HW 12}
+\chapter{applications of COV}
 
 \section*{12A: Integration on Bounded Sets}
 Let \( S \) be a bounded set in \( \mathbb{R}^n \), and let \( f : S \rightarrow \mathbb{R} \) be a bounded continuous function; let \( A = \text{Int}(S) \) be the interior of \( S \). Suppose that \( f \) is integrable on \( S \).
@@ -850,6 +902,65 @@ The purpose of this bonus is to prove the easiest case of Sard’s Theorem, a ce
 
 
 
+\chapter{on smooth functions}
+
+\section{Matrix decomposition}
+Write the matrix 
+\[
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\]
+as a product of \(2 \times 2\) matrices that are primitive diffeomorphisms. You need only give the final answer.
+\begin{solution}
+    This is just the matrix of swapping row 1 and row 2.\\ Apply procedure at page 157.
+\end{solution}
+
+
+\section{POU sDominated by open cover}
+Explicitly give a partition of unity of \( \mathbb{R} \) dominated by the cover by all open intervals of length 7.
+\begin{solution}
+    just the bump function supported on $[-3,4, 3.4]$, for each $n$ translated by $n$ (onto left if odd, onto right if even).
+\end{solution}
+
+\section{Smoothness of $e^{-1/x}$}
+Show that the function \( f : \mathbb{R} \to \mathbb{R} \) defined by:
+\[
+f(x) =
+\begin{cases} 
+e^{-1/x} & \text{if } x > 0, \\
+0 & \text{otherwise}
+\end{cases}
+\]
+is \( C^\infty \). (For hints, see page 143 of the text.)
+\begin{proof}
+It is smooth on $x<0$, $X>0$ since it is composed of fundamental smooth functions.\\
+So it remains to show that the function is infinite-times differentiable at $x = 0$.
+\end{proof}
+
+\section*{13D}
+If \( f : \mathbb{R}^n \to \mathbb{R}^m \) is smooth and \( n < m \), show that the image cannot contain an open set.
+
+\section*{Problem E: Super-Primitive Diffeomorphisms}
+Define a diffeomorphism to be super-primitive if it preserves all but one coordinate. Show that the theorem proved in class on locally factoring diffeomorphisms remains true if one replaces primitive with super-primitive.
+\begin{proof}
+
+    
+\end{proof}
+
+
+\section*{13F}
+Show that there is no injective smooth function \( f : \mathbb{R}^2 \to \mathbb{R} \).
+
+\section*{Problem G: Smooth Functions on Arbitrary Subsets}(Mun Page 144)
+For an arbitrary subset \( S \subset \mathbb{R} \) and a function \( f : S \to \mathbb{R} \), we say that \( f \) is smooth at \( x \in S \) if there is an open set \( U_x \) containing \( x \) and a smooth function \( f_x : U_x \to \mathbb{R} \) such that \( f \) and \( f_x \) agree on \( U_x \cap S \). Show that if \( f \) is smooth at every point of \( S \), then there is an open set \( V \) containing \( S \) and a smooth function \( g : V \to \mathbb{R} \) that agrees with \( f \) on \( S \).
+
+\section*{Problem H: Rank of a Matrix}
+Let \( A \) be a matrix. Show that the rank of \( A \) is the maximum value of \( k \) such that a \( k \times k \) minor of \( A \) has a non-zero determinant. (A \( k \times k \) minor is a matrix obtained by deleting all but \( k \) rows and all but \( k \) columns.)
+
+\section*{Bonus: Composition of Primitive Diffeomorphisms}
+Prove or disprove: Every diffeomorphism between connected open subsets of \( \mathbb{R}^n \) (where \( n \geq 2 \)) can be (globally) expressed as a composition of primitive diffeomorphisms between open subsets of \( \mathbb{R}^n \).
 
 
 
