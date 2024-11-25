@@ -48,7 +48,7 @@ HintL: Wikipedia entry titled “Matrix chain multiplication.”
     Dynamic Programming. I have no idea why it appears here, but it is dynamic programming.
 \end{solution}
 
-\includepdf[pages=-]{395-hw-01-fixed.pdf}
+\includepdf[pages=-]{395-hw-01.pdf}
 
 
 
@@ -153,7 +153,7 @@ Show that every separable metric space embeds isometrically into \( \ell^\infty(
 
 \proof 构造：首先 enumeate  $X$ 的一个 dense sequence $(p_n)$，并取它的首项 $p_1$，然后对于每个 $x \in X$， induce 出 $(d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 这个序列. 可以发现从 $f: x \mapsto (d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 是一个 isometry embedding. 
 
-\includepdf[pages=-]{395-hw-02-fixed.pdf}
+\includepdf[pages=-]{395-hw-02.pdf}
 
 
 
@@ -193,7 +193,7 @@ Let \( f : X \to Y \) be a continuous bijective (one-to-one and onto) mapping be
 \end{remark}
 
 
-\section*{Problem D}
+\section*{3D: an example of ctn but non-diffble point}
 Let \( f \) be a real-valued function defined on \( \mathbb{R}^n \) (or an open subset of \( \mathbb{R}^n \)). Recall that the directional derivative \( D_v f(p) \) of \( f \) at \( p \) in the direction \( v \) is the vector
 \[
 D_v f(p) = \lim_{t \to 0} \frac{f(p + tv) - f(p)}{t}
@@ -216,9 +216,11 @@ if this limit exists.
     \]
     otherwise.
 \end{enumerate}
-\textit{Remark 1.} This formula for \( D_v f(0, 0) \) is not linear in \( v \).\\
-\textit{Remark 2.} Using polar coordinates, it is easy to see that \( f \) is continuous at \( (0, 0) \).
+Using polar coordinates, it is easy to see that \( f \) is continuous at \( (0, 0) \).
 
+\begin{remark}
+    如果 $f$ 在 $x$ 处 differentiable, 那么它的 $D_v(x)$ 是关于 $v$ linear 的; 如果在 $x$ 处 不 differentiable 则不然 (即便各个方向的偏导数都存在也不能保证.)
+\end{remark}
 
 \section{Bonus: uniformly disconnectness and ultrametric}
 A metric space \( (X, d) \) is said to be uniformly disconnected if there is \( \epsilon_0 > 0 \) so that no pair of distinct points \( x, y \in X \) can be connected by an \( \epsilon_0 \)-chain, where an \( \epsilon_0 \)-chain connecting \( x \) and \( y \) is a sequence of points
@@ -242,24 +244,24 @@ d(x, z) \leq \max(d(x, y), d(y, z))
 \]
 for all \( x, y, z \). The discrete metric, where the distance between any pair of distinct points is 1, is an example of an ultrametric. Many other more interesting and important examples exist.
 
-\includepdf[pages=-]{395-hw-03-fixed.pdf}
+\includepdf[pages=-]{395-hw-03.pdf}
 
 
 
 
-\chapter{on Partial Derivatives}
+\chapter{on partial derivatives}
 
-\section*{Problem A}
+\section{在原点可导且保留 scalar 的函数一定是 linear map}
 Let \( F : \mathbb{R}^n \to \mathbb{R}^m \) satisfy
 \[
 F(tx) = tF(x)
 \]
 for all positive real numbers \( t \) and all \( x \in \mathbb{R}^n \). Assume \( F \) is differentiable at the origin. Show that \( F \) is linear.
 
-\section*{Problem B}
+\section{all partials exist 且 bdd on $A$ $\implies$ ctn on $A$}
 Let \( A \subset \mathbb{R}^n \) be open and \( f : A \to \mathbb{R}^m \). Suppose that the partial derivatives \( \frac{\partial f_i}{\partial x_j} \) (for \( 1 \leq i \leq m \) and \( 1 \leq j \leq n \)) exist and are bounded on \( A \). Show that \( f \) is continuous on \( A \).
 
-\section*{Problem C}
+\section{example of all partials exist and bounded 但不可导}
 Let \( f : \mathbb{R}^2 \to \mathbb{R}^2 \) be defined by the equation:
 \[
 f(r, \theta) = (r \cos \theta, r \sin \theta).
@@ -272,10 +274,10 @@ f(r, \theta) = (r \cos \theta, r \sin \theta).
     \item What relation can you find between \( Df \) and \( Df^{-1} \)?
 \end{enumerate}
 
-\section*{Problem D}
-Give an example of a function \( F : \mathbb{R}^2 \to \mathbb{R}^2 \) such that, at the origin, all directional derivatives exist and are zero, but \( F \) is not differentiable at the origin.
+\noindent\textbf{4D: }
+Give an example of a function \( F : \mathbb{R}^2 \to \mathbb{R}^2 \) such that, at the origin, all directional derivatives exist and are zero, but \( F \) is not differentiable at the origin.\\
 
-\section*{Problem E}
+\noindent\textbf{4E: }
 Define \( f : \mathbb{R}^2 \to \mathbb{R} \) by setting \( f(0) = 0 \) and
 \[
 f(x, y) = \frac{xy(x^2 - y^2)}{x^2 + y^2}.
@@ -287,7 +289,7 @@ f(x, y) = \frac{xy(x^2 - y^2)}{x^2 + y^2}.
     \item Show that \( \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) \) and \( \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) \) exist everywhere on \( \mathbb{R}^2 \), but they are not equal at \( (0, 0) \).
 \end{enumerate}
 
-\section*{Bonus}
+\section{Bonus: ultrametric on graph}
 Recall that an ultrametric space is a metric space where one has the following stronger than usual form of the triangle inequality:
 \[
 d(x, z) \leq \max(d(x, y), d(y, z)).
@@ -302,18 +304,20 @@ d(x, z) \leq \max(d(x, y), d(y, z)).
 
 \textit{Just for fun (don’t hand in):} Imagine you have an electric car, and you live in a country that provides free charging stations, and you’re not in a hurry. Why might you end up thinking about an ultrametric?
 
+\includepdf[pages=-]{395-hw-04.pdf}
+
 
 
 \chapter{on chain rule, prod rule and Taylor's Thm}
 
-\section*{Problem A}
+\section{applying chain rule to compute derivative}
 Let $F : \mathbb{R}^3 \to \mathbb{R}^3$ be defined by
 \[
 F(x, y, z) = (\exp(x^2 + 2y^2), \sin(z^2 - y^2) \cdot (x^2 + 2z^2), (x^2 + y^2 + z^2)^9).
 \]
 Explain why $F$ is differentiable, and then prove why $DF(x, y, z)$ always has zero determinant. You may not actually compute any derivatives in your solution.
 
-\section*{Problem B}
+\section{diffeo 维度必须相同且 derivatives 互为 inverse matrix}
 Suppose
 \[
 F : A \subset \mathbb{R}^n \to B \subset \mathbb{R}^m
@@ -327,10 +331,10 @@ are both differentiable and are inverses of each other (with $A$, $B$ open). Sho
 DG(b) = DF(a)^{-1}.
 \]
 
-\section*{Problem C}
+\section{differentiable homeomorphism 未必是 diffeomorphism}
 Give an example of a differentiable homeomorphism from $\mathbb{R}$ to itself whose inverse is not differentiable at every point. (For your example, you need to find only a single point where the inverse isn’t differentiable.)
 
-\section*{Problem D}
+\section{$f$ 在 $x_0$ 处 ctn $\implies$ 取多元极限可换序}
 Suppose $F : \mathbb{R}^2 \to \mathbb{R}$ is continuous at the origin. Show
 \[
 \lim_{h \to 0} \lim_{k \to 0} F(h, k) = \lim_{k \to 0} \lim_{h \to 0} F(h, k),
@@ -344,13 +348,13 @@ assuming all these limits exist. Give an example where $F$ is not continuous, bo
 \lim_{n \to \infty} \lim_{m \to \infty} a_{n,m} = \lim_{m \to \infty} \lim_{n \to \infty} a_{n,m}.
 \]
 
-\section*{Problem E}
+\section{number of terms in Taylor series}
 If $F$ is a function of 4 variables, how many terms (in general) are in the degree 10 Taylor series of $F$? (Degree 10 means you use multi-indices $\alpha$ of degree at most 10.) You do not need to show your work; just give the final answer.
 
-\section*{Problem F}
+\section{open connected set 上 determinant 为 0 $\implies$ constant function}
 Suppose that $F : A \subset \mathbb{R}^n \to \mathbb{R}^m$ is differentiable with $A$ open and connected and $Df(a) = 0$ for all $a \in A$. Show that $F$ is constant.
 
-\section*{Problem G}
+\section{multifunction product rule in 1d}
 Let $f_1, f_2, \ldots, f_m : \mathbb{R} \to \mathbb{R}$ be $C^k$. Show that
 \[
 \frac{\partial^k}{\partial x^k}(f_1 \cdot f_2 \cdot \ldots \cdot f_m) = \sum_{|\alpha| = k} \frac{k!}{\alpha!} \partial^{\alpha_1} f_1 \cdot \ldots \cdot \partial^{\alpha_m} f_m.
@@ -366,7 +370,7 @@ $$
 $$
 
 
-\section*{Problem H}
+\section{proof: Taylor series is the best polynomial approximation}
 Let $f : \mathbb{R}^n \to \mathbb{R}$ be in $C^{k+1}$. Show that the Taylor polynomial of degree $k$ centered at $x_0 \in \mathbb{R}^n$ is the best polynomial approximation of $f(x)$ near $x_0$ in the following sense: Suppose that $P(x)$ is a polynomial of degree $k$. Then
 \[
 P(x) - f(x) = o(|x - x_0|^k)
@@ -374,7 +378,7 @@ P(x) - f(x) = o(|x - x_0|^k)
 if and only if $P$ is the Taylor polynomial of degree $k$ centered at $x_0$. (Recall that a quantity $Q$ is $o(|x - x_0|^k)$ if $\lim_{x \to x_0} \frac{Q}{|x - x_0|^k} = 0$.)
 
 
-\section*{Problem I}
+\noindent \textbf{5I: computation problem 1}
 Let $f : \mathbb{R} \to \mathbb{R}$ be a differentiable function, and define $F : \mathbb{R}^2 \to \mathbb{R}$ by $F(x, y) = f(x^2 + y^2)$, so $F$ is differentiable.
 
 \begin{enumerate}
@@ -387,13 +391,13 @@ Let $f : \mathbb{R} \to \mathbb{R}$ be a differentiable function, and define $F 
     \item In (ii), compute $D\phi(1, 1, 1)$ when $f(x, y, z) = x^2 + yz$, $g(x, y) = y^3 + xy$, and $h(x) = e^x$. Do this in two ways: using your general formula in (ii) and also by explicitly computing $\phi$ in this case and directly computing the Jacobian matrix from this.
 \end{enumerate}
 
-\section*{Problem J}
+\noindent \textbf{5J: computation problem 2}
 Problem 2(a) on page 63 of the text.
 
-\section*{Problem K}
+\noindent \textbf{5K: computation problem 3}
 Find the 3rd order Taylor series of $F(x, y) = e^{x + y^2}$ about the origin.
 
-\section*{Bonus}
+\section{Bonus: positive-definite matrix}
 A real symmetric $n \times n$ matrix $A$ is called positive definite if $x^T A x > 0$ for all $x \in \mathbb{R}^n$.
 \begin{enumerate}
     \item Show that a real symmetric matrix is positive definite if and only if it is invertible and, for all non-zero $x$, the angle between $Ax$ and $x$ is less than 90 degrees.
@@ -403,14 +407,19 @@ A real symmetric $n \times n$ matrix $A$ is called positive definite if $x^T A x
 \end{enumerate}
 
 You may use without proof that a real symmetric matrix has an orthonormal basis of eigenvectors. A hint for the last part is available on the office door, but as always, try it without first!
-\newpage
+
+
+
+\includepdf[pages=-]{395-hw-05.pdf}
+
+
+
+
+
+
 \chapter{on about IVT}
 
-\noindent
-\textbf{Due:} Friday, October 4 at 7 PM (Bonus 24 hours later)\\
-For hints, see the office door, but try without the hints first.
-
-\section*{Problem A}
+\section{MVT does not hold for $f: \bR \rightarrow \bR^n$}
 Let $f : [a, b] \to \mathbb{R}^n$ be continuous on the closed interval $[a, b] \subset \mathbb{R}$ and differentiable on $(a, b)$.
 \begin{enumerate}
     \item Show that there is a $c \in (a, b)$ such that
@@ -420,7 +429,7 @@ Let $f : [a, b] \to \mathbb{R}^n$ be continuous on the closed interval $[a, b] \
     \item Give an example when $n = 2$ to show that it is possible the inequality is strict for all $c \in (a, b)$. (In particular, the Mean Value Theorem does not hold for $f$.)
 \end{enumerate}
 
-\section*{Problem B}
+\noindent \textbf{6B}
 Let $f : \mathbb{R}^2 \to \mathbb{R}^2$ be defined by the equation
 \[
 f(x, y) = (e^x \cos y, e^x \sin y).
@@ -895,8 +904,6 @@ The purpose of this bonus is to prove the easiest case of Sard’s Theorem, a ce
    f(\{x \in [-n, n] : f'(x) = 0\})
    \]
    has measure zero, using that \( f' \) is continuous and hence uniformly continuous on \( [-n, n] \).
-
-
 
 
 
