@@ -5,6 +5,7 @@
 \usepackage{amssymb}%
 \usepackage{esint}%
 \usepackage{mathrsfs}
+\usepackage{graphicx}
 
 
 \title{Math 395: Honor Analysis I}
@@ -125,62 +126,6 @@ complete 的 metric space 的任意 closed subset（我们知道 metric space �
     我们在 lec 1 中讲到  $l^{\infty}(\mathbb{N})$ 中的单位球是 closed + bdd 但是不 compact. 由于这是一个 Banach space 它也是 complete 的，by 3；不过它的问题出在并不是 ttl bdd 的.
 \end{remark}
 
-
-\section{Hw2: About normed Vector space and $l^\infty{\mathbb{N}}$}
-\subsection{Normed vector space}
-\begin{definition}
-    \textbf{normed vector space:} 
-    \\vector space 上可以定义 norm 来表示每个 vector 的“大小”，norm 的定义是满足\\ \textbf{(1) positive definiteness; (2) homogeneity (3) triangle ineq 的 $||.||: V \rightarrow \mathbb{R}_{\geq0}$}
-\end{definition}
-
-\paragraph{Continutity on normed VS as a MS:} 对于两个 normed vector spaces 之间的 linear map，实际上是可以定义 continuous 的概念的。\textbf{我们可以用 $||T(v) - T(w)||_2 \rightarrow 0$ as $||v - w||_1 \rightarrow 0$} （或者 sequentially）来定义 \textbf{continuous by norm}.
-
-\paragraph{induced norm on $Hom(V_1, V_2)$}: 给定两个 normed vector spaces $V_1, V_2$，我们实际上也 induce 出了 $Hom(V_1, V_2)$ 上的一个 norm. 
-
-\begin{definition}
-   \textbf{bounded linear map:} \\
-   我们可以用 
-   $$||T|| = \sup_{v \in V_1, ||v|| != 0} \frac{||Tv||_2}{||v||_1}$$
-   来定义 \textbf{$T \in Hom(V_1, V_2)$ 的 norm}.
-   \\当这个 norm 不是无穷时，称这个 linear map bounded.
-\end{definition}
-   
-\paragraph{Finite dim VS 上 linear map bdd 且 ctn}
-\begin{theorem}
-    (1) \textbf{linear map bounded 当且仅当它 continuous.}
-    (2)  \textbf{有限维度的 vector space 之间的任意 linear map 一定 bounded（}因为一定可以选择 base 然后把线性变换用 matrix 来表示），所以一定 continuous.
-\end{theorem}
-
-\begin{remark}
-    一个涉及 infinite dimension 的 vector space 的 unbounded linear map 的例子: $$T = \frac{d}{dx}|_{x=0} \in Hom(C[0,1], \mathbb{R})$$
-\end{remark}
-
-
-\subsection{$l^{\infty}(\mathbb{N})$ space}
-
-1. $l^{\infty}(\mathbb{N})$ 中的所有收敛到 0 的序列构成的集合，称之为 $l_0^{\infty}(\mathbb{N})$，这个集合 \textbf{$l_0^{\infty}(\mathbb{N})$ 从 bdd 提升到 ttl bdd 所需要的条件是其中所有序列是uniformly收敛的.}
-
-\subsection{separable(exists ctb dense subset) metric space}
-
-\begin{remark}
-    如果一个 metric space $X$ 是 separable 的，那么随意 enumerate 一个 dense sequence $(p_n)$，这个 sequence 的所有 subsequential limit 就是整个 $X$. 即对于 $X$ 中任意一个元素，都可以找到 $(p_n)$ 的一个 subsequence 使得它的 limit 是整个元素
-\end{remark}
-
-
-\begin{theorem}
-    \textbf{一个 ttl bdd 的 (subset as) metric space 一定是 separable 的.}
-\end{theorem}
-
-\begin{definition}
-    \textbf{isometric embedding}: \\
-    如果两个 metric space 之间的一个 map\textbf{ 保留 distance (即 $\forall x,y \in X, $ $d(f(x), f(y)) = d(x,y)$)} 那么就称这个 map 为一个 isometric embedding.
-\end{definition}
-
-\begin{theorem}
-    \textbf{任意 separable metric space 都可以 embedds isometrically into $l^{\infty}(\mathbb{N})$.}
-\end{theorem}
-
-\proof 构造：首先 enumeate  $X$ 的一个 dense sequence $(p_n)$，并取它的首项 $p_1$，然后对于每个 $x \in X$， induce 出 $(d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 这个序列. 可以发现从 $f: x \mapsto (d_X(x, p_n) - d_X(p_0, p_n))_{n \in \mathbb{N}}$ 是一个 isometry embedding. 
 
 \chapter{Differentiation}
 \section{Differentiation on $\mathbb{R}^n$}
@@ -1173,6 +1118,23 @@ There exists a seq of closed boxes(actually cubes) $Q_1, Q_2, \cdots, $ s.t.
     这是 natural 的使用 ctbl 个 closed box(cube this time) 来 得到 open set 的方法.\\
     并且, 这个 \textbf{disjointness of each $B_i$ and $D_{i-2}$ gives local finiteness:} 对于任意一个 $x\in A$, $x \in D_i ^{\circ}$ for some $D_i$. 根据我们的构造: $D_i$ 至多只会 intersec cubes in $C_1, \cdots, C_{i+1}$. 
 \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Multilinear Algebra}
+
 
 
 
