@@ -973,6 +973,97 @@ Prove or disprove: Every diffeomorphism between connected open subsets of \( \ma
 
 
 
+\chapter{HW 14}
+
+\section{seq of smooth functions that sum to be disctn}
+Construct a sequence of smooth functions $\psi_i : \mathbb{R} \to \mathbb{R}$ with disjoint supports such that the function $\lambda : \mathbb{R} \to \mathbb{R}$ defined by
+\[
+\lambda(x) = \sum_{i=1}^\infty \psi_i(x)
+\]
+is not continuous.
+
+\textbf{Hint:} Try letting $\psi_i$ be a bump function supported on $[1/2^{2i+2}, 1/2^{2i+1}]$.
+
+\textbf{Remark:} This problem illustrates why, in the definition of a partition of unity, we require that each point has a neighborhood that intersects only finitely many supports, rather than just saying that for each $x$ only finitely many of the functions are non-zero at $x$.
+
+\section{Proving COV for linear diffeos and ctns functions with cpt supp}
+Prove the Change of Variable Theorem for linear diffeomorphisms and continuous functions with compact support. You can use results proved in class up to and including the result that every linear diffeomorphism is a composition of primitive linear diffeomorphisms. You cannot use results proved after that.
+
+\textbf{Remark:} This will not take very long. Because the functions have compact support, the integrals can be interpreted as ordinary integrals, and one can proceed directly to the punchline with Fubini. The purpose of this problem is to help you study the “core” of the proof of Change of Variables without getting lost in the technical details.
+
+\section{rank function is semi-continuous on $M_{n,m}$}
+Let $M_{n,m}$ be the space of $n \times m$ matrices. Show that the rank function is lower semi-continuous on $M_{n,m}$. Provide an example to show it need not be continuous.
+
+\textbf{Hint:} To prove lower semi-continuity, you need to show every matrix $A$ has a neighborhood whose rank is at least as big as the rank of $A$. You can do this quickly using the problem from the last homework on rank. For the example, consider small multiples of the identity.
+
+
+
+
+
+
+
+
+
+
+\chapter{Homework Set 15}
+
+\section{Nonexistence of injective smooth function from higher dim to lower dim}
+Prove that there does not exist an injective smooth function \( f : \mathbb{R}^n \to \mathbb{R}^m \) when \( n > m \).
+
+\section{Convolution of continuous functions}
+Let \( f, g : \mathbb{R}^n \to \mathbb{R} \) be continuous functions that are zero outside a compact set. Define their convolution as
+\[
+(f \ast g)(x) = \int_{\mathbb{R}^n} f(x-y)g(y) \, dy.
+\]
+Show the following:
+1. \(\int_{\mathbb{R}^n} f \ast g = \left( \int_{\mathbb{R}^n} f \right) \left( \int_{\mathbb{R}^n} g \right)\),
+2. Convolution is commutative and associative.
+
+\section{Optimization of a quadratic function on a disk}
+Find the maximum and minimum values of \( f(x, y) = 4x^2 + 10y^2 \) on the disk \( x^2 + y^2 \leq 4 \).
+
+\section{expressing tensors}
+Determine which of the following functions on \( \mathbb{R}^4 \) are tensors, and express those that are as elementary tensors:
+\[
+f(x, y) = 3x_1y_2 + 5x_2x_3, \quad g(x, y) = x_1y_2 + x_2y_4 + 1, \quad h(x, y) = x_1y_1 - 7x_2y_3.
+\]
+
+\section{$\cL^k(V)$ is a vector space}
+Let $V$ be a vector space, and $\cL^k(V)$ be the space of all k-tensors on $V$. Prove: $\cL^k(V)$ is a vector space.
+
+\section*{15F: compute the sign of a permutation}
+Let \( \sigma \in S_k \) be the permutation described by
+\[
+1 \to 2 \to 3 \to \cdots \to k \to 1.
+\]
+Compute the sign of \( \sigma \).
+
+\section{dual of alternating \(k\)-tensor is also alternating \(k\)-tensor}
+Let \( T : V \to W \) be a linear transformation. If \( f \in A^k(W) \), show that \( T^\ast(f) \in A^k(V) \).
+
+\section{Reproducing Theorem 27.7}
+Prove Theorem 27.7: Let $\psi_I$ be an elementary alternating tensor on $\bR^n$ correspoding to the usal basis for $\bR^n$, where $I = (i_1, \cdots, i_k)$. \\
+Given vectors $x_1, \cdots, x_k$ of $\bR^n$, let $X$ be the matrix $X = [x_1, \cdots, x_k]$. Then we have:
+$$
+\psi_I (x_1, \cdots, x_k) = \det X_I
+$$
+
+\section{Bonus: Analytic functions and series convergence}
+Consider the function \( f : (0, 1) \to \mathbb{R} \) defined by
+\[
+f(p) = \sum_{n=1}^\infty a_n p^{k_n}(1-p)^{n-k}.
+\]
+where \( a_n \in \{0, 1\} \) and \( 0 \leq k_n \leq n \). Show the following:
+1. \( f \) is real analytic.
+2. For a power series \( f(x) = \sum_{n=0}^\infty c_n(x-x_0)^n \), define the radius of convergence as
+\[
+R = \frac{1}{\limsup_{n \to \infty} |c_n|^{1/n}},
+\]
+and show that the series converges uniformly and absolutely for \( x \in (x_0 - R, x_0 + R) \) and diverges for \( x \not\in [x_0 - R, x_0 + R] \).
+3. If the series converges on \( (x_0-r, x_0+r) \) for some \( r > 0 \), then for any \( 0 < \rho < r \), there exists a constant \( C \) such that \( |c_n| \leq C \rho^n \).
+4. Conclude that \( f'(x_0) \) exists and is equal to \( c_1 \).
+
+\textbf{Remark:} The final part demonstrates that real analytic functions are smooth. The proof involves showing that \( f \) is \( C^\infty \) by defining \( g(x) = \sum_{n=1}^\infty n c_n (x-x_0)^{n-1} \), and leveraging results about uniform convergence of derivatives.
 
 
 
