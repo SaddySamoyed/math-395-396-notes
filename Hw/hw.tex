@@ -417,7 +417,7 @@ You may use without proof that a real symmetric matrix has an orthonormal basis 
 
 
 
-\chapter{on about IVT}
+\chapter{on IVT}
 
 \section{MVT does not hold for $f: \bR \rightarrow \bR^n$}
 Let $f : [a, b] \to \mathbb{R}^n$ be continuous on the closed interval $[a, b] \subset \mathbb{R}$ and differentiable on $(a, b)$.
@@ -444,14 +444,14 @@ f(x, y) = (e^x \cos y, e^x \sin y).
 \end{enumerate}
 
 
-\section*{Problem C}
+\section{仅限 single var: 处处 locally invertible 则 globally invertible}
 Suppose that $f : \mathbb{R} \to \mathbb{R}$ is continuous and locally invertible. Show that the image of $f$ is open, and that a global inverse for $f$ exists defined on the image.
 
 \textit{Remark:} The analogue of Problem C is false in higher dimensions. You should pause to note what your solution uses that wouldn’t be available in higher dimensions.
 
 \textit{Just for fun (don’t hand in):} Give an example of a continuous $f : \mathbb{R}^2 \to \mathbb{R}^2$ that is locally invertible but not injective.
 
-\section*{Problem D}
+\section{real-valued function Taylor series 收敛于自身的条件}
 Say that $f : \mathbb{R}^m \to \mathbb{R}$ is $C^\infty$, and there is a number $W > 0$ such that for all $x \in B_r(0)$ and all $\alpha$, we have
 \[
 |\partial^\alpha f(x)| \leq W |\alpha|.
@@ -471,10 +471,10 @@ f(x) = \sum_{\alpha} \frac{\partial^\alpha f(0)}{\alpha!} x^\alpha.
 
 \textit{Just for fun (don’t hand in):} $|\partial^\alpha f(x)| \leq W |\alpha|$ is not optimal. Can you phrase a natural assumption that is closer to optimal?
 
-\section*{Problem E}
+\section{local min $\implies$ singular}
 If $U \subset \mathbb{R}^n$ is open and $f : U \to \mathbb{R}$ is $C^1$ and has a local minimum at $x$, prove $Df(x) = 0$. (Points $x$ with $Df(x) = 0$ are called critical points.)
 
-\section*{Problem F}
+\section{正定矩阵与 Hessian}
 Let $f : A \to \mathbb{R}$ be a $C^2$ function, $A \subset \mathbb{R}^n$ open, and let $x \in A$. The Hessian $Hf(x)$ of $f$ at $x$ is the $n$-by-$n$ symmetric matrix with entry $(j, k)$ equal to $\partial e_i + e_k f(x)$.
 
 A symmetric matrix $S$ is called positive definite if $x^T S x > 0$ for all $x \in \mathbb{R}^n$, $x \neq 0$, in which case we write $S > 0$. If the same condition holds with a non-strict inequality $x^T S x \geq 0$, we say $S$ is positive semi-definite and write $S \geq 0$. The negative of a positive (semi-)definite matrix is called negative (semi-)definite, and we similarly write $S < 0$ or $S \leq 0$.
@@ -491,10 +491,7 @@ Assume that $A$ is convex, and $Df(x_0) = 0$. Prove that:
 
 You only need to submit your proofs for parts (1) and (5); you don’t have to write up the rest.
 
-\section*{Problem G}
-Submit a write-up for Problem E on worksheet 5.
-
-\section*{Bonus}
+\section{Bonus: Matrix exponential}
 Let $M_n(\mathbb{R})$ denote the set of $n$-by-$n$ real matrices. It has a topology and metric by identifying with $\mathbb{R}^{n^2}$ using the entries of the metric.
 \begin{enumerate}
     \item For any $A \in M_n(\mathbb{R})$, show that
@@ -515,9 +512,6 @@ Let $M_n(\mathbb{R})$ denote the set of $n$-by-$n$ real matrices. It has a topol
     \item Is $\exp$ injective?
 \end{enumerate}
 
-\includepdf[pages=-]{395-hw-06.pdf}
-
-
 
 
 
@@ -527,7 +521,7 @@ Let $M_n(\mathbb{R})$ denote the set of $n$-by-$n$ real matrices. It has a topol
 
 For hints, see office door. But try without the hints first. There are no IBL problems this week.
 
-\section*{Problem A}
+\section{directional derivative bounded by the norm of gradient}
 Suppose $A \subset \mathbb{R}^n$ is open and $f : A \to \mathbb{R}$ is differentiable at $x \in A$. Show that if $u$ is a unit vector in $\mathbb{R}^n$, then
 \[
 D_u f(x) \leq |Df(x)|,
@@ -536,7 +530,7 @@ with equality if and only if $u = \frac{Df(x)}{|Df(x)|}$. Show that $D_u f(x) = 
 
 \textbf{Remark}: Keeping in mind that for functions to $\mathbb{R}$, the Jacobian matrix is also called the gradient, this shows that the gradient is the direction of fastest change of the function. Similarly, the set of directions where the function does not change (to first order) is the perpendicular space to the gradient.
 
-\section*{Problem B}
+\section{Lagrange Multiplier}
 Suppose $U \subset \mathbb{R}^n$ is open and $f : U \to \mathbb{R}$ and $c : U \to \mathbb{R}$ are $C^1$. Set
 \[
 M = c^{-1}(0).
@@ -550,38 +544,38 @@ Df(p) = \lambda Dc(p).
 Hints: how that M can be parameterized, by implicit function theorem: M = {(x, g(x))} for a $g: \mathbb{R}^{n-1} \rightarrow \mathbb{R}$, show that kerDc = ImDg
 
 
-\section*{Problem C}
+\section*{7C: explaining Lagrange Multiplier}
 In at most a few sentences, give a non-rigorous, intuitive explanation for Problem B.
 
-\section*{Problem D}
+\section*{7D: applying Lagrange Multiplier}
 Using Problem B, find the minimum of the function $f(x, y) = 3x + y$ on the unit circle centered at the origin in $\mathbb{R}^2$.
 
-\section*{Problem E}
+\section*{7E: generalizing Lagrange Multiplier}
 Formulate and prove a generalization of Problem B when $c$ maps to $\mathbb{R}^k$ rather than $\mathbb{R}$. (Whereas Problem B allows you to do certain optimization problems subject to one constraint, this lets you do some optimization problems subject to $k$ constraints. Your generalization will feature numbers $\lambda_1, \dots, \lambda_k$.)
 
 \textbf{Remark}: You must do Problem B first and then Problem E. You may not reference E in your solution to B.
 
-\section*{Problem F}
+\section{所有正定矩阵在对称矩阵中 open}
 Prove that the set of positive definite matrices is open in the set of $n \times n$ symmetric matrices. (You may not use the bonus from HW5.)
 
-\section*{Problem G}
+\section{critical pt + 正定 Hessian $\implies$ strict local min}
 Suppose $f : A \to \mathbb{R}$ is $C^2$, with $A \subset \mathbb{R}^n$ open. Suppose that $x_0$ is a critical point of $f$ and the Hessian of $f$ is positive definite at $x_0$. Prove that $x_0$ is a strict local minimum for $f$.
 
-\section*{Problem H}
+\section{Cramer's rule}
 Let $A$ be an invertible $n \times n$ matrix. Let $C$ be its cofactor matrix, so $C_{ij} = (-1)^{i+j} \det(A_{ij})$, where $A_{ij}$ is the $(n-1) \times (n-1)$ matrix obtained by deleting row $i$ and column $j$ from $A$. Prove the following version of Cramer's rule:
 \[
 A^{-1} = \frac{1}{\det(A)} C^T,
 \]
 where $C^T$ denotes the transpose of $C$. (You may use the cofactor expansion of the determinant.)
 
-\section*{Problem I}
+\section{Differentiating with dot product}
 Let $f, g : (a, b) \subset \mathbb{R} \to \mathbb{R}^n$ be differentiable. Show that
 \[
 (f \cdot g)'(t) = f'(t) \cdot g(t) + f(t) \cdot g'(t),
 \]
 where $\cdot$ denotes dot product and $f'(t)$ denotes $Df(t)$ (which in this case is a vector).
 
-\section*{Bonus}
+\section{Bonus: graph 上方 convex $\Leftrightarrow$ Hessian 正定}
 Suppose $f : A \to \mathbb{R}$ is $C^2$, with $A \subset \mathbb{R}^n$ open and convex. Show that the region above $f$, i.e.
 \[
 \{(x, y) \in A \times \mathbb{R} : y \geq f(x)\},
@@ -589,11 +583,13 @@ Suppose $f : A \to \mathbb{R}$ is $C^2$, with $A \subset \mathbb{R}^n$ open and 
 is convex if and only if the Hessian of $f$ is positive semi-definite at each point of $A$.
 
 
+\includepdf[pages=-]{395-hw-07.pdf}
 
 
-\chapter{on about Implicit Function Thm}
 
-\section*{Problem A}
+\chapter{on Implicit Function Thm}
+
+\section*{8A: applying Implicit FT}
 Let \( f : \mathbb{R}^3 \to \mathbb{R}^2 \) be of class \( C^1 \) and such that \( f(1, 2, 3) = 0 \) and
 
 \[
@@ -610,17 +606,11 @@ Df(1, 2, 3) =
     \item Suppose there is a function \( g : B \to \mathbb{R}^2 \) of class \( C^1 \) defined on an open set \( B \) of \( \mathbb{R} \) such that \( f(x, g(x)) = 0 \) for \( x \in B \) and \( g(1) = (2, 3) \). Compute \( Dg(1) \).
 \end{enumerate}
 
-\section*{Problem B}
+\section*{8B: applying Implicit FT}
 Let \( f : \mathbb{R}^{k+n} \to \mathbb{R}^n \) be of class \( C^1 \) and suppose that \( f(a) = 0 \) and \( Df(a) \) has rank \( n \). Show that if \( c \in \mathbb{R}^n \) is sufficiently close to 0, then the equation \( f(x) = c \) has a solution.
 
-\section*{Problem C}
+\section{closed box 上的连续函数 intble}
 Let \( B \) be a closed box, and \( f : B \to \mathbb{R} \) be a continuous function. Show that \( f \) is integrable.
-
-\section*{Problem D}
-Write up Problem D from the IBL worksheet (on countable sets).
-
-\section*{Problem E}
-Write up Problem G from the IBL worksheet (on countable sets).
 
 \section*{Bonus}
 A map \( T \) from a metric space \( (X, d) \) to itself is called a contraction mapping if there is a \( 0 \leq c < 1 \) such that
@@ -642,43 +632,32 @@ for all \( x, y \in X \).
 \textit{Remark:} The point of this problem is to give the idea for a different proof of the Inverse Function Theorem. (This proof can be found in many textbooks, but don’t look!) Studying the proof from class will help you solve this question, and you can use the lemmas from class if you want to.
 
 
+\includepdf[pages=-]{395-hw-08.pdf}
+
 
 
 
 
 \chapter{on Riemann Integrability}
 
-\section*{Problem A}
+\section{metric space 之间函数的连读点集合一定是 ctbl open sets 的交}
 Let $f : X \to Y$ be a function between metric spaces. Show that the set of points at which $f$ is continuous is a countable intersection of open sets.
 
-\section*{Problem B}
+\section{single var: 递增且 bdd 一定 intble}
 Suppose that $f(x) : [a, b] \to \mathbb{R}$ is non-decreasing and bounded. Show that $f$ is integrable.
 
-\section*{Problem C}
+\section{同一 intble function 作为两个 variables 相乘: 乘积也 intble}
 Suppose that $f, g : [0, 1] \to \mathbb{R}$ are two integrable functions. Show that the function $F (x, y) : [0, 1]^2 \to \mathbb{R}$ given by $F (x, y) = f(x)g(y)$ is also integrable.
 
-\section*{Problem D}
+\section{Thomas function is Riem intble}
 Let $f : [0, 1] \to \mathbb{R}$ be defined by setting $f(x) = 1/q$ if $x = p/q$ where $p$ and $q$ are positive integers with no common factor, and $f(x) = 0$ otherwise.
 \begin{enumerate}
     \item Without using the characterization of Riemann integrable functions, show that $f$ is integrable.
     \item Show that $f$ is continuous except at a set of measure 0.
 \end{enumerate}
 
-\section*{Problem E}
+\section{supp 零测: Riem intble}
 Let $Q$ be a box in $\mathbb{R}^n$ and $f : Q \to \mathbb{R}$ be a bounded function. Show that if $f$ vanishes except on a closed set $B$ of measure zero, then $f$ is integrable.
-
-\section*{Problem F}
-Show that if $Q_1, Q_2, \dots$ is a countable collection of closed boxes covering some box $Q$, then $v(Q) \leq \sum v(Q_i)$.
-
-
-\section*{Problem G}
-Write out a proof of the following special case of the Implicit Function Theorem. Let $f : \mathbb{R}^2 \to \mathbb{R}$ be $C^1$, and suppose that $(x_0, y_0) \in \mathbb{R}^2$ is such that $f(x_0, y_0) = 0$ and $\frac{\partial f}{\partial y}(x_0, y_0) \neq 0$. Prove that there is an interval $I$ containing $x_0$ and a $C^1$ function $g : I \to \mathbb{R}$ such that $f(x, g(x)) = 0$ for all $x \in I$.
-
-\section*{Problem H}
-Write up Problem B from IBL worksheet 7, on the measure of an elementary set.
-
-\section*{Problem I}
-Write up Problem E from IBL worksheet 7, on countable unions of almost disjoint boxes.
 
 \section*{Bonus}
 For this question, you can use without proof that if $(a, b)$ is an open interval in $\mathbb{R}$, there is a smooth function which is positive on $(a, b)$ and zero elsewhere. (You can see explicit examples of such functions on the Wikipedia page on bump functions.)
@@ -689,30 +668,32 @@ For this question, you can use without proof that if $(a, b)$ is an open interva
     \item Show that there exist two smooth functions $f, g : \mathbb{R}^2 \to \mathbb{R}$ such that the intersection of their graphs is the Cantor set in the $x$-axis.
 \end{enumerate}
 
+\includepdf[pages=-]{395-hw-09.pdf}
+
 
 
 
 \chapter{on Riemann Integration}
 
-\section*{Problem A: Integrability of the Maximum Function}
+\section{max function given two intble functions is intble}
 Let \( B \) be a box in \( \mathbb{R}^n \). Show that if \( f, g : B \rightarrow \mathbb{R} \) are both integrable, then so is the function \( M \) defined by
 \[
 M(x) = \max(f(x), g(x)).
 \]
 
-\section*{Problem B: Integrability of Absolute Value}
+\section{intble $\implies$ absolute intble}
 Let \( B \) be a box in \( \mathbb{R}^n \). Show that if \( f : B \rightarrow \mathbb{R} \) is integrable, then so is \( |f| \) and moreover
 \[
 \int_B f(x) \, dx \leq \int_B |f(x)| \, dx.
 \]
 
-\section*{Problem C: Dense Subset and Non-Integrability}
+\section{与任意 line 都至多交一点的 dense subset of $bR^2$}
 \begin{enumerate}
     \item Prove that there exists a dense subset \( S \subset [0, 1]^2 \) such that the intersection of \( S \) with any vertical line is at most one point, and the intersection of \( S \) with any horizontal line is at most one point.
     \item Let \( f(x, y) : [0, 1]^2 \rightarrow \mathbb{R} \) be the characteristic function of \( S \) (i.e., \( f(x, y) = 1 \) for \( (x, y) \in S \) and 0 otherwise). Show that \( f(x, \cdot) \) is an integrable function of \( y \) and \( f(\cdot, y) \) is an integrable function of \( x \), but \( f \) is not integrable on \( [0, 1]^2 \) as a function of two variables.
 \end{enumerate}
 
-\section*{Problem D: Equality of Mixed Partials}
+\section{$C^2$ mixed partials: 积分可换序}
 Let \( A \) be an open subset of \( \mathbb{R}^2 \); and let \( f : A \rightarrow \mathbb{R} \) be \( C^2 \). Let \( Q \) be a box contained in \( A \).
 \begin{enumerate}
     \item Use Fubini’s Theorem and the Fundamental Theorem of Calculus to show that
@@ -722,10 +703,10 @@ Let \( A \) be an open subset of \( \mathbb{R}^2 \); and let \( f : A \rightarro
     \item Provide a new proof (other than the one given in class) of the equality of mixed partials \( \frac{\partial^2}{\partial x \partial y} f(x, y) = \frac{\partial^2}{\partial y \partial x} f(x, y) \).
 \end{enumerate}
 
-\section*{Problem E: Darboux and Riemann Integrability Equivalence}
+\section{证明 Darboux 和 Riemann 条件等价}
 Show that \( f : B \rightarrow \mathbb{R} \) is Darboux integrable if and only if \( f \) is Riemann integrable.
 
-\section*{Problem F: Gradient and Hessian Transformations under Linear Map}
+\section{Gradient and Hessian Transformations under Linear Map}
 Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \) and an \( n \times n \) matrix \( A \), define a new function \( g(x) = f(Ax) \). Calculate \( Dg(0) \) in terms of \( Df(0) \) and \( A \). Also, calculate the Hessian of \( g \) at 0 in terms of the Hessian of \( f \) at 0.
 \begin{proof}
     注意到:
@@ -738,13 +719,15 @@ Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \)
     $$
 \end{proof}
 
-\section*{Problem G: Degree Two Taylor Polynomial}
+\section{deg 2 Taylor polynomial by Hessian}
 Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \), give a formula for the degree two Taylor polynomial of \( f \) at 0 in terms of the derivative and Hessian of \( f \) at 0.
 
 
 
-\section*{Bonus: Discontinuity on Irrationals and Continuity on Rationals}
+\section*{Bonus: nonexistence of function disctn on irrationals and ctn on rationals}
 Show that there does not exist a function \( f : \mathbb{R} \rightarrow \mathbb{R} \) that is discontinuous on the irrationals and continuous on the rationals.
+
+\includepdf[pages=-]{395-hw-10.pdf}
 
 
 
@@ -753,30 +736,30 @@ Show that there does not exist a function \( f : \mathbb{R} \rightarrow \mathbb{
 
 \chapter{on J-meas and Fubini's Thm}
 
-\section*{Problem A: Taylor Polynomial and Linear Transformation}
+\section{Taylor polynomial after composing linear map}
 Given a function \( f : \mathbb{R}^n \rightarrow \mathbb{R} \) that is \( C^2 \) and satisfies \( Df(0) = 0 \), show that there exists an invertible \( n \times n \) matrix such that the function \( g(x) = f(Ax) \) has a degree two Taylor polynomial at 0 of the form
 \[
 C + \sum a_i x_i^2
 \]
 where each \( a_i \) is a real number and \( C \) is a constant.
 
-\section*{Problem B: Summation of Doubly Infinite Sequence}
+\section{sum of doubly infinite seq}
 Let \( a : \mathbb{N}^2 \rightarrow \mathbb{R}^+ \) be a non-negative doubly infinite sequence with \( a_{n,m} \) as the \((n,m)\) term. Show that
 \[
 \sum_{(n,m) \in \mathbb{N}^2} a_{n,m} = \sum_{n \in \mathbb{N}} \sum_{m \in \mathbb{N}} a_{n,m}.
 \]
 
-\section*{Problem C: Semiring Structure}
+\section{extended half $\bR$ is semiring}
 Check that \( \mathbb{R} = [0, \infty) \cup \{\infty\} \) is a semiring, with the expected definitions of addition and multiplication, and the definition \( 0 \cdot \infty = 0 \).
 
-\section*{Problem D: Upper Semi-Continuity of Oscillation}
+\section{oscillation is upper semi-ctn}
 Let \( X \) be a metric space. A function \( f : X \rightarrow \mathbb{R} \) is upper semi-continuous at \( x_0 \) if
 \[
 \limsup_{x \rightarrow x_0} f(x) \leq f(x_0).
 \]
 Show that if \( g : \mathbb{R} \rightarrow \mathbb{R} \) is a bounded function, then \( x \mapsto \operatorname{osc} g(x) \) is upper semi-continuous.
 
-\section*{Problem E: Compact Regions and Fubini's Theorem}
+\section{Fubini's theorem for simple regions}
 Consider a region \( S \subset \mathbb{R}^{n+1} \) that is simple if there exists a compact Jordan measurable set \( C \) and two bounded continuous functions \( \varphi, \psi : C \rightarrow \mathbb{R} \) such that
 \[
 S = \{ (x, t) \in \mathbb{R}^n \times \mathbb{R} : x \in C; \varphi(x) \leq t \leq \psi(x) \}.
@@ -804,24 +787,11 @@ Here we assume that \( \phi \leq \psi \) on \( C \).
 \end{enumerate}
 
 
-\section*{Problem F: Integrability Over Open Sets}
+\section{extended intbility over open sets}
 Let \( A \) be an open subset of \( \mathbb{R}^n \), and let \( f : A \rightarrow \mathbb{R} \) be continuous. Prove that \( \int_A f \) exists in the extended sense if and only if \( \int_{U_N} |f| \) is bounded, where \( U_1 \subset U_2 \subset \dots \) is a sequence of open sets whose union is \( A \).
 
-\section*{Problem G: Integrability of Functions over Specified Sets}
-For each function \( f \) and set \( A \), determine whether \( f \) is integrable over \( A \) and calculate \( \int_A f \).
-
-\section*{Problem H: Jordan Measurability and Measure Calculation}
-Show that the set 
-\[
-\{ (x_1, \dots, x_n) \in [0, 1]^n : \sum x_i \leq 1 \}
-\]
-is Jordan measurable and compute its measure.
-
-\section*{Bonus: Nowhere Dense Subset with Positive Measure}
+\section{Bonus: nowhere dense subset with positive measure}
 Construct a closed, nowhere dense subset of \([0,1]\) that does not have measure 0.
-
-
-
 
 
 
@@ -829,7 +799,7 @@ Construct a closed, nowhere dense subset of \([0,1]\) that does not have measure
 
 \chapter{applications of COV}
 
-\section*{12A: Integration on Bounded Sets}
+\section{integration of ctn function on bounded sets}
 Let \( S \) be a bounded set in \( \mathbb{R}^n \), and let \( f : S \rightarrow \mathbb{R} \) be a bounded continuous function; let \( A = \text{Int}(S) \) be the interior of \( S \). Suppose that \( f \) is integrable on \( S \).
 
 1. Show that \( f \) is integrable on \( A \) and that
@@ -849,7 +819,7 @@ Warning: \( A \) is always Lebesgue measurable, since \( A \) is open and open s
 
 
 
-\section*{12B: Volume of Balls in \( \mathbb{R}^n \)}
+\section{volume of Balls in \( \mathbb{R}^n \)}
 Let \( B^n_a(x) \) denote the ball in \( \mathbb{R}^n \) centered at \( x \) and radius \( a \).
 
 1. Show that
@@ -864,7 +834,7 @@ Let \( B^n_a(x) \) denote the ball in \( \mathbb{R}^n \) centered at \( x \) and
 
 Just for fun, don’t hand it in: As the dimension gets large, what happens to the volume of the unit ball divided by the volume of \( [-1, 1]^n \) (the smallest box containing the unit ball)? If you pick a point at random in the box, is it likely to be in the ball?
 
-\section*{Problem C: Volume of a Cone Over an Open Set}
+\section{volume of a cone over an open set}
 Let \( A \) be an open Jordan measurable set in \( \mathbb{R}^{n-1} \). Given a point \( p \in \mathbb{R}^n \) with \( p_n > 0 \), let \( S \) be the subset of \( \mathbb{R}^n \) defined by
 \[
 S = \{ (1 - t)a + tp : a \in A \times \{0\}, 0 < t < 1 \}.
@@ -875,26 +845,26 @@ S = \{ (1 - t)a + tp : a \in A \times \{0\}, 0 < t < 1 \}.
 
 2. Find the volume of \( S \) in terms of the area of \( A \).
 
-\section*{12D: Volume of Ellipsoid}
+\section{volume of Ellipsoid}
 Compute the volume inside the ellipsoid
 \[
 \frac{(x - u)^2}{a^2} + \frac{(y - v)^2}{b^2} + \frac{(z - w)^2}{c^2} = 1
 \]
 where \( a, b, c > 0 \) and \( u, v, w \in \mathbb{R} \).
 
-\section*{12E: Volume of a Solid Bounded by a Surface and Plane}
+\section{volume of a solid bounded by a surface and plane}
 Compute the volume of the solid in \( \mathbb{R}^3 \) bounded below by the surface \( z = x^2 + 2y^2 \) and above by the plane \( z = 2x + 6y + 1 \).
 
-\section*{12F: Gaussian Integral}
+\section{Gaussian Integral}
 Evaluate
 \[
 \int_{-\infty}^{\infty} e^{-x^2} \, dx.
 \]
 
-\section*{12G: Integrability of \( |x|^e \) Over the Unit Ball and Its Complement}
+\section{integrability of \( |x|^e \) over the unit ball and its complement}
 For which exponents \( e \in \mathbb{R} \) is \( f(x) = |x|^e \) integrable over the unit ball in \( \mathbb{R}^n \)? For which exponents is it integrable over the complement of the closed unit ball?
 
-\section*{Bonus: Proving a Case of Sard’s Theorem}
+\section{Bonus: a case of Sard’s Theorem}
 The purpose of this bonus is to prove the easiest case of Sard’s Theorem, a central tool in the study of manifolds.
 
 1. If \( f : \mathbb{R} \rightarrow \mathbb{R} \) is continuous and \( I \) is a compact interval, then \( f(I) \) is a compact interval. (You don’t need to prove this; it follows easily from the fact that a continuous image of a compact set is compact and a continuous image of a connected set is connected.) Show that if \( f \) is differentiable with \( |f'| \leq \delta \) on \( I \), then
@@ -912,6 +882,8 @@ The purpose of this bonus is to prove the easiest case of Sard’s Theorem, a ce
    f(\{x \in [-n, n] : f'(x) = 0\})
    \]
    has measure zero, using that \( f' \) is continuous and hence uniformly continuous on \( [-n, n] \).
+
+\includepdf[pages=-]{395-hw-12.pdf}
 
 
 
@@ -939,7 +911,7 @@ Explicitly give a partition of unity of \( \mathbb{R} \) dominated by the cover 
     just the bump function supported on $[-3,4, 3.4]$, for each $n$ translated by $n$ (onto left if odd, onto right if even).
 \end{solution}
 
-\section{Smoothness of $e^{-1/x}$}
+\section{smoothness of $e^{-1/x}$}
 Show that the function \( f : \mathbb{R} \to \mathbb{R} \) defined by:
 \[
 f(x) =
@@ -957,7 +929,7 @@ So it remains to show that the function is infinite-times differentiable at $x =
 \section*{13D}
 If \( f : \mathbb{R}^n \to \mathbb{R}^m \) is smooth and \( n < m \), show that the image cannot contain an open set.
 
-\section*{Problem E: Super-Primitive Diffeomorphisms}
+\section{stronger factorization: 任意 diffeo 都可拆成 super-primitive diffeos}
 Define a diffeomorphism to be super-primitive if it preserves all but one coordinate. Show that the theorem proved in class on locally factoring diffeomorphisms remains true if one replaces primitive with super-primitive.
 \begin{proof}
 
@@ -968,20 +940,22 @@ Define a diffeomorphism to be super-primitive if it preserves all but one coordi
 \section*{13F}
 Show that there is no injective smooth function \( f : \mathbb{R}^2 \to \mathbb{R} \).
 
-\section*{Problem G: Smooth Functions on Arbitrary Subsets}(Mun Page 144)
+\section{smooth point on arbitrary set}(Mun Page 144)
 For an arbitrary subset \( S \subset \mathbb{R} \) and a function \( f : S \to \mathbb{R} \), we say that \( f \) is smooth at \( x \in S \) if there is an open set \( U_x \) containing \( x \) and a smooth function \( f_x : U_x \to \mathbb{R} \) such that \( f \) and \( f_x \) agree on \( U_x \cap S \). Show that if \( f \) is smooth at every point of \( S \), then there is an open set \( V \) containing \( S \) and a smooth function \( g : V \to \mathbb{R} \) that agrees with \( f \) on \( S \).
 
-\section*{Problem H: Rank of a Matrix}
+\section{rank = the max size of non-singular minor}
 Let \( A \) be a matrix. Show that the rank of \( A \) is the maximum value of \( k \) such that a \( k \times k \) minor of \( A \) has a non-zero determinant. (A \( k \times k \) minor is a matrix obtained by deleting all but \( k \) rows and all but \( k \) columns.)
 
-\section*{Bonus: Composition of Primitive Diffeomorphisms}
+\section{Bonus: Composition of Primitive Diffeomorphisms}
 Prove or disprove: Every diffeomorphism between connected open subsets of \( \mathbb{R}^n \) (where \( n \geq 2 \)) can be (globally) expressed as a composition of primitive diffeomorphisms between open subsets of \( \mathbb{R}^n \).
 
 
+\includepdf[pages=-]{395-hw-13.pdf}
 
 
 
-\chapter{HW 14}
+
+\chapter{on POU and COV}
 
 \section{seq of smooth functions that sum to be disctn}
 Construct a sequence of smooth functions $\psi_i : \mathbb{R} \to \mathbb{R}$ with disjoint supports such that the function $\lambda : \mathbb{R} \to \mathbb{R}$ defined by
@@ -1005,6 +979,7 @@ Let $M_{n,m}$ be the space of $n \times m$ matrices. Show that the rank function
 \textbf{Hint:} To prove lower semi-continuity, you need to show every matrix $A$ has a neighborhood whose rank is at least as big as the rank of $A$. You can do this quickly using the problem from the last homework on rank. For the example, consider small multiples of the identity.
 
 
+\includepdf[pages=-]{395-hw-14.pdf}
 
 
 
@@ -1013,7 +988,8 @@ Let $M_{n,m}$ be the space of $n \times m$ matrices. Show that the rank function
 
 
 
-\chapter{Homework Set 15}
+
+\chapter{on tensors}
 
 \section{Nonexistence of injective smooth function from higher dim to lower dim}
 Prove that there does not exist an injective smooth function \( f : \mathbb{R}^n \to \mathbb{R}^m \) when \( n > m \).
@@ -1073,6 +1049,8 @@ and show that the series converges uniformly and absolutely for \( x \in (x_0 - 
 
 \textbf{Remark:} The final part demonstrates that real analytic functions are smooth. The proof involves showing that \( f \) is \( C^\infty \) by defining \( g(x) = \sum_{n=1}^\infty n c_n (x-x_0)^{n-1} \), and leveraging results about uniform convergence of derivatives.
 
+
+\includepdf[pages=-]{395-hw-15.pdf}
 
 
 \end{document}
