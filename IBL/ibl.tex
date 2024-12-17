@@ -352,11 +352,11 @@ We define the lower and upper Darboux integrals respectively as
  $$
  where the infimum is taken over all finite coverings of $E$ by boxes $B_1, \ldots, B_k$.
 
-\section*{6A: Jordan measurable 的等价表述}
+\section{J-measurable $\eq$ can be outer-approximated by elem set}
 Show that a set $E$ is Jordan measurable if and only if for every $\epsilon>0$ there exists an elementary set $U$ containing $E$ such that $\overline{m}_J(U\setminus E)<\epsilon$.
 \begin{proof}
     Follows from 5E.\\
-    Jordan measurable 的意义是可以 well-approximate by elem set.
+    Jordan measurable 的意义是可以 outer-approximate by elem set.
 \end{proof}
 
 \begin{definition}{Lebesgue outer measure}
@@ -372,7 +372,7 @@ where the union above is taken over boxes $B_j \subset \R^d$. This is the Lebesg
 \end{definition}
 
 
-\section*{6B: $m^*(E) \leq \overline{m_J} (E)$}
+\section{$m^*(E) \leq \overline{m_J} (E)$}
 Show that $m^*(E)\leq \overline{m}_J(E)$ where $\bar m_J$ is the Jordan outer measure. 
 
 \begin{proof}
@@ -380,14 +380,14 @@ Show that $m^*(E)\leq \overline{m}_J(E)$ where $\bar m_J$ is the Jordan outer me
 \end{proof}
 
 
-\section*{6C: Lebesgue outer measure 的定义可以 restrict to open/clsed boxes}
+\section{Lebesgue outer measure 的定义可以 restrict to open/clsed boxes}
 \bold{Problem C:} Show that in the definition above the countable cover by boxes in the definition of $m^*(E)$ can be restricted to closed boxes or open boxes.
 \begin{proof}
     注意到 open box 和 closed box 的 boundary 的 Jordan measure 都是 0. 我们可以利用这个这个特点在 open box 内用大小差别小于 $\epsilon \over {2^n}$ 的 closed box 进行覆盖，最后得到任意开覆盖的测度和都 $\geq$ 闭覆盖的测度和的 inf; dually 也可得. 
 \end{proof}
 
 
-\section*{6D: countable set 的 Lebesgue outer measure 总是 0}
+\section{ountable set 的 Lebesgue outer measure 总是 0}
 Show that the Lebesgue outer measure $m^*(E)$ is zero for any countable set $E$. Contrast this to fact that the Jordan outer measure of the rationals in $[0,1]$ was equal to 1.
 \begin{proof}
     Trivial. 对于每一个点进行 $ < \epsilon \over {2^n}$ 的 box 覆盖即可. \\
@@ -407,7 +407,7 @@ A set $E\subset \R^d$ is said to be Lebesgue measurable if for every $\epsilon>0
 \end{remark}
 
 
-\section*{6E: Monotonicity and Countable subadditivity}
+\section{Monotonicity and Countable subadditivity}
 1. Show that $m^*(\emptyset)=0$.
 \begin{proof}
     trivial
@@ -444,13 +444,13 @@ where the union above is taken over boxes $B_j \subset \R^d$.
 
 Last time you proved monotonicity and countable sub-additivity.  
 
-\section*{7A: dist>0 的集合外测度 union additive}
+\section{dist>0 的集合外测度 union additive}
 Show that if $\mathrm{dist}(E,F)>0$, then $$m^*(E\cup F)=m^*(E)+m^*(F).$$
  
 
 
 
-\section*{7B: elementary set 的 Lebesgue measure 就是 elementary measure}
+\section{elementary set 的 Lebesgue measure 就是 elementary measure}
 Show that if $E$ is an elementary set, then $m^*(E)=m(E)$ where $m(E)$ is the elementary measure of $E$ defined before.
 \begin{proof}
     $m^*(E) \leq m(E)$ 显然. 
@@ -461,12 +461,12 @@ Show that if $E$ is an elementary set, then $m^*(E)=m(E)$ where $m(E)$ is the el
 
 
 
-\section*{7C: Lebesgue measure 的大小处于 Jordan outer/inner measure 之间}
+\section{Lebesgue measure 的大小处于 Jordan outer/inner measure 之间}
 Conclude that if $E$ is any bounded set, then $$\underline m(E) \leq m^*(E) \leq \overline m (E)$$ where $\underline m(E)$ and $\overline m(E)$ are the inner and outer Jordan measures of $E$. 
 
 
 
-\section*{7D: non Jordan measurable 的 open set}
+\section{example:non J-measurable 的 open set}
 Construct a bounded open subset $U$ of $\R$ that is not Jordan measurable. \emph{Hint: Start with an enumeration of the rationals in $[0,1]$ and create an open set whose Lebesgue outer-measure is arbitrarily small but the Jordan outer measure is $\geq 1$.}
 
 \begin{solution}
@@ -474,7 +474,7 @@ Construct a bounded open subset $U$ of $\R$ that is not Jordan measurable. \emph
 \end{solution}
 
 
-\section*{7E: ctbl 个 almost disjoint boxes 外测度 union additive}
+\section{ctbl 个 almost disjoint boxes 外测度 union additive}
 \bold{Problem E:} We say that two boxes are \emph{almost disjoint} if their interiors are disjoint. Let $E=\cup_{n=1}^\infty B_n$ be a countable union of almost disjoint boxes $B_k$. Show that 
 $$
 m^*(E)=\sum_{k=1}^\infty |B_k|.
@@ -506,7 +506,7 @@ If $E$ is measurable, we refer to $m(E) = m^*(E)$ as the Lebesgue measure of $E$
 
 So far, you've proved monotonicity and countable sub-additivity; the Lebesgue measure agrees with elementary measure on elementary sets; and that $m^*$ lies between Jordan inner and outer measure. You also understood Lebesgue measure for countable unions of almost disjoint boxes, where the Lebesgue measure is the sum of the volumes of the boxes.
 
-\section*{8A: $\bR^n$ 中任意开集都是一个 ctbl union of almost disjoint boxes}
+\section{$\bR^n$ 中任意开集都是一个 ctbl union of almost disjoint boxes}
 
 Show that any open subset $E$ of $\mathbb{R}^d$ can be written as the countable union of almost disjoint boxes (even countable union of almost disjoint closed cubes).
 
@@ -534,7 +534,7 @@ Previously we have proved that $\bigunion_{n \in \mathbb{N}} Q_n = O$.\\
 \end{proof}
 
 
-\section*{8B: outer regularity} 
+\section{outer regularity} 
 Let $E \subset \mathbb{R}^d$ be an arbitrary set. Show that
 
 \[
@@ -543,7 +543,7 @@ m^*(E) = \inf_{E \subset U, \, U \text{ open}} m^*(U).
 
 This is called outer regularity.
 
-\section*{8C: outer regularity 的 dual 并不正确} 
+\section{outer regularity 的 dual 并不正确} 
 Give an example of a set $E \subset \mathbb{R}^d$ such that the reverse statement
 
 \[
@@ -594,7 +594,7 @@ We have proven the following facts:
     This is called outer regularity.
 \end{enumerate}
 
-\section*{9A: Null Sets are Measurable}
+\section{Null Sets are L-measurable}
 \begin{theorem}
 Every set of Lebesgue outer-measure 0 is measurable.(such sets are called null sets)
 \end{theorem}
@@ -602,7 +602,7 @@ Every set of Lebesgue outer-measure 0 is measurable.(such sets are called null s
     trivial.
 \end{proof}
 
-\section*{9B: Union of Lebesgue Measurable Sets is Lebesgue measurable} 
+\section{Union of L-measurable sets is L-measurable} 
 \begin{theorem}
 If \( E_1, E_2, E_3, \ldots \subset \mathbb{R}^d \) are a sequence of Lebesgue measurable sets, then their union \( \cup_{n=1}^{\infty} E_n \) is also Lebesgue measurable.
 \end{theorem}
@@ -616,7 +616,7 @@ If \( E_1, E_2, E_3, \ldots \subset \mathbb{R}^d \) are a sequence of Lebesgue m
 
 
 Try finish the proof the my two claims, and then finish the proof of the whole theorem
-\section*{9C: closed set is Lebesgue measurable}
+\section{closed set is L-measurable}
 \begin{theorem}
 Every closed set in \( \mathbb{R}^d \) is Lebesgue measurable.
 \end{theorem}
@@ -629,13 +629,13 @@ where each set is closed and bounded thus cpt. As long as we prove the statement
 \end{proof}
 
 
-\section*{9D: complement of Lebesgue measurable set is Lebesgue measurable} 
+\section{complement of L-measurable set is L-measurable} 
 \begin{theorem}
 If \( E \subset \mathbb{R}^d \) is Lebesgue measurable, then its complement \( \mathbb{R}^d \setminus E \) is also Lebesgue measurable.
 \end{theorem}
 
 
-\section*{9E: Intersection of Lebesgue measurable Sets is Lebesgue measurable}
+\section{intersection of L-measurable sets is L-measurable}
 \begin{theorem}
 If \( E_1, E_2, E_3, \ldots \subset \mathbb{R}^d \) are a sequence of Lebesgue measurable sets, then their intersection \( \cap_{n=1}^{\infty} E_n \) is also Lebesgue measurable.
 \end{theorem}
@@ -643,7 +643,7 @@ If \( E_1, E_2, E_3, \ldots \subset \mathbb{R}^d \) are a sequence of Lebesgue m
 
 
 
-\chapter{Equiv Conditions for measurablity and Countable Additivity}
+\chapter{Equiv Conditions for L-measurablity and Countable Additivity}
 \begin{remark}
 We now know open and closed sets are Lebesgue measurable, as are countable unions or intersections of Lebesgue measurable sets. 
 We know finite additivity for sets that have positive distance to each other, and countable additivity for almost disjoint boxes.
@@ -651,10 +651,10 @@ We know finite additivity for sets that have positive distance to each other, an
 
 
 
-\section*{Lebesgue measurability: can be well approximated by an open/closed set}
+\section{L-measurable: can be well approximated by an open set}
 
 
-\subsection*{10A: Symmetric difference}
+\subsection{Symmetric difference}
 If \( A, B, C \) are subsets of a set, show:
 \[
 A \Delta B \subset (A \Delta C) \cup (C \Delta B).
@@ -669,7 +669,7 @@ sym diff 越加入更多 set 越大.
 
 
 
-\subsection*{10B: L-meas $\eq$ approximatable by open Sets}
+\subsection{L-measurable $\eq$ approximatable by open Sets}
 \begin{theorem}
     A set \( E \) is measurable if and only if for every \( \epsilon > 0 \), one can find an open set \( U \) such that \( m^*(E \Delta U) \leq \epsilon \). In other words, \( E \) differs from an open set by a set of outer measure \( \epsilon \).
 \end{theorem}
@@ -686,6 +686,7 @@ To show the difficult direction:\\
 \end{enumerate}
 \end{remark}
 
+\section{Inner regularity}
 \subsection*{10C}
 If \( E \) is measurable, then:
 \[
@@ -707,7 +708,10 @@ where \( K \) ranges over all closed subsets of \( E \).
 Hint: Prove that for all \( \epsilon > 0 \), there is an open subset \( U \) containing \( E^c \) with \( m^*(U \setminus E^c) < \epsilon \). Then take \( K = U^c \).
 \end{remark}
 
-\section*{10E: Inner regularity}
+
+
+
+\subsection*{Proof of Inner regularity}
 \begin{theorem}
 If \( E \) is measurable, then:
 \[
@@ -720,10 +724,10 @@ where \( K \) ranges over all compact subsets of \( E \). (This is called inner 
 
 
 
-\subsection*{10F: Measurable $\eq$ approximatable by closed Sets}
+\subsection{L-measurable $\eq$ approximatable by closed Sets}
 A set \( E \) is measurable if and only if for every \( \epsilon > 0 \), one can find a closed set \( F \) such that \( m^*(E \Delta F) \leq \epsilon \). In other words, \( E \) differs from a closed set by a set of outer measure \( \epsilon \).
 
-\section*{10G: Countable Additivity}
+\section{Countable Additivity}
 \begin{theorem}
 If \( E_1, E_2, \dots \subset \mathbb{R}^d \) is a countable sequence of disjoint Lebesgue measurable sets, then
 \[
@@ -735,11 +739,80 @@ This property is known as countable additivity.
 
 
 
-\section*{10H: Why we need $\epsilon \over {2^n}$}
+\section{Why we need $\epsilon \over {2^n}$}
 Let \( a_{n,m} = \frac{1}{nm} \), for \( n \) and \( m \) positive integers. Show that:
 \[
 \inf_n \sum_m a_{n,m} \neq \sum_n \inf_m a_{n,m}.
 \]
+
+
+\chapter{limit of L-meas and Carathéodory's Criterion}
+\section{J-measurable $\implies$ L-measurable}
+\begin{theorem}
+Show that every Jordan measurable set is Lebesgue measurable.
+\end{theorem}
+\textbf{Hint:} Jordan measurable $\iff$ boundary measure $0$.
+
+\section{limit behaviors of L-meas}
+\subsection{non-decreasing seq of L-measurable sets}
+\begin{theorem}
+Let $E_1 \subset E_2 \subset \cdots$ be a countable non-decreasing sequence of Lebesgue measurable sets. Then
+\[
+m\left(\bigcup_{k=1}^\infty E_k\right) = \lim_{k \to \infty} m(E_k).
+\]
+\end{theorem}
+\textbf{Hint:} Consider $F_k = E_k \setminus \bigcup_{i=1}^{k-1} E_i$.
+
+\begin{remark}
+This is a preliminary form of a bigger result called the Monotone Convergence Theorem.
+\end{remark}
+
+
+\subsection{non-increasing seq of L-measurable sets}
+\begin{theorem}
+Let $E_1 \supset E_2 \supset \cdots$ be a countable non-increasing sequence of Lebesgue measurable sets. Show that
+\[
+m\left(\bigcap_{k=1}^\infty E_k\right) = \lim_{k \to \infty} m(E_k),
+\]
+assuming at least one $E_k$ has finite measure.
+\end{theorem}
+
+\subsection{counterexample without finite measure condition}
+\begin{remark}
+In the previous result, show that the condition that at least one $E_k$ has finite measure cannot be dropped.
+\end{remark}
+
+
+\section{finite L-meas: can be well approximated by elem set}
+\begin{theorem}
+$E \subset \mathbb{R}^n$ is measurable with finite measure if and only if $E$ differs from an elementary set by a set of arbitrarily small Lebesgue outer measure.
+\end{theorem}
+\textbf{Hint:} Open sets are unions of almost disjoint boxes.
+
+\section{Carathéodory's Criterion}
+\begin{theorem}
+Aset $E \subset \mathbb{R}^n$ is measurable if and only if for every elementary set $A$, we have
+\[
+m(A) = m^*(A \cap E) + m^*(A \setminus E).
+\]
+\end{theorem}
+\begin{remark}
+Some texts takes this to be the definition of Lebesgue measurability.
+\end{remark}
+
+
+
+
+\section{Linear map preserves spanned measure}
+\begin{theorem}
+Suppose that $E \subset \mathbb{R}^n$ is measurable and $T : \mathbb{R}^n \to \mathbb{R}^n$ is linear. Then $T(E)$ is measurable, and
+\[
+m(T(E)) = |\det(T)| m(E).
+\]
+\end{theorem}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
